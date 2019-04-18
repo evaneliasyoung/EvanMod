@@ -14,7 +14,7 @@ using Terraria.ID;
 using Terraria.Localization;
 using Terraria.ModLoader;
 
-namespace EvanModpack.Items.Consumables
+namespace EvanModpack.Items.Miscellaneous
 {
 	internal class TravellersMap : ModItem
 	{

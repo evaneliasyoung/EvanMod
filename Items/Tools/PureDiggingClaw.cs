@@ -13,7 +13,7 @@ using Terraria.ID;
 using Terraria.Localization;
 using Terraria.ModLoader;
 
-namespace EvanModpack.Items.Weapons
+namespace EvanModpack.Items.Tools
 {
 	internal class PureDiggingClaw : ModItem
 	{

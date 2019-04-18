@@ -14,7 +14,7 @@ using Terraria.ID;
 using Terraria.Localization;
 using Terraria.ModLoader;
 
-namespace EvanModpack.Items.Placeable
+namespace EvanModpack.Items.Blocks
 {
 	internal class Slag : ModItem
 	{
