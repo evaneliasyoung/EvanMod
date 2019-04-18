@@ -1,0 +1,3 @@
+author = Evan Elias Young
+version = 3.0.0
+displayName = Evan's Modpack
