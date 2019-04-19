@@ -15,13 +15,6 @@ namespace EvanModpack
 {
 	internal static class Utils
 	{
-		// Helper Functions
-		public static T With<T>(this T item, Action<T> action)
-		{
-			action(item);
-			return item;
-		}
-
 		// Global Public Variables
 		public static Color OriginalSlagColor = new Color(157, 56, 56);
 		public static Color SlagColor = new Color(120, 30, 30);

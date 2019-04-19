@@ -54,17 +54,15 @@ namespace EvanModpack.Items.Miscellaneous
 		/// </summary>
 		public override void AddRecipes()
 		{
-			new ModRecipe(mod).With(_ =>
-			{
-				_.AddIngredient(ItemID.BottledWater);
-				_.AddIngredient(ItemID.SiltBlock);
-				_.AddIngredient(ItemID.Deathweed);
-				_.AddIngredient(ItemID.Fireblossom);
-				_.AddIngredient(ItemID.Moonglow);
-				_.AddTile(TileID.Bottles);
-				_.SetResult(this);
-				_.AddRecipe();
-			});
+			ModRecipe bloodSaltsRecipe = new ModRecipe(mod);
+			bloodSaltsRecipe.AddIngredient(ItemID.BottledWater);
+			bloodSaltsRecipe.AddIngredient(ItemID.SiltBlock);
+			bloodSaltsRecipe.AddIngredient(ItemID.Deathweed);
+			bloodSaltsRecipe.AddIngredient(ItemID.Fireblossom);
+			bloodSaltsRecipe.AddIngredient(ItemID.Moonglow);
+			bloodSaltsRecipe.AddTile(TileID.Bottles);
+			bloodSaltsRecipe.SetResult(this);
+			bloodSaltsRecipe.AddRecipe();
 		}
 
 		/// <summary>
