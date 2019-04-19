@@ -4,7 +4,7 @@
 *
 *  @author    Evan Elias Young
 *  @date      2019-04-16
-*  @date      2019-04-16
+*  @date      2019-04-19
 *  @copyright Copyright 2017-2019 Evan Elias Young. All rights reserved.
 */
 
@@ -18,6 +18,9 @@ namespace EvanModpack.Items.Miscellaneous
 {
 	internal class TravellersMap : ModItem
 	{
+		/// <summary>
+		/// Set the constant item data.
+		/// </summary>
 		public override void SetStaticDefaults()
 		{
 			DisplayName.SetDefault("Traveller's Map");
@@ -30,13 +33,16 @@ namespace EvanModpack.Items.Miscellaneous
 			base.SetStaticDefaults();
 		}
 
+		/// <summary>
+		/// Set the specific item data.
+		/// </summary>
 		public override void SetDefaults()
 		{
 			item.width = 44;
 			item.height = 40;
 			item.maxStack = 1;
-			item.value = Item.sellPrice(0, 0, 20, 0);
-			item.rare = 4;
+			item.value = Item.sellPrice(0, 20, 0, 0);
+			item.rare = -12;
 			item.useAnimation = 30;
 			item.useTime = 30;
 			item.useStyle = 4;
@@ -44,33 +50,50 @@ namespace EvanModpack.Items.Miscellaneous
 			base.SetDefaults();
 		}
 
+		/// <summary>
+		/// Checks if the current player can use the Traveller's Map.
+		/// </summary>
+		/// <param name="player">The player attemping to use it.</param>
+		/// <returns>Whether or not the player can use the Traveller's Map.</returns>
 		public override bool CanUseItem(Player player)
 		{
-			return true;
+			return Main.hardMode;
 		}
 
+		/// <summary>
+		/// Actually uses the Traveller's Map.
+		/// </summary>
+		/// <param name="player">The player using the Traveller's Map.</param>
+		/// <returns></returns>
 		public override bool UseItem(Player player)
 		{
 			if (Main.netMode != 1)
-			{
+			{ // If not on a server, reveal the entire map.
 				RevealWholeMap();
 			}
 			else
-			{
+			{ // If on a server, reveal what you can :/.
 				Point center = Main.player[Main.myPlayer].Center.ToTileCoordinates();
-				RevealAroundPoint(center.X, center.Y);
+				RevealAroundPoint(center);
 			}
 
+			// Play a sound indicating completion.
 			Main.PlaySound(SoundID.MenuTick);
 
 			return true;
 		}
 
-		public static void RevealAroundPoint(int x, int y)
+		/// <summary>
+		/// Reveals parts of the map around a specific point.
+		/// </summary>
+		/// <param name="pos">The point on the map.</param>
+		public static void RevealAroundPoint(Point pos)
 		{
-			for (int i = x - Utils.MapRevealSize / 2; i < x + Utils.MapRevealSize / 2; i++)
+			int halfMap = Utils.MapRevealSize / 2;
+
+			for (int i = pos.X - halfMap; i < pos.X + halfMap; ++i)
 			{
-				for (int j = y - Utils.MapRevealSize / 2; j < y + Utils.MapRevealSize / 2; j++)
+				for (int j = pos.Y - halfMap; j < pos.Y + halfMap; ++j)
 				{
 					if (WorldGen.InWorld(i, j))
 					{
@@ -81,11 +104,14 @@ namespace EvanModpack.Items.Miscellaneous
 			Main.refreshMap = true;
 		}
 
+		/// <summary>
+		/// Reveals the entire map to the player.
+		/// </summary>
 		public static void RevealWholeMap()
 		{
-			for (int i = 0; i < Main.maxTilesX; i++)
+			for (int i = 0; i < Main.maxTilesX; ++i)
 			{
-				for (int j = 0; j < Main.maxTilesY; j++)
+				for (int j = 0; j < Main.maxTilesY; ++j)
 				{
 					if (WorldGen.InWorld(i, j))
 					{
@@ -94,6 +120,21 @@ namespace EvanModpack.Items.Miscellaneous
 				}
 			}
 			Main.refreshMap = true;
+		}
+	}
+
+	internal class BossBags : GlobalItem
+	{
+		public override void OpenVanillaBag(string context, Player player, int arg)
+		{
+			if (context != "bossBag")
+			{
+				return;
+			}
+			if (arg == ItemID.WallOfFleshBossBag)
+			{
+				player.QuickSpawnItem(mod.ItemType("TravellersMap"));
+			}
 		}
 	}
 }
