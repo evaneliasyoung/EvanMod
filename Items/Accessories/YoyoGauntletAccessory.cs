@@ -48,12 +48,12 @@ namespace EvanModpack.Items.Accessories
 
 		public override void UpdateAccessory(Player player, bool hideVisual)
 		{
+			ModdedPlayer modPlayer = player.GetModPlayer<ModdedPlayer>(mod);
 			player.meleeDamage *= 1.15f;
 			player.meleeSpeed *= 1.15f;
 			player.yoyoGlove = true;
 			player.yoyoString = true;
-			ModdedPlayer ModPlayer = player.GetModPlayer<ModdedPlayer>(mod);
-			ModPlayer.AllParticles = true;
+			modPlayer.allParticles = true;
 			base.UpdateAccessory(player, hideVisual);
 		}
 
