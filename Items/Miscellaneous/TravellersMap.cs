@@ -122,19 +122,4 @@ namespace EvanModpack.Items.Miscellaneous
 			Main.refreshMap = true;
 		}
 	}
-
-	internal class BossBags : GlobalItem
-	{
-		public override void OpenVanillaBag(string context, Player player, int arg)
-		{
-			if (context != "bossBag")
-			{
-				return;
-			}
-			if (arg == ItemID.WallOfFleshBossBag)
-			{
-				player.QuickSpawnItem(mod.ItemType("TravellersMap"));
-			}
-		}
-	}
 }
