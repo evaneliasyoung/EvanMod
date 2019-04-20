@@ -41,6 +41,8 @@
     <Compile Include="Items\Armor\GeorgeHat.cs" />
     <Compile Include="Items\Armor\GeorgePants.cs" />
     <Compile Include="Items\Armor\GeorgeSuit.cs" />
+    <Compile Include="Items\Miscellaneous\BloodSalts.cs" />
+    <Compile Include="Items\Miscellaneous\BossBags.cs" />
     <Compile Include="Items\Miscellaneous\TravellersMap.cs" />
     <Compile Include="Items\Blocks\Slag.cs" />
     <Compile Include="Items\Potions\GenocidePotion.cs" />
@@ -90,6 +92,7 @@
     <Content Include="Items\Armor\GeorgeSuit.png" />
     <Content Include="Items\Armor\GeorgeSuit_Arms.png" />
     <Content Include="Items\Armor\GeorgeSuit_Body.png" />
+    <Content Include="Items\Miscellaneous\BloodSalts.png" />
     <Content Include="Items\Miscellaneous\TravellersMap.png" />
     <Content Include="Items\Blocks\Slag.png" />
     <Content Include="Items\Potions\GenocidePotion.png" />

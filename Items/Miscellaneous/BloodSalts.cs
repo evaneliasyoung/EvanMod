@@ -56,7 +56,7 @@ namespace EvanModpack.Items.Miscellaneous
 		{
 			ModRecipe bloodSaltsRecipe = new ModRecipe(mod);
 			bloodSaltsRecipe.AddIngredient(ItemID.BottledWater);
-			bloodSaltsRecipe.AddIngredient(ItemID.SiltBlock);
+			bloodSaltsRecipe.AddIngredient(ItemID.AshBlock);
 			bloodSaltsRecipe.AddIngredient(ItemID.Deathweed);
 			bloodSaltsRecipe.AddIngredient(ItemID.Fireblossom);
 			bloodSaltsRecipe.AddIngredient(ItemID.Moonglow);
@@ -86,6 +86,7 @@ namespace EvanModpack.Items.Miscellaneous
 		public override bool UseItem(Player player)
 		{
 			Main.bloodMoon = true;
+			Main.PlaySound(SoundID.Roar, player.position, 0);
 			Main.NewText(Language.GetText("LegacyMisc.8"), Utils.ChatColors.Info);
 
 			return true;
