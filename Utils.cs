@@ -4,12 +4,11 @@
 *
 *  @author    Evan Elias Young
 *  @date      2019-04-16
-*  @date      2019-04-16
+*  @date      2019-04-20
 *  @copyright Copyright 2017-2019 Evan Elias Young. All rights reserved.
 */
 
 using Microsoft.Xna.Framework;
-using System;
 
 namespace EvanModpack
 {
