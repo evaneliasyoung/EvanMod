@@ -1,4 +1,5 @@
-﻿/**
+﻿using Microsoft.Xna.Framework;
+/**
 *  @file      VanillaOverrides.cs
 *  @brief     Basic overrides for the default NPC in the game.
 *
@@ -15,26 +16,39 @@ using Terraria.ModLoader;
 
 namespace EvanModpack.NPCs
 {
-	internal class VanillaOverrides : GlobalNPC
+	internal class NPCOverrides : GlobalNPC
 	{
 		public override void NPCLoot(NPC npc)
 		{
-			if (npc.type == NPCID.WallofFlesh)
+			switch (npc.type)
 			{
-				int SlagVeins = 45;
-				int SlagMaxLoop = (int)(WorldGen.rockLayer * Main.maxTilesY * SlagVeins * 1E-05);
-				Main.NewText("Slag has begun to seep up through the center of the earth", Utils.ChatColors.Info);
-
-				for (int k = 0; k < SlagMaxLoop; k++)
-				{
-					int X = WorldGen.genRand.Next(0, Main.maxTilesX);
-					int Y = WorldGen.genRand.Next(Main.maxTilesY - 200, Main.maxTilesY);
-					int SlagStrength = WorldGen.genRand.Next(4, 8);
-					int SlagStep = WorldGen.genRand.Next(5, 9);
-					WorldGen.OreRunner(X, Y, SlagStrength, SlagStep, (ushort)mod.TileType("SlagTile"));
-				}
+				case NPCID.WallofFlesh:
+					GenerateSlag();
+					return;
 			}
 			base.NPCLoot(npc);
+		}
+
+		public void GenerateSlag()
+		{
+			int slagVeins = 45;
+			int slagLoop = (int)(WorldGen.rockLayer * Main.maxTilesY * slagVeins * 1E-05);
+			Main.NewText("Slag has begun to seep up through the center of the earth", Utils.ChatColors.Info);
+
+			for (int i = 0; i < slagLoop; ++i)
+			{
+				GenerateSlagVein();
+			}
+		}
+
+		public void GenerateSlagVein()
+		{
+			Point minPos = new Point(0, Main.maxTilesY - 200);
+			Point maxPos = new Point(Main.maxTilesX, Main.maxTilesY);
+			int slagStrength = WorldGen.genRand.Next(4, 8);
+			int slagStep = WorldGen.genRand.Next(5, 9);
+
+			WorldGen.OreRunner(WorldGen.genRand.Next(minPos.X, maxPos.X), WorldGen.genRand.Next(minPos.Y, maxPos.Y), slagStrength, slagStep, (ushort)mod.TileType("SlagTile"));
 		}
 
 		public override void SetupShop(int type, Chest shop, ref int nextSlot)
