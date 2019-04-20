@@ -1,0 +1,25 @@
+﻿ItemName.AmberPhaseblade=Amber Phaseblade
+ItemName.AmberPhasesaber=Amber Phasesaber
+ItemName.BloodSalts=Blood Salts
+ItemName.ButterflyKnife=Butterfly Knife
+ItemName.GenocidePotion=Genocide Potion
+ItemName.GeorgeHat=George's Hat
+ItemName.GeorgeSuit=George's Suit
+ItemName.GeorgePants=George's Pants
+ItemName.PureDiggingClaw=Pure Digging Claw
+ItemName.Slag=Slag
+ItemName.TravellersMap=Traveller's Map
+ItemName.WarPotion=War Potion
+ItemName.YoyoGauntlet=Yoyo Gauntlet
+
+ItemTooltip.BloodSalts=Summons a Blood Moon
+ItemTooltip.ButterflyKnife=That spy is not ours!\nHas a {0}% chance to instantly kill the target
+ItemTooltip.GenocidePotion=Extremely increases enemy spawn rate (7x)
+ItemTooltip.GeorgeHat="Oh myyy!"
+ItemTooltip.GeorgeSuit="Oh myyy!"
+ItemTooltip.GeorgePants="Oh myyy!"
+ItemTooltip.PureDiggingClaw=Purified from the darkest of evil
+ItemTooltip.Slag=Remnants of various metals waiting to be refined
+ItemTooltip.TravellersMap=This place looks pretty familiar...
+ItemTooltip.WarPotion=Considerably increases enemy spawn rate (4x)
+ItemTooltip.YoyoGauntlet=Gives the user master yoyo skills and 15% increased melee damage and speed\nIncreases melee knockback and inflicts fire damage on attack

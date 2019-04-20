@@ -4,7 +4,7 @@
 *
 *  @author    Evan Elias Young
 *  @date      2017-07-21
-*  @date      2019-04-16
+*  @date      2019-04-20
 *  @copyright Copyright 2017-2019 Evan Elias Young. All rights reserved.
 */
 
@@ -20,14 +20,8 @@ namespace EvanModpack.Items.Blocks
 	{
 		public override void SetStaticDefaults()
 		{
-			DisplayName.SetDefault("Slag");
-			Tooltip.SetDefault("Remnants of various metals waiting to be refined");
-			ItemID.Sets.ExtractinatorMode[item.type] = item.type;
-
-			DisplayName.AddTranslation(GameCulture.Spanish, "Escoria");
-			Tooltip.AddTranslation(GameCulture.Spanish, "Los restos de varios metales que esperan ser refinados");
-			DisplayName.AddTranslation(GameCulture.German, "Schlacke");
-			Tooltip.AddTranslation(GameCulture.German, "Reste von verschiedenen Metallen warten darauf, verfeinert zu werden");
+			DisplayName.SetDefault(Language.GetTextValue("Mods.EvanModpack.ItemName.Slag"));
+			Tooltip.SetDefault(Language.GetTextValue("Mods.EvanModpack.ItemTooltip.Slag"));
 			base.SetStaticDefaults();
 		}
 

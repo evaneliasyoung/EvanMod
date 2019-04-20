@@ -4,7 +4,7 @@
 *
 *  @author    Evan Elias Young
 *  @date      2017-04-24
-*  @date      2019-04-16
+*  @date      2019-04-20
 *  @copyright Copyright 2017-2019 Evan Elias Young. All rights reserved.
 */
 
@@ -19,13 +19,8 @@ namespace EvanModpack.Items.Tools
 	{
 		public override void SetStaticDefaults()
 		{
-			DisplayName.SetDefault("Pure Digging Claw");
-			Tooltip.SetDefault("Purified from the darkest of evil");
-
-			DisplayName.AddTranslation(GameCulture.Spanish, "Garra de cavando pura");
-			Tooltip.AddTranslation(GameCulture.Spanish, "Purificado de lo más oscuro del mal");
-			DisplayName.AddTranslation(GameCulture.German, "Reine Graben Klaue");
-			Tooltip.AddTranslation(GameCulture.German, "Aus dem dunkelsten des Bösen gereinigt");
+			DisplayName.SetDefault(Language.GetTextValue("Mods.EvanModpack.ItemName.PureDiggingClaw"));
+			Tooltip.SetDefault(Language.GetTextValue("Mods.EvanModpack.ItemTooltip.PureDiggingClaw"));
 			base.SetStaticDefaults();
 		}
 

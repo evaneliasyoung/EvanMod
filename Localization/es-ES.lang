@@ -1,0 +1,25 @@
+﻿ItemName.AmberPhaseblade=Amber Phaseblade
+ItemName.AmberPhasesaber=Amber Phasesaber
+ItemName.BloodSalts=Sales de Sangre
+ItemName.ButterflyKnife=Navaja
+ItemName.GenocidePotion=Poción de Genocidio
+ItemName.GeorgeHat=Sombrero de Jorge
+ItemName.GeorgeSuit=Traje de Jorge
+ItemName.GeorgePants=Pantalones de Jorge
+ItemName.PureDiggingClaw=Garra Pura de Cavando
+ItemName.Slag=Escoria
+ItemName.TravellersMap=Mapa del Viajero
+ItemName.WarPotion=Poción de Guerra
+ItemName.YoyoGauntlet=Guantelete del Yoyó
+
+ItemTooltip.BloodSalts=Invoca una Luna de Sangre
+ItemTooltip.ButterflyKnife=¡Ese espía no es nuestro!\nTiene una {0}% posibilidad a mata al instante el blanco
+ItemTooltip.GenocidePotion=Extremadamente aumenta tasa de spawn de enemigo(7x)
+ItemTooltip.GeorgeHat="¡Oh mi!"
+ItemTooltip.GeorgeSuit="Oh mi!"
+ItemTooltip.GeorgePants="Oh mi!"
+ItemTooltip.PureDiggingClaw=Purificado de lo más oscuro del mal
+ItemTooltip.Slag=Los restos de varios metales que esperan ser refinados
+ItemTooltip.TravellersMap=Esta lugar me aparece muy familiar...
+ItemTooltip.WarPotion=Considerablemente aumenta tasa de spawn de enemigo (4x)
+ItemTooltip.YoyoGauntlet=Da al usuario habilidades maestro yoyó y 15% aumentado daño cuerpo a cuerpo y velocidad\nAumentado revancha cuerpo a cuerpo y inflige daño de fuego

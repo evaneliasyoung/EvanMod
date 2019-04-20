@@ -1,15 +1,16 @@
 ﻿/**
-*  @file      AmberPhaseblade.cs
+*  @file      AmberPhasesaber.cs
 *  @brief     Adds a (superior) amber-colored phasesaber.
 *
 *  @author    Evan Elias Young
 *  @date      2017-07-20
-*  @date      2019-04-16
+*  @date      2019-04-20
 *  @copyright Copyright 2017-2019 Evan Elias Young. All rights reserved.
 */
 
 using Terraria;
 using Terraria.ID;
+using Terraria.Localization;
 using Terraria.ModLoader;
 
 namespace EvanModpack.Items.Weapons
@@ -18,7 +19,7 @@ namespace EvanModpack.Items.Weapons
 	{
 		public override void SetStaticDefaults()
 		{
-			DisplayName.SetDefault("Amber Phasesaber");
+			DisplayName.SetDefault(Language.GetTextValue("Mods.EvanModpack.ItemName.AmberPhasesaber"));
 			base.SetStaticDefaults();
 		}
 

@@ -4,7 +4,7 @@
 *
 *  @author    Evan Elias Young
 *  @date      2017-07-17
-*  @date      2019-04-16
+*  @date      2019-04-20
 *  @copyright Copyright 2017-2019 Evan Elias Young. All rights reserved.
 */
 
@@ -17,17 +17,12 @@ namespace EvanModpack.Items.Weapons
 {
 	internal class ButterflyKnife : ModItem
 	{
-		public static int InstantKillChance = 3;
+		public const int InstantKillChance = 3;
 
 		public override void SetStaticDefaults()
 		{
-			DisplayName.SetDefault("Butterfly Knife");
-			Tooltip.SetDefault(string.Format("That spy is not ours!\nHas a {0}% chance to instantly kill the target.", InstantKillChance));
-
-			DisplayName.AddTranslation(GameCulture.Spanish, "Navaja");
-			Tooltip.AddTranslation(GameCulture.Spanish, string.Format("¡Ese espía no es nuestro!\nTiene una {0}% posibilidad a mata al instante el blanco", InstantKillChance));
-			DisplayName.AddTranslation(GameCulture.German, "Klappmesser");
-			Tooltip.AddTranslation(GameCulture.German, string.Format("Das Spion ist nicht unsere!\nHat eine {0}% ige Chance, um sofort weiß zu töten", InstantKillChance));
+			DisplayName.SetDefault(Language.GetTextValue("Mods.EvanModpack.ItemName.ButterflyKnife"));
+			Tooltip.SetDefault(Language.GetTextValue("Mods.EvanModpack.ItemTooltip.ButterflyKnife", InstantKillChance));
 			base.SetStaticDefaults();
 		}
 
@@ -59,7 +54,7 @@ namespace EvanModpack.Items.Weapons
 
 		public override void OnHitNPC(Player player, NPC target, int damage, float knockBack, bool crit)
 		{
-			if (Main.rand.Next(100 / InstantKillChance) == 0)
+			if (Main.rand.Next(1, 100) <= InstantKillChance)
 			{
 				item.damage = 217500;
 			}

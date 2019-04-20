@@ -3,8 +3,8 @@
 *  @brief     Adds an items that can be used to trigger a blood moon.
 *
 *  @author    Evan Elias Young
-*  @date      2019-04-19
-*  @date      2019-04-19
+*  @date      2019-04-20
+*  @date      2019-04-20
 *  @copyright Copyright 2017-2019 Evan Elias Young. All rights reserved.
 */
 
@@ -22,13 +22,8 @@ namespace EvanModpack.Items.Miscellaneous
 		/// </summary>
 		public override void SetStaticDefaults()
 		{
-			DisplayName.SetDefault("Blood Salts");
-			Tooltip.SetDefault("Summons a Blood Moon");
-
-			DisplayName.AddTranslation(GameCulture.Spanish, "Sales de Sangre");
-			Tooltip.AddTranslation(GameCulture.Spanish, "Invoca una Luna de Sangre");
-			DisplayName.AddTranslation(GameCulture.German, "Salze von Blut");
-			Tooltip.AddTranslation(GameCulture.German, "Beschwört den Blutmond");
+			DisplayName.SetDefault(Language.GetTextValue("Mods.EvanModpack.ItemName.BloodSalts"));
+			Tooltip.SetDefault(Language.GetTextValue("Mods.EvanModpack.ItemTooltip.BloodSalts"));
 			base.SetStaticDefaults();
 		}
 

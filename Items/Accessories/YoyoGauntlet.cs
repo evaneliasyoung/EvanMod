@@ -4,7 +4,7 @@
 *
 *  @author    Evan Elias Young
 *  @date      2017-04-23
-*  @date      2019-04-16
+*  @date      2019-04-20
 *  @copyright Copyright 2017-2019 Evan Elias Young. All rights reserved.
 */
 
@@ -15,17 +15,12 @@ using Terraria.ModLoader;
 
 namespace EvanModpack.Items.Accessories
 {
-	internal class YoyoGauntletAccessory : ModItem
+	internal class YoyoGauntlet : ModItem
 	{
 		public override void SetStaticDefaults()
 		{
-			DisplayName.SetDefault("Yoyo Gauntlet");
-			Tooltip.SetDefault("Gives the user master yoyo skills and 15% increased melee damage and speed.\nIncreases melee knockback and inflicts fire damage on attack.");
-
-			DisplayName.AddTranslation(GameCulture.Spanish, "Guantelete del Yoyó");
-			Tooltip.AddTranslation(GameCulture.Spanish, "Da al usuario habilidades maestro yoyó y 15% aumentado daño cuerpo a cuerpo y velocidad.\nAumentado revancha cuerpo a cuerpo y inflige daño de fuego.");
-			DisplayName.AddTranslation(GameCulture.German, "Jojo Stulpenhandschuh");
-			Tooltip.AddTranslation(GameCulture.German, "Gibt dem Benutzer Meister yoyo Fähigkeiten und 15% erhöhten Nahkampfschaden und Geschwindigkeit.\nErhöht Nahkampf-Rückschlag und verursacht Brandschaden beim Angriff.");
+			DisplayName.SetDefault(Language.GetTextValue("Mods.EvanModpack.ItemName.YoyoGauntlet"));
+			Tooltip.SetDefault(Language.GetTextValue("Mods.EvanModpack.ItemTooltip.YoyoGauntlet"));
 			base.SetStaticDefaults();
 		}
 

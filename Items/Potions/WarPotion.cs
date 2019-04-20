@@ -4,7 +4,7 @@
 *
 *  @author    Evan Elias Young
 *  @date      2017-04-22
-*  @date      2019-04-16
+*  @date      2019-04-20
 *  @copyright Copyright 2017-2019 Evan Elias Young. All rights reserved.
 */
 
@@ -19,13 +19,8 @@ namespace EvanModpack.Items.Potions
 	{
 		public override void SetStaticDefaults()
 		{
-			DisplayName.SetDefault("War Potion");
-			Tooltip.SetDefault("Considerably increases enemy spawn rate (4x)");
-
-			DisplayName.AddTranslation(GameCulture.Spanish, "Poción de guerra");
-			Tooltip.AddTranslation(GameCulture.Spanish, "Considerablemente aumenta tasa de spawn de enemigo.");
-			DisplayName.AddTranslation(GameCulture.German, "Kriegstrank");
-			Tooltip.AddTranslation(GameCulture.German, "Erhöht die Spawnrate von Gegnern deutlich (4x)");
+			DisplayName.SetDefault(Language.GetTextValue("Mods.EvanModpack.ItemName.WarPotion"));
+			Tooltip.SetDefault(Language.GetTextValue("Mods.EvanModpack.ItemTooltip.WarPotion"));
 			base.SetStaticDefaults();
 		}
 

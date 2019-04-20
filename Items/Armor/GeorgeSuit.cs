@@ -4,7 +4,7 @@
 *
 *  @author    Evan Elias Young
 *  @date      2017-07-20
-*  @date      2019-04-16
+*  @date      2019-04-20
 *  @copyright Copyright 2017-2019 Evan Elias Young. All rights reserved.
 */
 
@@ -19,13 +19,8 @@ namespace EvanModpack.Items.Armor
 	{
 		public override void SetStaticDefaults()
 		{
-			DisplayName.SetDefault("George's Suit");
-			Tooltip.SetDefault("\"Oh myyy!\"");
-
-			DisplayName.AddTranslation(GameCulture.Spanish, "Traje de Jorge");
-			Tooltip.AddTranslation(GameCulture.Spanish, "\"Oh mi!\"");
-			DisplayName.AddTranslation(GameCulture.German, "George's Anzug");
-			Tooltip.AddTranslation(GameCulture.German, "\"Oh mein!\"");
+			DisplayName.SetDefault(Language.GetTextValue("Mods.EvanModpack.ItemName.GeorgeSuit"));
+			Tooltip.SetDefault(Language.GetTextValue("Mods.EvanModpack.ItemTooltip.GeorgeSuit"));
 			base.SetStaticDefaults();
 		}
 

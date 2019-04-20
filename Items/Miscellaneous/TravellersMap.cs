@@ -4,7 +4,7 @@
 *
 *  @author    Evan Elias Young
 *  @date      2019-04-16
-*  @date      2019-04-19
+*  @date      2019-04-20
 *  @copyright Copyright 2017-2019 Evan Elias Young. All rights reserved.
 */
 
@@ -23,13 +23,8 @@ namespace EvanModpack.Items.Miscellaneous
 		/// </summary>
 		public override void SetStaticDefaults()
 		{
-			DisplayName.SetDefault("Traveller's Map");
-			Tooltip.SetDefault("This place looks pretty familiar...");
-
-			DisplayName.AddTranslation(GameCulture.Spanish, "Mapa del Viajero");
-			Tooltip.AddTranslation(GameCulture.Spanish, "Esta lugar aparece muy familiar...");
-			DisplayName.AddTranslation(GameCulture.German, "Karte Das Reisenden");
-			Tooltip.AddTranslation(GameCulture.German, "Dieser Ort sieht ziemlich vertraut aus...");
+			DisplayName.SetDefault(Language.GetTextValue("Mods.EvanModpack.ItemName.TravellersMap"));
+			Tooltip.SetDefault(Language.GetTextValue("Mods.EvanModpack.ItemTooltip.TravellersMap"));
 			base.SetStaticDefaults();
 		}
 
