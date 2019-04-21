@@ -38,8 +38,8 @@ namespace EvanModpack
 		}
 
 		#region Hamstar's Mod Helpers integration
-		public static string GithubUserName => "evaneliasyoung";
-		public static string GithubProjectName => "EvanModpack";
+		public static string GithubUserName() { return "evaneliasyoung"; }
+		public static string GithubProjectName() { return "EvanModpack"; }
 		#endregion
 	}
 }

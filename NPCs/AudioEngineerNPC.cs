@@ -4,7 +4,7 @@
 *
 *  @author    Evan Elias Young
 *  @date      2017-04-24
-*  @date      2019-04-16
+*  @date      2019-04-20
 *  @copyright Copyright 2017-2019 Evan Elias Young. All rights reserved.
 */
 
@@ -30,9 +30,7 @@ namespace EvanModpack.NPCs
 
 		public override void SetStaticDefaults()
 		{
-			DisplayName.SetDefault("Audio Engineer");
-			DisplayName.AddTranslation(GameCulture.Spanish, "Igeniero del audio");
-			DisplayName.AddTranslation(GameCulture.German, "Audio-Ingenieur");
+			DisplayName.SetDefault(Language.GetTextValue("Mods.EvanModpack.NPCName.AudioEngineer"));
 			base.SetStaticDefaults();
 		}
 
@@ -212,17 +210,14 @@ namespace EvanModpack.NPCs
 		{
 			WeightedRandom<string> chat = new WeightedRandom<string>();
 
-			int DyeTrader = NPC.FindFirstNPC(NPCID.DyeTrader);
-			if (DyeTrader >= 0)
+			if (NPC.FindFirstNPC(NPCID.DyeTrader) != -1)
 			{
-				chat.Add(string.Format("You might know my brother, {0}, we specialize in the arts.", Main.npc[DyeTrader].GivenName));
+				chat.Add(Language.GetTextValue("Mods.EvanModpack.NPCDialog.AudioEngineer0", Main.npc[NPC.FindFirstNPC(NPCID.DyeTrader)].GivenName));
 			}
-			chat.Add("These are pre-released tracks.");
-			chat.Add("These are straight from the studio... but you didn't get them from me!", 0.7);
-			chat.Add("I sell the next hits.");
-			chat.Add("I have all the latest hits.");
-			chat.Add("Have you met my brother? I bought these clothes from him.");
-			chat.Add("Come back later for more LPs.");
+			for (int i = 1; i < 7; ++i)
+			{
+				chat.Add(Language.GetTextValue(string.Format("Mods.EvanModpack.NPCDialog.AudioEngineer{0}", i)));
+			}
 			return chat;
 		}
 

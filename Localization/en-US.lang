@@ -23,3 +23,13 @@ ItemTooltip.Slag=Remnants of various metals waiting to be refined
 ItemTooltip.TravellersMap=This place looks pretty familiar...
 ItemTooltip.WarPotion=Considerably increases enemy spawn rate (4x)
 ItemTooltip.YoyoGauntlet=Gives the user master yoyo skills and 15% increased melee damage and speed\nIncreases melee knockback and inflicts fire damage on attack
+
+NPCName.AudioEngineer=Audio Engineer
+
+NPCDialog.AudioEngineer0=You might know my brother, {0}, we specialize in the arts.
+NPCDialog.AudioEngineer1=These are pre-released tracks.
+NPCDialog.AudioEngineer2=These are straight from the studio... but you didn't get them from me!
+NPCDialog.AudioEngineer3=I sell the next hits.
+NPCDialog.AudioEngineer4=I have all the latest hits.
+NPCDialog.AudioEngineer5=Have you met my brother? I bought these clothes from him.
+NPCDialog.AudioEngineer6=Come back later for more LPs.

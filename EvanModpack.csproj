@@ -37,7 +37,7 @@
     <Compile Include="Buffs\GenocideBuff.cs" />
     <Compile Include="Buffs\WarBuff.cs" />
     <Compile Include="EvanModpack.cs" />
-    <Compile Include="Items\Accessories\YoyoGauntletAccessory.cs" />
+    <Compile Include="Items\Accessories\YoyoGauntlet.cs" />
     <Compile Include="Items\Armor\GeorgeHat.cs" />
     <Compile Include="Items\Armor\GeorgePants.cs" />
     <Compile Include="Items\Armor\GeorgeSuit.cs" />
@@ -50,11 +50,12 @@
     <Compile Include="Items\Weapons\AmberPhaseblade.cs" />
     <Compile Include="Items\Weapons\AmberPhasesaber.cs" />
     <Compile Include="Items\Weapons\ButterflyKnife.cs" />
-    <Compile Include="Items\Weapons\PhoenixBlaster.cs" />
     <Compile Include="Items\Tools\PureDiggingClaw.cs" />
+    <Compile Include="Items\Weapons\WeaponOverrides.cs" />
     <Compile Include="ModdedPlayer.cs" />
     <Compile Include="NPCs\AudioEngineerNPC.cs" />
-    <Compile Include="NPCs\VanillaOverrides.cs" />
+    <Compile Include="NPCs\NPCOverrides.cs" />
+    <Compile Include="RecipeOverrides.cs" />
     <Compile Include="Tiles\SlagTile.cs" />
     <Compile Include="Utils.cs" />
   </ItemGroup>
@@ -84,7 +85,7 @@
     <Content Include="build.txt" />
     <Content Include="description.txt" />
     <Content Include="icon.png" />
-    <Content Include="Items\Accessories\YoyoGauntletAccessory.png" />
+    <Content Include="Items\Accessories\YoyoGauntlet.png" />
     <Content Include="Items\Armor\GeorgeHat.png" />
     <Content Include="Items\Armor\GeorgeHat_Head.png" />
     <Content Include="Items\Armor\GeorgePants.png" />
@@ -102,6 +103,10 @@
     <Content Include="Items\Weapons\ButterflyKnife.png" />
     <Content Include="Items\Tools\PureDiggingClaw.png" />
     <Content Include="Tiles\SlagTile.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Localization\en-US.lang" />
+    <None Include="Localization\es-ES.lang" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <PropertyGroup>

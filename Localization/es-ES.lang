@@ -1,5 +1,5 @@
-﻿ItemName.AmberPhaseblade=Amber Phaseblade
-ItemName.AmberPhasesaber=Amber Phasesaber
+﻿ItemName.AmberPhaseblade=Espada de Luz Ámbar
+ItemName.AmberPhasesaber=Sable de Luz Ámbar
 ItemName.BloodSalts=Sales de Sangre
 ItemName.ButterflyKnife=Navaja
 ItemName.GenocidePotion=Poción de Genocidio
@@ -23,3 +23,13 @@ ItemTooltip.Slag=Los restos de varios metales que esperan ser refinados
 ItemTooltip.TravellersMap=Esta lugar me aparece muy familiar...
 ItemTooltip.WarPotion=Considerablemente aumenta tasa de spawn de enemigo (4x)
 ItemTooltip.YoyoGauntlet=Da al usuario habilidades maestro yoyó y 15% aumentado daño cuerpo a cuerpo y velocidad\nAumentado revancha cuerpo a cuerpo y inflige daño de fuego
+
+NPCName.AudioEngineer=Igeniero del Audio
+
+NPCDialog.AudioEngineer0=You might know my brother, {0}, we specialize in the arts.
+NPCDialog.AudioEngineer1=These are pre-released tracks.
+NPCDialog.AudioEngineer2=These are straight from the studio... but you didn't get them from me!
+NPCDialog.AudioEngineer3=I sell the next hits.
+NPCDialog.AudioEngineer4=I have all the latest hits.
+NPCDialog.AudioEngineer5=Have you met my brother? I bought these clothes from him.
+NPCDialog.AudioEngineer6=Come back later for more LPs.
