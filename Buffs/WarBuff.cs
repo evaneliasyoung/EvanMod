@@ -23,8 +23,6 @@ namespace EvanModpack.Buffs
 
 			DisplayName.AddTranslation(GameCulture.Spanish, "Guerra");
 			Description.AddTranslation(GameCulture.Spanish, "Considerablemente aumenta tasa de spawn (4x) de enemigo.");
-			DisplayName.AddTranslation(GameCulture.German, "Krieg");
-			Description.AddTranslation(GameCulture.German, "Erhöht die Spawnrate von Gegnern deutlich (4x)");
 
 			Main.buffNoTimeDisplay[Type] = false;
 			Main.debuff[Type] = false;

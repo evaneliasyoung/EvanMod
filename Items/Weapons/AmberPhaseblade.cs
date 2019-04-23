@@ -4,25 +4,18 @@
 *
 *  @author    Evan Elias Young
 *  @date      2017-07-20
-*  @date      2019-04-20
+*  @date      2019-04-22
 *  @copyright Copyright 2017-2019 Evan Elias Young. All rights reserved.
 */
 
 using Terraria;
 using Terraria.ID;
-using Terraria.Localization;
 using Terraria.ModLoader;
 
 namespace EvanModpack.Items.Weapons
 {
 	internal class AmberPhaseblade : ModItem
 	{
-		public override void SetStaticDefaults()
-		{
-			DisplayName.SetDefault(Language.GetTextValue("Mods.EvanModpack.ItemName.AmberPhaseblade"));
-			base.SetStaticDefaults();
-		}
-
 		public override void SetDefaults()
 		{
 			item.damage = 30;

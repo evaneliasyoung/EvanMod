@@ -28,12 +28,6 @@ namespace EvanModpack.NPCs
 			return mod.Properties.Autoload;
 		}
 
-		public override void SetStaticDefaults()
-		{
-			DisplayName.SetDefault(Language.GetTextValue("Mods.EvanModpack.NPCName.AudioEngineer"));
-			base.SetStaticDefaults();
-		}
-
 		public override void SetDefaults()
 		{
 			npc.townNPC = true;
@@ -216,7 +210,7 @@ namespace EvanModpack.NPCs
 			}
 			for (int i = 1; i < 7; ++i)
 			{
-				chat.Add(Language.GetTextValue(string.Format("Mods.EvanModpack.NPCDialog.AudioEngineer{0}", i)));
+				chat.Add(Language.GetText(string.Format("Mods.EvanModpack.NPCDialog.AudioEngineer{0}", i)).Value);
 			}
 			return chat;
 		}

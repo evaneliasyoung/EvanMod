@@ -4,30 +4,19 @@
 *
 *  @author    Evan Elias Young
 *  @date      2019-04-16
-*  @date      2019-04-20
+*  @date      2019-04-22
 *  @copyright Copyright 2017-2019 Evan Elias Young. All rights reserved.
 */
 
 using Microsoft.Xna.Framework;
 using Terraria;
 using Terraria.ID;
-using Terraria.Localization;
 using Terraria.ModLoader;
 
 namespace EvanModpack.Items.Miscellaneous
 {
 	internal class TravellersMap : ModItem
 	{
-		/// <summary>
-		/// Set the constant item data.
-		/// </summary>
-		public override void SetStaticDefaults()
-		{
-			DisplayName.SetDefault(Language.GetTextValue("Mods.EvanModpack.ItemName.TravellersMap"));
-			Tooltip.SetDefault(Language.GetTextValue("Mods.EvanModpack.ItemTooltip.TravellersMap"));
-			base.SetStaticDefaults();
-		}
-
 		/// <summary>
 		/// Set the specific item data.
 		/// </summary>

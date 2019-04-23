@@ -4,7 +4,7 @@
 *
 *  @author    Evan Elias Young
 *  @date      2019-04-20
-*  @date      2019-04-20
+*  @date      2019-04-22
 *  @copyright Copyright 2017-2019 Evan Elias Young. All rights reserved.
 */
 
@@ -17,16 +17,6 @@ namespace EvanModpack.Items.Miscellaneous
 {
 	internal class BloodSalts : ModItem
 	{
-		/// <summary>
-		/// Set the constant item data.
-		/// </summary>
-		public override void SetStaticDefaults()
-		{
-			DisplayName.SetDefault(Language.GetTextValue("Mods.EvanModpack.ItemName.BloodSalts"));
-			Tooltip.SetDefault(Language.GetTextValue("Mods.EvanModpack.ItemTooltip.BloodSalts"));
-			base.SetStaticDefaults();
-		}
-
 		/// <summary>
 		/// Set the specific item data.
 		/// </summary>

@@ -103,10 +103,8 @@
     <Content Include="Items\Weapons\ButterflyKnife.png" />
     <Content Include="Items\Tools\PureDiggingClaw.png" />
     <Content Include="Tiles\SlagTile.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Localization\en-US.lang" />
-    <None Include="Localization\es-ES.lang" />
+    <Content Include="Localization\en-US.lang" />
+    <Content Include="Localization\es-ES.lang" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <PropertyGroup>

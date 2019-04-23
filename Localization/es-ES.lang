@@ -24,6 +24,8 @@ ItemTooltip.TravellersMap=Esta lugar me aparece muy familiar...
 ItemTooltip.WarPotion=Considerablemente aumenta tasa de spawn de enemigo (4x)
 ItemTooltip.YoyoGauntlet=Da al usuario habilidades maestro yoyó y 15% aumentado daño cuerpo a cuerpo y velocidad\nAumentado revancha cuerpo a cuerpo y inflige daño de fuego
 
+Misc.SlagEnter=Escoria ha empezado a llegar desde el centro del mundo
+
 NPCName.AudioEngineer=Igeniero del Audio
 
 NPCDialog.AudioEngineer0=You might know my brother, {0}, we specialize in the arts.

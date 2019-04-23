@@ -1,17 +1,18 @@
-﻿using Microsoft.Xna.Framework;
-/**
+﻿/**
 *  @file      VanillaOverrides.cs
 *  @brief     Basic overrides for the default NPC in the game.
 *
 *  @author    Evan Elias Young
 *  @date      2017-07-20
-*  @date      2019-04-19
+*  @date      2019-04-22
 *  @copyright Copyright 2017-2019 Evan Elias Young. All rights reserved.
 */
 
+using Microsoft.Xna.Framework;
 using System.Collections.Generic;
 using Terraria;
 using Terraria.ID;
+using Terraria.Localization;
 using Terraria.ModLoader;
 
 namespace EvanModpack.NPCs
@@ -33,7 +34,7 @@ namespace EvanModpack.NPCs
 		{
 			int slagVeins = 45;
 			int slagLoop = (int)(WorldGen.rockLayer * Main.maxTilesY * slagVeins * 1E-05);
-			Main.NewText("Slag has begun to seep up through the center of the earth", Utils.ChatColors.Info);
+			Main.NewText(Language.GetTextValue("Mods.EvanModpack.Misc.SlagEnter"), Utils.ChatColors.Info);
 
 			for (int i = 0; i < slagLoop; ++i)
 			{

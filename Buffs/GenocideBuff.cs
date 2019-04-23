@@ -23,8 +23,6 @@ namespace EvanModpack.Buffs
 
 			DisplayName.AddTranslation(GameCulture.Spanish, "Genocidio");
 			Description.AddTranslation(GameCulture.Spanish, "Extremadamente aumenta tasa de spawn (7x) de enemigo");
-			DisplayName.AddTranslation(GameCulture.German, "Völkermord");
-			Description.AddTranslation(GameCulture.German, "Erhöht die Spawnrate von Gegnern extrem (7x)");
 
 			Main.buffNoTimeDisplay[Type] = false;
 			Main.debuff[Type] = false;

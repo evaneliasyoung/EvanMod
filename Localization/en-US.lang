@@ -24,6 +24,8 @@ ItemTooltip.TravellersMap=This place looks pretty familiar...
 ItemTooltip.WarPotion=Considerably increases enemy spawn rate (4x)
 ItemTooltip.YoyoGauntlet=Gives the user master yoyo skills and 15% increased melee damage and speed\nIncreases melee knockback and inflicts fire damage on attack
 
+Misc.SlagEnter=Slag has begun to seep up through the center of the earth
+
 NPCName.AudioEngineer=Audio Engineer
 
 NPCDialog.AudioEngineer0=You might know my brother, {0}, we specialize in the arts.

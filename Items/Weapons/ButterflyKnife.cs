@@ -4,27 +4,19 @@
 *
 *  @author    Evan Elias Young
 *  @date      2017-07-17
-*  @date      2019-04-20
+*  @date      2019-04-22
 *  @copyright Copyright 2017-2019 Evan Elias Young. All rights reserved.
 */
 
 using Terraria;
 using Terraria.ID;
-using Terraria.Localization;
 using Terraria.ModLoader;
 
 namespace EvanModpack.Items.Weapons
 {
 	internal class ButterflyKnife : ModItem
 	{
-		public const int InstantKillChance = 3;
-
-		public override void SetStaticDefaults()
-		{
-			DisplayName.SetDefault(Language.GetTextValue("Mods.EvanModpack.ItemName.ButterflyKnife"));
-			Tooltip.SetDefault(Language.GetTextValue("Mods.EvanModpack.ItemTooltip.ButterflyKnife", InstantKillChance));
-			base.SetStaticDefaults();
-		}
+		public const int InstantKillChance = 1;
 
 		public override void SetDefaults()
 		{

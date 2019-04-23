@@ -19,12 +19,6 @@ namespace EvanModpack
 		public override void Load()
 		{
 			Instance = this;
-			Properties = new ModProperties()
-			{
-				Autoload = true,
-				AutoloadGores = true,
-				AutoloadSounds = true
-			};
 		}
 
 		public override void AddRecipeGroups()
