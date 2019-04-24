@@ -4,11 +4,12 @@
 *
 *  @author    Evan Elias Young
 *  @date      2017-07-20
-*  @date      2019-04-22
+*  @date      2019-04-24
 *  @copyright Copyright 2017-2019 Evan Elias Young. All rights reserved.
 */
 
 using Microsoft.Xna.Framework;
+using System;
 using System.Collections.Generic;
 using Terraria;
 using Terraria.ID;
@@ -33,7 +34,7 @@ namespace EvanModpack.NPCs
 		public void GenerateSlag()
 		{
 			int slagVeins = 45;
-			int slagLoop = (int)(WorldGen.rockLayer * Main.maxTilesY * slagVeins * 1E-05);
+			int slagLoop = (int)Math.Round((float)(Main.maxTilesY * slagVeins) / 6);
 			Main.NewText(Language.GetTextValue("Mods.EvanModpack.Misc.SlagEnter"), Utils.ChatColors.Info);
 
 			for (int i = 0; i < slagLoop; ++i)

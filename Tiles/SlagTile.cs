@@ -4,7 +4,7 @@
 *
 *  @author    Evan Elias Young
 *  @date      2017-07-21
-*  @date      2019-04-16
+*  @date      2019-04-24
 *  @copyright Copyright 2017-2019 Evan Elias Young. All rights reserved.
 */
 
@@ -18,18 +18,14 @@ namespace EvanModpack.Tiles
 	{
 		public override void SetDefaults()
 		{
-			ModTranslation TileName = CreateMapEntryName();
-			TileName.SetDefault("Slag");
-			TileName.AddTranslation(GameCulture.Spanish, "Escoria");
-			TileName.AddTranslation(GameCulture.German, "Schlacke");
-
 			Main.tileSolid[Type] = true;
 			Main.tileMergeDirt[Type] = true;
 			Main.tileBlockLight[Type] = true;
 			minPick = 110;
 			mineResist = 2.5f;
 			drop = mod.ItemType("Slag");
-			AddMapEntry(Utils.SlagColor, TileName);
+			//AddMapEntry(Utils.SlagColor, Language.GetText("Mods.EvanModpack.ItemName.Slag"));
+			AddMapEntry(new Microsoft.Xna.Framework.Color(0, 255, 0), Language.GetText("Mods.EvanModpack.ItemName.Slag"));
 			base.SetDefaults();
 		}
 
