@@ -24,8 +24,7 @@ namespace EvanModpack.Tiles
 			minPick = 110;
 			mineResist = 2.5f;
 			drop = mod.ItemType("Slag");
-			//AddMapEntry(Utils.SlagColor, Language.GetText("Mods.EvanModpack.ItemName.Slag"));
-			AddMapEntry(new Microsoft.Xna.Framework.Color(0, 255, 0), Language.GetText("Mods.EvanModpack.ItemName.Slag"));
+			AddMapEntry(Utils.SlagColor, Language.GetText("Mods.EvanModpack.ItemName.Slag"));
 			base.SetDefaults();
 		}
 
