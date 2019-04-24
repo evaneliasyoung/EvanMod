@@ -4,7 +4,7 @@
 *
 *  @author    Evan Elias Young
 *  @date      2019-04-20
-*  @date      2019-04-20
+*  @date      2019-04-24
 *  @copyright Copyright 2017-2019 Evan Elias Young. All rights reserved.
 */
 
@@ -28,6 +28,7 @@ namespace EvanModpack.Items.Weapons
 					item.knockBack = 7;
 					item.autoReuse = true;
 					item.value = Item.sellPrice(0, 2, 0, 0);
+					item.flame = true;
 					break;
 			}
 		}

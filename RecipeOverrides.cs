@@ -4,7 +4,7 @@
 *
 *  @author    Evan Elias Young
 *  @date      2019-04-20
-*  @date      2019-04-20
+*  @date      2019-04-24
 *  @copyright Copyright 2017-2019 Evan Elias Young. All rights reserved.
 */
 
@@ -105,6 +105,14 @@ namespace EvanModpack
 			lifeFruitRecipe.AddTile(TileID.MythrilAnvil);
 			lifeFruitRecipe.SetResult(ItemID.LifeFruit);
 			lifeFruitRecipe.AddRecipe();
+
+			// Gold Chest Recipe
+			ModRecipe goldChestRecipe = new ModRecipe(EvanModpack.Instance);
+			goldChestRecipe.AddIngredient(ItemID.GoldBar, 8);
+			goldChestRecipe.AddIngredient(ItemID.IronBar, 2);
+			goldChestRecipe.AddTile(TileID.Anvils);
+			goldChestRecipe.SetResult(ItemID.GoldChest);
+			goldChestRecipe.AddRecipe();
 
 			// Gems' Setup
 			List<int> gems = new List<int> { ItemID.Diamond, ItemID.Ruby, ItemID.Emerald, ItemID.Sapphire, ItemID.Topaz, ItemID.Amethyst };
