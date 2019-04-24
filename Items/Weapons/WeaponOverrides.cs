@@ -12,7 +12,7 @@ using Terraria;
 using Terraria.ID;
 using Terraria.ModLoader;
 
-namespace EvanModpack.Items.Tools
+namespace EvanModpack.Items.Weapons
 {
 	internal class WeaponOverrides : GlobalItem
 	{
