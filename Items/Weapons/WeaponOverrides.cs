@@ -28,7 +28,6 @@ namespace EvanModpack.Items.Weapons
 					item.knockBack = 7;
 					item.autoReuse = true;
 					item.value = Item.sellPrice(0, 2, 0, 0);
-					item.flame = true;
 					break;
 			}
 		}
