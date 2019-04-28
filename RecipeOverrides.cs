@@ -4,7 +4,7 @@
 *
 *  @author    Evan Elias Young
 *  @date      2019-04-20
-*  @date      2019-04-24
+*  @date      2019-04-28
 *  @copyright Copyright 2017-2019 Evan Elias Young. All rights reserved.
 */
 
@@ -94,6 +94,13 @@ namespace EvanModpack
 			cascadeRecipe.AddTile(TileID.Anvils);
 			cascadeRecipe.SetResult(ItemID.Cascade);
 			cascadeRecipe.AddRecipe();
+
+			// Bone Wand Recipe
+			ModRecipe wandRecipe = new ModRecipe(EvanModpack.Instance);
+			wandRecipe.AddIngredient(ItemID.Bone, 25);
+			wandRecipe.AddTile(TileID.BoneWelder);
+			wandRecipe.SetResult(ItemID.BoneWand);
+			wandRecipe.AddRecipe();
 		}
 
 		public static void AddMiscellaneousRecipes()
