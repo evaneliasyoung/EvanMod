@@ -47,6 +47,7 @@
     <Compile Include="Items\Blocks\Slag.cs" />
     <Compile Include="Items\Potions\GenocidePotion.cs" />
     <Compile Include="Items\Potions\WarPotion.cs" />
+    <Compile Include="Projectiles\MoltenShot.cs" />
     <Compile Include="Items\Weapons\AmberPhaseblade.cs" />
     <Compile Include="Items\Weapons\AmberPhasesaber.cs" />
     <Compile Include="Items\Weapons\ButterflyKnife.cs" />
@@ -102,6 +103,7 @@
     <Content Include="Items\Weapons\AmberPhasesaber.png" />
     <Content Include="Items\Weapons\ButterflyKnife.png" />
     <Content Include="Items\Tools\PureDiggingClaw.png" />
+    <Content Include="Projectiles\MoltenShot.png" />
     <Content Include="Tiles\SlagTile.png" />
     <Content Include="Localization\en-US.lang" />
     <Content Include="Localization\es-ES.lang" />
