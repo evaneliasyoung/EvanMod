@@ -4,7 +4,7 @@
 *
 *  @author    Evan Elias Young
 *  @date      2019-04-20
-*  @date      2019-04-28
+*  @date      2019-05-08
 *  @copyright Copyright 2017-2019 Evan Elias Young. All rights reserved.
 */
 
@@ -120,6 +120,15 @@ namespace EvanModpack
 			goldChestRecipe.AddTile(TileID.Anvils);
 			goldChestRecipe.SetResult(ItemID.GoldChest);
 			goldChestRecipe.AddRecipe();
+
+			// Pirate Map Recipe
+			ModRecipe pirateMapRecipe = new ModRecipe(EvanModpack.Instance);
+			pirateMapRecipe.AddIngredient(ItemID.Sail, 10);
+			pirateMapRecipe.AddIngredient(ItemID.Cannonball);
+			pirateMapRecipe.AddIngredient(ItemID.GoldBar, 5);
+			pirateMapRecipe.AddTile(TileID.DemonAltar);
+			pirateMapRecipe.SetResult(ItemID.PirateMap);
+			pirateMapRecipe.AddRecipe();
 
 			// Gems' Setup
 			List<int> gems = new List<int> { ItemID.Diamond, ItemID.Ruby, ItemID.Emerald, ItemID.Sapphire, ItemID.Topaz, ItemID.Amethyst };
