@@ -99,8 +99,9 @@ namespace EvanModpack.NPCs
 
 		public override void SetupShop(Chest shop, ref int nextSlot)
 		{
-			List<int> forSale = new List<int>
+			List<short> forSale = new List<short>
 			{
+				ItemID.MusicBox,
 				ItemID.MusicBoxOverworldDay,
 				ItemID.MusicBoxAltOverworldDay,
 				ItemID.MusicBoxNight,
@@ -112,92 +113,103 @@ namespace EvanModpack.NPCs
 				ItemID.MusicBoxSpace,
 				ItemID.MusicBoxUnderground,
 				ItemID.MusicBoxAltUnderground,
-				ItemID.MusicBoxMushrooms
+				ItemID.MusicBoxMushrooms,
+				ItemID.MusicBoxSandstorm,
+				ItemID.MusicBoxEerie
 			};
-			foreach (int sale in forSale)
-			{
-				shop.item[nextSlot++].SetDefaults(sale);
-			}
 
 			if (NPC.downedQueenBee)
 			{
-				shop.item[nextSlot++].SetDefaults(ItemID.MusicBoxJungle);
+				forSale.Add(ItemID.MusicBoxJungle);
 			}
 			if (NPC.downedBoss2)
 			{
-				shop.item[nextSlot++].SetDefaults(ItemID.MusicBoxCorruption);
-				shop.item[nextSlot++].SetDefaults(ItemID.MusicBoxCrimson);
+				forSale.Add(ItemID.MusicBoxCorruption);
+				forSale.Add(ItemID.MusicBoxCrimson);
 				if (Main.hardMode)
 				{
-					shop.item[nextSlot++].SetDefaults(ItemID.MusicBoxUndergroundCorruption);
-					shop.item[nextSlot++].SetDefaults(ItemID.MusicBoxUndergroundCrimson);
+					forSale.Add(ItemID.MusicBoxUndergroundCorruption);
+					forSale.Add(ItemID.MusicBoxUndergroundCrimson);
 				}
-			}
-			if (Main.hardMode)
-			{
-				shop.item[nextSlot++].SetDefaults(ItemID.MusicBoxTheHallow);
-				shop.item[nextSlot++].SetDefaults(ItemID.MusicBoxUndergroundHallow);
-				shop.item[nextSlot++].SetDefaults(ItemID.MusicBoxHell);
 			}
 			if (NPC.downedBoss3)
 			{
-				shop.item[nextSlot++].SetDefaults(ItemID.MusicBoxDungeon);
-			}
-			if (NPC.downedGolemBoss)
-			{
-				shop.item[nextSlot++].SetDefaults(ItemID.MusicBoxTemple);
-			}
-			if (NPC.downedBoss1 || NPC.downedBoss2 || NPC.downedBoss3)
-			{
-				shop.item[nextSlot++].SetDefaults(ItemID.MusicBoxBoss1);
+				forSale.Add(ItemID.MusicBoxDungeon);
 			}
 			if (Main.hardMode)
 			{
-				shop.item[nextSlot++].SetDefaults(ItemID.MusicBoxBoss2);
-			}
-			if (NPC.downedMechBoss2)
-			{
-				shop.item[nextSlot++].SetDefaults(ItemID.MusicBoxBoss3);
+				forSale.Add(ItemID.MusicBoxTheHallow);
+				forSale.Add(ItemID.MusicBoxUndergroundHallow);
+				forSale.Add(ItemID.MusicBoxHell);
 			}
 			if (NPC.downedGolemBoss)
 			{
-				shop.item[nextSlot++].SetDefaults(ItemID.MusicBoxBoss4);
+				forSale.Add(ItemID.MusicBoxTemple);
 			}
-			if (NPC.downedQueenBee)
+			if (NPC.downedGoblins)
 			{
-				shop.item[nextSlot++].SetDefaults(ItemID.MusicBoxBoss5);
+				forSale.Add(ItemID.MusicBoxGoblins);
 			}
-			if (NPC.downedPlantBoss)
+			if (NPC.downedPirates)
 			{
-				shop.item[nextSlot++].SetDefaults(ItemID.MusicBoxPlantera);
+				forSale.Add(ItemID.MusicBoxPirates);
 			}
-			shop.item[nextSlot++].SetDefaults(ItemID.MusicBoxEerie);
-			if (Main.hardMode)
+			if (NPC.downedMechBossAny)
 			{
-				shop.item[nextSlot++].SetDefaults(ItemID.MusicBoxEclipse);
-				shop.item[nextSlot++].SetDefaults(ItemID.MusicBoxGoblins);
-				shop.item[nextSlot++].SetDefaults(ItemID.MusicBoxPirates);
-				shop.item[nextSlot++].SetDefaults(ItemID.MusicBoxMartians);
+				forSale.Add(ItemID.MusicBoxEclipse);
+			}
+			if (NPC.downedMartians)
+			{
+				forSale.Add(ItemID.MusicBoxMartians);
 			}
 			if (NPC.downedHalloweenKing)
 			{
-				shop.item[nextSlot++].SetDefaults(ItemID.MusicBoxPumpkinMoon);
+				forSale.Add(ItemID.MusicBoxPumpkinMoon);
 			}
 			if (NPC.downedFrost)
 			{
-				shop.item[nextSlot++].SetDefaults(ItemID.MusicBoxFrostMoon);
+				forSale.Add(ItemID.MusicBoxFrostMoon);
 			}
 			if (NPC.downedTowerNebula || NPC.downedTowerSolar || NPC.downedTowerStardust || NPC.downedTowerVortex)
 			{
-				shop.item[nextSlot++].SetDefaults(ItemID.MusicBoxTowers);
+				forSale.Add(ItemID.MusicBoxTowers);
+			}
+			if (NPC.downedSlimeKing || NPC.downedBoss1 || NPC.downedBoss2 || NPC.downedBoss3 || NPC.downedMechBoss3 || NPC.downedFishron)
+			{
+				forSale.Add(ItemID.MusicBoxBoss1);
+			}
+			if (Main.hardMode || NPC.downedMechBoss1)
+			{
+				forSale.Add(ItemID.MusicBoxBoss2);
+			}
+			if (NPC.downedMechBoss2 || NPC.downedFrost || NPC.downedBoss2)
+			{
+				forSale.Add(ItemID.MusicBoxBoss3);
+			}
+			if (NPC.downedGolemBoss || NPC.downedAncientCultist)
+			{
+				forSale.Add(ItemID.MusicBoxBoss4);
+			}
+			if (NPC.downedQueenBee)
+			{
+				forSale.Add(ItemID.MusicBoxBoss5);
+			}
+			if (NPC.downedPlantBoss)
+			{
+				forSale.Add(ItemID.MusicBoxPlantera);
 			}
 			if (NPC.downedAncientCultist)
 			{
-				shop.item[nextSlot++].SetDefaults(ItemID.MusicBoxLunarBoss);
+				forSale.Add(ItemID.MusicBoxLunarBoss);
 			}
-			shop.item[nextSlot++].SetDefaults(ItemID.MusicBoxSandstorm);
-			shop.item[nextSlot++].SetDefaults(ItemID.MusicBoxDD2);
-			shop.item[nextSlot++].SetDefaults(ItemID.MusicBoxTitle);
+			if (NPC.downedMoonlord)
+			{
+				forSale.Add(ItemID.MusicBoxTitle);
+			}
+			foreach (short s in forSale)
+			{
+				shop.item[nextSlot++].SetDefaults(s);
+			}
 		}
 
 		public override string GetChat()
@@ -224,7 +236,7 @@ namespace EvanModpack.NPCs
 		public override void DrawTownAttackSwing(ref Texture2D item, ref int itemSize, ref float scale, ref Vector2 offset)
 		{
 			scale = 1f;
-			item = Main.itemTexture[ItemID.TerraBlade];
+			item = Main.itemTexture[ItemID.TheAxe];
 			itemSize = 56;
 		}
 
