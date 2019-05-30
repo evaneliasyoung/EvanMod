@@ -130,6 +130,10 @@ namespace EvanModpack.NPCs
 					{
 						shop.item[nextSlot++].SetDefaults(ItemID.ClothierVoodooDoll);
 					}
+					if (NPC.downedBoss3)
+					{
+						shop.item[nextSlot++].SetDefaults(ItemID.ClothierVoodooDoll);
+					}
 					if (Main.hardMode)
 					{
 						shop.item[nextSlot++].SetDefaults(ItemID.GuideVoodooDoll);
