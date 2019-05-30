@@ -4,7 +4,7 @@
 *
 *  @author    Evan Elias Young
 *  @date      2017-07-20
-*  @date      2019-05-29
+*  @date      2019-05-30
 *  @copyright Copyright 2017-2019 Evan Elias Young. All rights reserved.
 */
 
@@ -71,16 +71,10 @@ namespace EvanModpack.NPCs
 			switch (type)
 			{
 				case NPCID.ArmsDealer:
-					if (NPC.downedBoss2)
-					{
-						shop.item[nextSlot++].SetDefaults(ItemID.AmmoBox);
-					}
+					shop.item[nextSlot++].SetDefaults(ItemID.AmmoBox);
 					break;
 				case NPCID.Merchant:
-					if (NPC.downedBoss2)
-					{
-						shop.item[nextSlot++].SetDefaults(ItemID.SharpeningStation);
-					}
+					shop.item[nextSlot++].SetDefaults(ItemID.SharpeningStation);
 					if (Main.player[Main.myPlayer].statLifeMax > 400)
 					{
 						shop.item[7].SetDefaults(ItemID.SuperHealingPotion);
