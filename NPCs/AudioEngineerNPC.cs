@@ -4,7 +4,7 @@
 *
 *  @author    Evan Elias Young
 *  @date      2017-04-24
-*  @date      2019-04-20
+*  @date      2019-05-30
 *  @copyright Copyright 2017-2019 Evan Elias Young. All rights reserved.
 */
 
@@ -147,7 +147,7 @@ namespace EvanModpack.NPCs
 			{
 				shop.item[nextSlot++].SetDefaults(ItemID.MusicBoxTemple);
 			}
-			if (NPC.downedBoss1 || NPC.downedBoss2 | NPC.downedBoss3)
+			if (NPC.downedBoss1 || NPC.downedBoss2 || NPC.downedBoss3)
 			{
 				shop.item[nextSlot++].SetDefaults(ItemID.MusicBoxBoss1);
 			}
