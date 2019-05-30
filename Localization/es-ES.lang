@@ -2,6 +2,7 @@
 ItemName.AmberPhasesaber=Sable de Luz Ambarino
 ItemName.BloodSalts=Sales de Sangre
 ItemName.ButterflyKnife=Navaja
+ItemName.FrostburnBoots=Botas de la Quemadura del Hielo
 ItemName.GenocidePotion=Poción de Genocidio
 ItemName.GeorgeHat=Sombrero de Jorge
 ItemName.GeorgeSuit=Traje de Jorge
@@ -14,10 +15,11 @@ ItemName.YoyoGauntlet=Guantelete del Yoyó
 
 ItemTooltip.BloodSalts=Invoca una Luna de Sangre
 ItemTooltip.ButterflyKnife=¡Ese espía no es nuestro!\nTiene una {0}% posibilidad a mata al instante el blanco
+ItemTooltip.FrostburnBoots=Da al usario la abilidad mejorado de caminar sobre agua, hielo, bloques de fuego, y lava\nPermite el vuelo & el usario puede correr increíblemente rápido
 ItemTooltip.GenocidePotion=Extremadamente aumenta tasa de spawn de enemigo(7x)
 ItemTooltip.GeorgeHat="¡Oh mi!"
-ItemTooltip.GeorgeSuit="Oh mi!"
-ItemTooltip.GeorgePants="Oh mi!"
+ItemTooltip.GeorgeSuit="¡Oh mi!"
+ItemTooltip.GeorgePants="¡Oh mi!"
 ItemTooltip.PureDiggingClaw=Purificado de lo más oscuro del mal
 ItemTooltip.Slag=Los restos de varios metales que esperan ser refinados
 ItemTooltip.TravellersMap=Esta lugar me aparece muy familiar...

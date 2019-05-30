@@ -2,6 +2,7 @@
 ItemName.AmberPhasesaber=Amber Phasesaber
 ItemName.BloodSalts=Blood Salts
 ItemName.ButterflyKnife=Butterfly Knife
+ItemName.FrostburnBoots=Frostburn Boots
 ItemName.GenocidePotion=Genocide Potion
 ItemName.GeorgeHat=George's Hat
 ItemName.GeorgeSuit=George's Suit
@@ -14,6 +15,7 @@ ItemName.YoyoGauntlet=Yoyo Gauntlet
 
 ItemTooltip.BloodSalts=Summons a Blood Moon
 ItemTooltip.ButterflyKnife=That spy is not ours!\nHas a {0}% chance to instantly kill the target
+ItemTooltip.FrostburnBoots=Provides the enhanced ability to walk on water, ice, fire blocks, and lava\nAllows flight & the wearer can run incredibly fast
 ItemTooltip.GenocidePotion=Extremely increases enemy spawn rate (7x)
 ItemTooltip.GeorgeHat="Oh myyy!"
 ItemTooltip.GeorgeSuit="Oh myyy!"
