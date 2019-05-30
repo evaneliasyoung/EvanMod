@@ -105,7 +105,7 @@ namespace EvanModpack.NPCs
 					if (NPC.downedBoss3)
 					{
 						shop.item[nextSlot].SetDefaults(ItemID.HerbBag);
-						shop.item[nextSlot++].shopCustomPrice = Item.buyPrice(0, 5, 0, 0);
+						shop.item[nextSlot++].shopCustomPrice = Item.buyPrice(0, 1, 0, 0);
 					}
 					break;
 				case NPCID.Wizard:
