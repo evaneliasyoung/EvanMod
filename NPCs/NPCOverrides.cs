@@ -4,7 +4,7 @@
 *
 *  @author    Evan Elias Young
 *  @date      2017-07-20
-*  @date      2019-04-24
+*  @date      2019-05-30
 *  @copyright Copyright 2017-2019 Evan Elias Young. All rights reserved.
 */
 
@@ -25,7 +25,7 @@ namespace EvanModpack.NPCs
 			switch (npc.type)
 			{
 				case NPCID.WallofFlesh:
-					GenerateSlag();
+					// GenerateSlag();
 					return;
 			}
 			base.NPCLoot(npc);
@@ -34,7 +34,7 @@ namespace EvanModpack.NPCs
 		public void GenerateSlag()
 		{
 			int slagVeins = 45;
-			int slagLoop = (int)Math.Round((float)(Main.maxTilesY * slagVeins) / 6);
+			int slagLoop = (int)Math.Round((float)(Main.maxTilesY * slagVeins) / 9);
 			Main.NewText(Language.GetTextValue("Mods.EvanModpack.Misc.SlagEnter"), Utils.ChatColors.Info);
 
 			for (int i = 0; i < slagLoop; ++i)
@@ -53,13 +53,28 @@ namespace EvanModpack.NPCs
 			WorldGen.OreRunner(WorldGen.genRand.Next(minPos.X, maxPos.X), WorldGen.genRand.Next(minPos.Y, maxPos.Y), slagStrength, slagStep, (ushort)mod.TileType("SlagTile"));
 		}
 
+		public override void SetDefaults(NPC npc)
+		{
+			switch (npc.type)
+			{
+				case NPCID.SkeletonMerchant:
+					npc.rarity = 2;
+					break;
+			}
+			base.SetDefaults(npc);
+		}
+
 		public override void SetupShop(int type, Chest shop, ref int nextSlot)
 		{
 			List<string> clothierMaleBlood = new List<string> { "GeorgeHat", "GeorgeSuit", "GeorgePants" };
 
 			switch (type)
 			{
+				case NPCID.ArmsDealer:
+					shop.item[nextSlot++].SetDefaults(ItemID.AmmoBox);
+					break;
 				case NPCID.Merchant:
+					shop.item[nextSlot++].SetDefaults(ItemID.SharpeningStation);
 					if (Main.player[Main.myPlayer].statLifeMax > 400)
 					{
 						shop.item[7].SetDefaults(ItemID.SuperHealingPotion);
@@ -90,10 +105,11 @@ namespace EvanModpack.NPCs
 					if (NPC.downedBoss3)
 					{
 						shop.item[nextSlot].SetDefaults(ItemID.HerbBag);
-						shop.item[nextSlot++].shopCustomPrice = Item.buyPrice(0, 5, 0, 0);
+						shop.item[nextSlot++].shopCustomPrice = Item.buyPrice(0, 1, 0, 0);
 					}
 					break;
 				case NPCID.Wizard:
+					shop.item[nextSlot++].SetDefaults(ItemID.BewitchingTable);
 					if (Main.player[Main.myPlayer].statManaMax2 > 200)
 					{
 						shop.item[nextSlot++].SetDefaults(ItemID.SuperManaPotion);
@@ -109,6 +125,10 @@ namespace EvanModpack.NPCs
 					else if (Main.player[Main.myPlayer].statManaMax2 > 0)
 					{
 						shop.item[nextSlot++].SetDefaults(ItemID.LesserManaPotion);
+					}
+					if (NPC.downedBoss3)
+					{
+						shop.item[nextSlot++].SetDefaults(ItemID.ClothierVoodooDoll);
 					}
 					if (NPC.downedBoss3)
 					{

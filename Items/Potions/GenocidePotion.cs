@@ -4,7 +4,7 @@
 *
 *  @author    Evan Elias Young
 *  @date      2017-04-22
-*  @date      2019-04-22
+*  @date      2019-04-27
 *  @copyright Copyright 2017-2019 Evan Elias Young. All rights reserved.
 */
 
@@ -25,13 +25,13 @@ namespace EvanModpack.Items.Potions
 			base.SetDefaults();
 		}
 
-		public override void UseStyle(Player player)
+		public override bool UseItem(Player player)
 		{
 			if (player.itemTime == 0)
 			{
-				player.AddBuff(item.buffType, 4200, false);
+				player.AddBuff(item.buffType, Utils.FrameTime(7, 0), false);
 			}
-			base.UseStyle(player);
+			return base.UseItem(player);
 		}
 
 		public override void AddRecipes()

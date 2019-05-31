@@ -4,7 +4,7 @@
 *
 *  @author    Evan Elias Young
 *  @date      2017-04-23
-*  @date      2019-04-22
+*  @date      2019-05-30
 *  @copyright Copyright 2017-2019 Evan Elias Young. All rights reserved.
 */
 
@@ -21,7 +21,7 @@ namespace EvanModpack.Items.Accessories
 			item.width = 26;
 			item.height = 30;
 			item.value = Item.sellPrice(0, 10, 0, 0);
-			item.rare = 7;
+			item.rare = ItemRarityID.Lime;
 			item.accessory = true;
 			base.SetDefaults();
 		}

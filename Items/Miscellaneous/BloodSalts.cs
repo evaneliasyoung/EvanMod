@@ -26,7 +26,7 @@ namespace EvanModpack.Items.Miscellaneous
 			item.height = 40;
 			item.maxStack = 1;
 			item.value = Item.sellPrice(0, 0, 0, 0);
-			item.rare = 0;
+			item.rare = ItemRarityID.White;
 			item.useAnimation = 30;
 			item.useTime = 44;
 			item.useStyle = 4;

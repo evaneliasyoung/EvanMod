@@ -4,7 +4,7 @@
 *
 *  @author    Evan Elias Young
 *  @date      2019-04-20
-*  @date      2019-04-20
+*  @date      2019-05-08
 *  @copyright Copyright 2017-2019 Evan Elias Young. All rights reserved.
 */
 
@@ -94,6 +94,13 @@ namespace EvanModpack
 			cascadeRecipe.AddTile(TileID.Anvils);
 			cascadeRecipe.SetResult(ItemID.Cascade);
 			cascadeRecipe.AddRecipe();
+
+			// Bone Wand Recipe
+			ModRecipe wandRecipe = new ModRecipe(EvanModpack.Instance);
+			wandRecipe.AddIngredient(ItemID.Bone, 25);
+			wandRecipe.AddTile(TileID.BoneWelder);
+			wandRecipe.SetResult(ItemID.BoneWand);
+			wandRecipe.AddRecipe();
 		}
 
 		public static void AddMiscellaneousRecipes()
@@ -105,6 +112,23 @@ namespace EvanModpack
 			lifeFruitRecipe.AddTile(TileID.MythrilAnvil);
 			lifeFruitRecipe.SetResult(ItemID.LifeFruit);
 			lifeFruitRecipe.AddRecipe();
+
+			// Gold Chest Recipe
+			ModRecipe goldChestRecipe = new ModRecipe(EvanModpack.Instance);
+			goldChestRecipe.AddIngredient(ItemID.GoldBar, 8);
+			goldChestRecipe.AddIngredient(ItemID.IronBar, 2);
+			goldChestRecipe.AddTile(TileID.Anvils);
+			goldChestRecipe.SetResult(ItemID.GoldChest);
+			goldChestRecipe.AddRecipe();
+
+			// Pirate Map Recipe
+			ModRecipe pirateMapRecipe = new ModRecipe(EvanModpack.Instance);
+			pirateMapRecipe.AddIngredient(ItemID.Sail, 10);
+			pirateMapRecipe.AddIngredient(ItemID.Cannonball);
+			pirateMapRecipe.AddIngredient(ItemID.GoldBar, 5);
+			pirateMapRecipe.AddTile(TileID.DemonAltar);
+			pirateMapRecipe.SetResult(ItemID.PirateMap);
+			pirateMapRecipe.AddRecipe();
 
 			// Gems' Setup
 			List<int> gems = new List<int> { ItemID.Diamond, ItemID.Ruby, ItemID.Emerald, ItemID.Sapphire, ItemID.Topaz, ItemID.Amethyst };

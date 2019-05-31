@@ -4,7 +4,7 @@
 *
 *  @author    Evan Elias Young
 *  @date      2017-07-20
-*  @date      2019-04-22
+*  @date      2019-05-30
 *  @copyright Copyright 2017-2019 Evan Elias Young. All rights reserved.
 */
 
@@ -27,7 +27,7 @@ namespace EvanModpack.Items.Weapons
 			item.useStyle = 1;
 			item.knockBack = 4;
 			item.value = Item.sellPrice(0, 0, 78, 0);
-			item.rare = 2;
+			item.rare = ItemRarityID.Green;
 			item.UseSound = SoundID.Item15;
 			base.SetDefaults();
 		}

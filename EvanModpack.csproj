@@ -1,4 +1,4 @@
-﻿<?xml version="1.0" encoding="utf-8"?>
+<?xml version="1.0" encoding="utf-8"?>
 <Project ToolsVersion="14.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <Import Project="$(MSBuildExtensionsPath)$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)$(MSBuildToolsVersion)\Microsoft.Common.props')" />
   <PropertyGroup>
@@ -37,6 +37,7 @@
     <Compile Include="Buffs\GenocideBuff.cs" />
     <Compile Include="Buffs\WarBuff.cs" />
     <Compile Include="EvanModpack.cs" />
+    <Compile Include="Items\Accessories\FrostburnBoots.cs" />
     <Compile Include="Items\Accessories\YoyoGauntlet.cs" />
     <Compile Include="Items\Armor\GeorgeHat.cs" />
     <Compile Include="Items\Armor\GeorgePants.cs" />
@@ -47,6 +48,7 @@
     <Compile Include="Items\Blocks\Slag.cs" />
     <Compile Include="Items\Potions\GenocidePotion.cs" />
     <Compile Include="Items\Potions\WarPotion.cs" />
+    <Compile Include="Projectiles\MoltenShot.cs" />
     <Compile Include="Items\Weapons\AmberPhaseblade.cs" />
     <Compile Include="Items\Weapons\AmberPhasesaber.cs" />
     <Compile Include="Items\Weapons\ButterflyKnife.cs" />
@@ -102,6 +104,7 @@
     <Content Include="Items\Weapons\AmberPhasesaber.png" />
     <Content Include="Items\Weapons\ButterflyKnife.png" />
     <Content Include="Items\Tools\PureDiggingClaw.png" />
+    <Content Include="Projectiles\MoltenShot.png" />
     <Content Include="Tiles\SlagTile.png" />
     <Content Include="Localization\en-US.lang" />
     <Content Include="Localization\es-ES.lang" />
