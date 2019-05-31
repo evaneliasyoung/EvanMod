@@ -4,7 +4,7 @@
 *
 *  @author    Evan Elias Young
 *  @date      2017-04-24
-*  @date      2019-04-22
+*  @date      2019-05-30
 *  @copyright Copyright 2017-2019 Evan Elias Young. All rights reserved.
 */
 
@@ -24,7 +24,7 @@ namespace EvanModpack.Items.Tools
 			item.width = 34;
 			item.height = 32;
 			item.value = Item.sellPrice(0, 4, 50, 0);
-			item.rare = 8;
+			item.rare = ItemRarityID.Yellow;
 			item.damage = 50;
 			item.pick = 220;
 			item.axe = 130 / 5;

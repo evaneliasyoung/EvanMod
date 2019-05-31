@@ -4,7 +4,7 @@
 *
 *  @author    Evan Elias Young
 *  @date      2019-04-16
-*  @date      2019-04-22
+*  @date      2019-05-30
 *  @copyright Copyright 2017-2019 Evan Elias Young. All rights reserved.
 */
 
@@ -26,7 +26,7 @@ namespace EvanModpack.Items.Miscellaneous
 			item.height = 40;
 			item.maxStack = 1;
 			item.value = Item.sellPrice(0, 20, 0, 0);
-			item.rare = -12;
+			item.rare = ItemRarityID.Expert;
 			item.useAnimation = 30;
 			item.useTime = 30;
 			item.useStyle = 4;
