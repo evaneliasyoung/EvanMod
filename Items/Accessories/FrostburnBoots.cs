@@ -1,6 +1,6 @@
 ﻿/**
 *  @file      FrostburnBoots.cs
-*  @brief     Adds successor to the frostspark boots and lava waders.
+*  @brief     Adds a successor to the frostspark boots and lava waders.
 *
 *  @author    Evan Elias Young
 *  @date      2019-05-30
@@ -14,22 +14,28 @@ using Terraria.ModLoader;
 
 namespace EvanModpack.Items.Accessories
 {
-	class FrostburnBoots : ModItem
+	[AutoloadEquip(EquipType.Shoes)]
+	internal class FrostburnBoots : ModItem
 	{
 		public override void SetDefaults()
 		{
-			//item.width = 26;
-			//item.height = 30;
+			item.width = 36;
+			item.height = 28;
 			item.value = Item.sellPrice(0, 12, 50, 0);
-			item.rare = 8;
+			item.rare = ItemRarityID.Lime;
 			item.accessory = true;
 			base.SetDefaults();
 		}
 
 		public override void UpdateAccessory(Player player, bool hideVisual)
 		{
-			player.waterWalk2 = true;
+			player.accRunSpeed = 6.75f;
+			player.rocketBoots = 3;
+			player.moveSpeed += 0.08f;
+			player.waterWalk = true;
 			player.fireWalk = true;
+			player.lavaMax += Utils.FrameTime(7);
+			player.iceSkate = true;
 			base.UpdateAccessory(player, hideVisual);
 		}
 
