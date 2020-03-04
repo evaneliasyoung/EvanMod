@@ -4,8 +4,8 @@
 *
 *  @author    Evan Elias Young
 *  @date      2017-04-24
-*  @date      2019-05-30
-*  @copyright Copyright 2017-2019 Evan Elias Young. All rights reserved.
+*  @date      2020-03-04
+*  @copyright Copyright 2017-2020 Evan Elias Young. All rights reserved.
 */
 
 using Microsoft.Xna.Framework;
@@ -17,7 +17,7 @@ using Terraria.Localization;
 using Terraria.ModLoader;
 using Terraria.Utilities;
 
-namespace EvanModpack.NPCs
+namespace EvanMod.NPCs
 {
 	internal class AudioEngineerNPC : ModNPC
 	{
@@ -218,11 +218,11 @@ namespace EvanModpack.NPCs
 
 			if (NPC.FindFirstNPC(NPCID.DyeTrader) != -1)
 			{
-				chat.Add(Language.GetTextValue("Mods.EvanModpack.NPCDialog.AudioEngineer0", Main.npc[NPC.FindFirstNPC(NPCID.DyeTrader)].GivenName));
+				chat.Add(Language.GetTextValue("Mods.EvanMod.NPCDialog.AudioEngineer0", Main.npc[NPC.FindFirstNPC(NPCID.DyeTrader)].GivenName));
 			}
 			for (int i = 1; i < 7; ++i)
 			{
-				chat.Add(Language.GetText(string.Format("Mods.EvanModpack.NPCDialog.AudioEngineer{0}", i)).Value);
+				chat.Add(Language.GetText(string.Format("Mods.EvanMod.NPCDialog.AudioEngineer{0}", i)).Value);
 			}
 			return chat;
 		}

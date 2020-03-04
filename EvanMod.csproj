@@ -36,7 +36,7 @@
   <ItemGroup>
     <Compile Include="Buffs\GenocideBuff.cs" />
     <Compile Include="Buffs\WarBuff.cs" />
-    <Compile Include="EvanModpack.cs" />
+    <Compile Include="EvanMod.cs" />
     <Compile Include="Items\Accessories\FrostburnBoots.cs" />
     <Compile Include="Items\Accessories\YoyoGauntlet.cs" />
     <Compile Include="Items\Armor\GeorgeHat.cs" />

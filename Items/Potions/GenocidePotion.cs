@@ -4,15 +4,15 @@
 *
 *  @author    Evan Elias Young
 *  @date      2017-04-22
-*  @date      2019-04-27
-*  @copyright Copyright 2017-2019 Evan Elias Young. All rights reserved.
+*  @date      2020-03-04
+*  @copyright Copyright 2017-2020 Evan Elias Young. All rights reserved.
 */
 
 using Terraria;
 using Terraria.ID;
 using Terraria.ModLoader;
 
-namespace EvanModpack.Items.Potions
+namespace EvanMod.Items.Potions
 {
 	internal class GenocidePotion : ModItem
 	{
@@ -39,8 +39,8 @@ namespace EvanModpack.Items.Potions
 			ModRecipe recipe = new ModRecipe(mod);
 			recipe.AddIngredient(ItemID.BottledWater, 1);
 			recipe.AddIngredient(ItemID.Deathweed, 1);
-			recipe.AddRecipeGroup("EvanModpack:EvilPowder", 5);
-			recipe.AddRecipeGroup("EvanModpack:EvilGuts", 2);
+			recipe.AddRecipeGroup("EvanMod:EvilPowder", 5);
+			recipe.AddRecipeGroup("EvanMod:EvilGuts", 2);
 			recipe.AddTile(TileID.Bottles);
 			recipe.SetResult(this);
 			recipe.AddRecipe();

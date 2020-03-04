@@ -4,8 +4,8 @@
 *
 *  @author    Evan Elias Young
 *  @date      2017-04-23
-*  @date      2019-04-16
-*  @copyright Copyright 2017-2019 Evan Elias Young. All rights reserved.
+*  @date      2020-03-04
+*  @copyright Copyright 2017-2020 Evan Elias Young. All rights reserved.
 */
 
 using Microsoft.Xna.Framework;
@@ -14,7 +14,7 @@ using Terraria;
 using Terraria.ID;
 using Terraria.ModLoader;
 
-namespace EvanModpack
+namespace EvanMod
 {
 	public class ModdedPlayer : ModPlayer
 	{

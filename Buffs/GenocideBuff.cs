@@ -4,15 +4,15 @@
 *
 *  @author    Evan Elias Young
 *  @date      2017-04-22
-*  @date      2019-05-30
-*  @copyright Copyright 2017-2019 Evan Elias Young. All rights reserved.
+*  @date      2020-03-04
+*  @copyright Copyright 2017-2020 Evan Elias Young. All rights reserved.
 */
 
 using Terraria;
 using Terraria.Localization;
 using Terraria.ModLoader;
 
-namespace EvanModpack.Buffs
+namespace EvanMod.Buffs
 {
 	internal class GenocideBuff : ModBuff
 	{

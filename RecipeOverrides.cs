@@ -4,8 +4,8 @@
 *
 *  @author    Evan Elias Young
 *  @date      2019-04-20
-*  @date      2019-05-08
-*  @copyright Copyright 2017-2019 Evan Elias Young. All rights reserved.
+*  @date      2020-03-04
+*  @copyright Copyright 2017-2020 Evan Elias Young. All rights reserved.
 */
 
 using System.Collections.Generic;
@@ -14,7 +14,7 @@ using Terraria.ID;
 using Terraria.Localization;
 using Terraria.ModLoader;
 
-namespace EvanModpack
+namespace EvanMod
 {
 	internal static class RecipeOverrides
 	{
@@ -26,7 +26,7 @@ namespace EvanModpack
 				ItemID.ViciousPowder,
 				ItemID.VilePowder
 			});
-			RecipeGroup.RegisterGroup("EvanModpack:EvilPowder", GroupPowder);
+			RecipeGroup.RegisterGroup("EvanMod:EvilPowder", GroupPowder);
 
 			// Evil Guts Group
 			RecipeGroup GroupGuts = new RecipeGroup(() => string.Format("{0} Evil Guts", Language.GetText("LegacyMisc.37").Value), new int[2]
@@ -34,7 +34,7 @@ namespace EvanModpack
 				ItemID.RottenChunk,
 				ItemID.Vertebrae
 			});
-			RecipeGroup.RegisterGroup("EvanModpack:EvilGuts", GroupGuts);
+			RecipeGroup.RegisterGroup("EvanMod:EvilGuts", GroupGuts);
 
 			// Gem Group
 			RecipeGroup GroupGem = new RecipeGroup(() => string.Format("{0} Gem", Language.GetText("LegacyMisc.37").Value), new int[6]
@@ -46,7 +46,7 @@ namespace EvanModpack
 				ItemID.Topaz,
 				ItemID.Amethyst
 			});
-			RecipeGroup.RegisterGroup("EvanModpack:GroupGem", GroupGem);
+			RecipeGroup.RegisterGroup("EvanMod:GroupGem", GroupGem);
 		}
 
 		public static void AddFoodRecipes()
@@ -137,7 +137,7 @@ namespace EvanModpack
 			gems.ForEach(gem =>
 			{
 				ModRecipe gemRecipe = new ModRecipe(EvanModpack.Instance);
-				gemRecipe.AddRecipeGroup("EvanModpack:GroupGem", 1);
+				gemRecipe.AddRecipeGroup("EvanMod:GroupGem", 1);
 				gemRecipe.AddTile(TileID.MythrilAnvil);
 				gemRecipe.SetResult(gem);
 				gemRecipe.AddRecipe();

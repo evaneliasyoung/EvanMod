@@ -4,15 +4,15 @@
 *
 *  @author    Evan Elias Young
 *  @date      2017-07-21
-*  @date      2019-04-24
-*  @copyright Copyright 2017-2019 Evan Elias Young. All rights reserved.
+*  @date      2020-03-04
+*  @copyright Copyright 2017-2020 Evan Elias Young. All rights reserved.
 */
 
 using Terraria;
 using Terraria.Localization;
 using Terraria.ModLoader;
 
-namespace EvanModpack.Tiles
+namespace EvanMod.Tiles
 {
 	internal class SlagTile : ModTile
 	{
@@ -24,7 +24,7 @@ namespace EvanModpack.Tiles
 			minPick = 110;
 			mineResist = 2.5f;
 			drop = mod.ItemType("Slag");
-			AddMapEntry(Utils.SlagColor, Language.GetText("Mods.EvanModpack.ItemName.Slag"));
+			AddMapEntry(Utils.SlagColor, Language.GetText("Mods.EvanMod.ItemName.Slag"));
 			base.SetDefaults();
 		}
 

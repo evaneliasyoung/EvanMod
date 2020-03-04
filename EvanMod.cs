@@ -1,16 +1,16 @@
 /**
-*  @file      EvanModpack.cs
+*  @file      EvanMod.cs
 *  @brief     The main entry point for the modpack.
 *
 *  @author    Evan Elias Young
 *  @date      2017-04-22
 *  @date      2019-04-24
-*  @copyright Copyright 2017-2019 Evan Elias Young. All rights reserved.
+*  @copyright Copyright 2017-2020 Evan Elias Young. All rights reserved.
 */
 
 using Terraria.ModLoader;
 
-namespace EvanModpack
+namespace EvanMod
 {
 	internal class EvanModpack : Mod
 	{
@@ -33,7 +33,7 @@ namespace EvanModpack
 
 		#region Hamstar's Mod Helpers integration
 		public static string GithubUserName => "evaneliasyoung";
-		public static string GithubProjectName => "EvanModpack";
+		public static string GithubProjectName => "EvanMod";
 		#endregion
 	}
 }
