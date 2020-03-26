@@ -4,7 +4,7 @@
 *
 *  @author    Evan Elias Young
 *  @date      2017-04-22
-*  @date      2020-03-04
+*  @date      2020-03-25
 *  @copyright Copyright 2017-2020 Evan Elias Young. All rights reserved.
 */
 
@@ -16,6 +16,9 @@ namespace EvanMod.Items.Potions
 {
 	internal class GenocidePotion : ModItem
 	{
+		/// <summary>
+		/// Set the specific item data.
+		/// </summary>
 		public override void SetDefaults()
 		{
 			item.CloneDefaults(ItemID.BattlePotion);
@@ -25,6 +28,11 @@ namespace EvanMod.Items.Potions
 			base.SetDefaults();
 		}
 
+		/// <summary>
+		/// Adds the buff to the player using the potion.
+		/// </summary>
+		/// <param name="player">The player using the potion.</param>
+		/// <returns>If the buff was added to the player.</returns>
 		public override bool UseItem(Player player)
 		{
 			if (player.itemTime == 0)
@@ -34,6 +42,9 @@ namespace EvanMod.Items.Potions
 			return base.UseItem(player);
 		}
 
+		/// <summary>
+		/// Adds the crafting recipes to the item.
+		/// </summary>
 		public override void AddRecipes()
 		{
 			ModRecipe recipe = new ModRecipe(mod);

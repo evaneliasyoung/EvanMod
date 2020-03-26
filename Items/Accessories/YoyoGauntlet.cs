@@ -4,7 +4,7 @@
 *
 *  @author    Evan Elias Young
 *  @date      2017-04-23
-*  @date      2020-03-04
+*  @date      2020-03-25
 *  @copyright Copyright 2017-2020 Evan Elias Young. All rights reserved.
 */
 
@@ -16,6 +16,9 @@ namespace EvanMod.Items.Accessories
 {
 	internal class YoyoGauntlet : ModItem
 	{
+		/// <summary>
+		/// Set the specific item data.
+		/// </summary>
 		public override void SetDefaults()
 		{
 			item.width = 26;
@@ -26,6 +29,14 @@ namespace EvanMod.Items.Accessories
 			base.SetDefaults();
 		}
 
+		/// <summary>
+		/// Overrides the base-game's implementation of an npc hit.
+		/// </summary>
+		/// <param name="player">The player inflicting the hit.</param>
+		/// <param name="target">The npc receiving the hit.</param>
+		/// <param name="damage">The base damage from the hit.</param>
+		/// <param name="knockBack">The base knockback from the hit.</param>
+		/// <param name="crit">Whehter or not the hit was a critical hit.</param>
 		public override void ModifyHitNPC(Player player, NPC target, ref int damage, ref float knockBack, ref bool crit)
 		{
 			target.AddBuff(BuffID.OnFire, 180);
@@ -33,6 +44,11 @@ namespace EvanMod.Items.Accessories
 			base.ModifyHitNPC(player, target, ref damage, ref knockBack, ref crit);
 		}
 
+		/// <summary>
+		/// Updates the player's stats when the accessory is equipped.
+		/// </summary>
+		/// <param name="player">The player equipping the accessory.</param>
+		/// <param name="hideVisual">Whether or not to hide the accessory.</param>
 		public override void UpdateAccessory(Player player, bool hideVisual)
 		{
 			ModdedPlayer modPlayer = player.GetModPlayer<ModdedPlayer>(mod);
@@ -44,6 +60,9 @@ namespace EvanMod.Items.Accessories
 			base.UpdateAccessory(player, hideVisual);
 		}
 
+		/// <summary>
+		/// Adds the crafting recipes to the item.
+		/// </summary>
 		public override void AddRecipes()
 		{
 			ModRecipe recipe = new ModRecipe(mod);

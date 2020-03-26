@@ -4,7 +4,7 @@
 *
 *  @author    Evan Elias Young
 *  @date      2017-07-21
-*  @date      2020-03-04
+*  @date      2020-03-25
 *  @copyright Copyright 2017-2020 Evan Elias Young. All rights reserved.
 */
 
@@ -17,12 +17,18 @@ namespace EvanMod.Items.Blocks
 {
 	internal class Slag : ModItem
 	{
+		/// <summary>
+		/// Set the specific item data that does not change.
+		/// </summary>
 		public override void SetStaticDefaults()
 		{
 			ItemID.Sets.ExtractinatorMode[item.type] = item.type;
 			base.SetStaticDefaults();
 		}
 
+		/// <summary>
+		/// Set the specific item data.
+		/// </summary>
 		public override void SetDefaults()
 		{
 			item.width = 16;
@@ -39,9 +45,13 @@ namespace EvanMod.Items.Blocks
 
 		public override void ExtractinatorUse(ref int resultType, ref int resultStack)
 		{
+			// The list of ores that slag can produce.
 			List<short> listOres = new List<short> { ItemID.CobaltOre, ItemID.PalladiumOre, ItemID.MythrilOre, ItemID.OrichalcumOre, ItemID.AdamantiteOre, ItemID.TitaniumOre };
+			// The list of gems that slag can produce.
 			List<short> listGems = new List<short> { ItemID.Sapphire, ItemID.Ruby, ItemID.Emerald, ItemID.Topaz, ItemID.Amethyst, ItemID.Diamond, ItemID.Amber };
+			// The generated percent.
 			double percent = Main.rand.NextDouble();
+			// The maximum stack for anything from slag.
 			int mx = 16;
 
 			if (percent <= 0.2000)

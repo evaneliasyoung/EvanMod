@@ -4,7 +4,7 @@
 *
 *  @author    Evan Elias Young
 *  @date      2017-04-22
-*  @date      2020-03-04
+*  @date      2020-03-25
 *  @copyright Copyright 2017-2020 Evan Elias Young. All rights reserved.
 */
 
@@ -16,6 +16,9 @@ namespace EvanMod.Buffs
 {
 	internal class WarBuff : ModBuff
 	{
+		/// <summary>
+		/// Set the specific item data.
+		/// </summary>
 		public override void SetDefaults()
 		{
 			DisplayName.SetDefault("War");
@@ -34,7 +37,7 @@ namespace EvanMod.Buffs
 			private static readonly float mult = 4f;
 			public override void EditSpawnRate(Player player, ref int spawnRate, ref int maxSpawns)
 			{
-				if (player.FindBuffIndex(mod.BuffType("WarBuff")) > 0)
+				if (player.FindBuffIndex(mod.BuffType("GenocideBuff")) > 0)
 				{
 					spawnRate = (int)(spawnRate / mult);
 					maxSpawns = (int)(maxSpawns * mult);

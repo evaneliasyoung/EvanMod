@@ -4,7 +4,7 @@
 *
 *  @author    Evan Elias Young
 *  @date      2019-05-30
-*  @date      2020-03-04
+*  @date      2020-03-25
 *  @copyright Copyright 2017-2020 Evan Elias Young. All rights reserved.
 */
 
@@ -17,6 +17,9 @@ namespace EvanMod.Items.Accessories
 	[AutoloadEquip(EquipType.Shoes)]
 	internal class FrostburnBoots : ModItem
 	{
+		/// <summary>
+		/// Set the specific item data.
+		/// </summary>
 		public override void SetDefaults()
 		{
 			item.width = 36;
@@ -27,6 +30,11 @@ namespace EvanMod.Items.Accessories
 			base.SetDefaults();
 		}
 
+		/// <summary>
+		/// Updates the player's stats when the accessory is equipped.
+		/// </summary>
+		/// <param name="player">The player equipping the accessory.</param>
+		/// <param name="hideVisual">Whether or not to hide the accessory.</param>
 		public override void UpdateAccessory(Player player, bool hideVisual)
 		{
 			player.accRunSpeed = 6.75f;
@@ -39,6 +47,9 @@ namespace EvanMod.Items.Accessories
 			base.UpdateAccessory(player, hideVisual);
 		}
 
+		/// <summary>
+		/// Adds the crafting recipes to the item.
+		/// </summary>
 		public override void AddRecipes()
 		{
 			ModRecipe recipe = new ModRecipe(mod);

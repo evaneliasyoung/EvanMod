@@ -4,7 +4,7 @@
 *
 *  @author    Evan Elias Young
 *  @date      2017-07-17
-*  @date      2020-03-04
+*  @date      2020-03-25
 *  @copyright Copyright 2017-2020 Evan Elias Young. All rights reserved.
 */
 
@@ -16,8 +16,12 @@ namespace EvanMod.Items.Weapons
 {
 	internal class ButterflyKnife : ModItem
 	{
-		public const int InstantKillChance = 1;
+		// The percent chance for an instant kill.
+		public const int INSTANT_KILL_CHANCE = 1;
 
+		/// <summary>
+		/// Set the specific item data.
+		/// </summary>
 		public override void SetDefaults()
 		{
 			item.damage = 18;
@@ -35,6 +39,9 @@ namespace EvanMod.Items.Weapons
 			base.SetDefaults();
 		}
 
+		/// <summary>
+		/// Adds the crafting recipes to the item.
+		/// </summary>
 		public override void AddRecipes()
 		{
 			ModRecipe recipe = new ModRecipe(mod);
@@ -44,9 +51,17 @@ namespace EvanMod.Items.Weapons
 			recipe.AddRecipe();
 		}
 
+		/// <summary>
+		/// Overrides the base-game's implementation of an npc hit.
+		/// </summary>
+		/// <param name="player">The player inflicting the hit.</param>
+		/// <param name="target">The npc receiving the hit.</param>
+		/// <param name="damage">The base damage from the hit.</param>
+		/// <param name="knockBack">The base knockback from the hit.</param>
+		/// <param name="crit">Whehter or not the hit was a critical hit.</param>
 		public override void OnHitNPC(Player player, NPC target, int damage, float knockBack, bool crit)
 		{
-			if (Main.rand.Next(1, 100) <= InstantKillChance)
+			if (Main.rand.Next(1, 100) <= INSTANT_KILL_CHANCE)
 			{
 				item.damage = 217500;
 			}

@@ -4,7 +4,7 @@
 *
 *  @author    Evan Elias Young
 *  @date      2017-07-20
-*  @date      2020-03-04
+*  @date      2020-03-25
 *  @copyright Copyright 2017-2020 Evan Elias Young. All rights reserved.
 */
 
@@ -16,6 +16,9 @@ namespace EvanMod.Items.Weapons
 {
 	internal class AmberPhasesaber : ModItem
 	{
+		/// <summary>
+		/// Set the specific item data.
+		/// </summary>
 		public override void SetDefaults()
 		{
 			item.damage = 50;
@@ -33,6 +36,9 @@ namespace EvanMod.Items.Weapons
 			base.SetDefaults();
 		}
 
+		/// <summary>
+		/// Adds the crafting recipes to the item.
+		/// </summary>
 		public override void AddRecipes()
 		{
 			ModRecipe recipe = new ModRecipe(mod);

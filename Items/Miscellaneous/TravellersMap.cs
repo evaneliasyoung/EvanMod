@@ -4,7 +4,7 @@
 *
 *  @author    Evan Elias Young
 *  @date      2019-04-16
-*  @date      2020-03-04
+*  @date      2020-03-25
 *  @copyright Copyright 2017-2020 Evan Elias Young. All rights reserved.
 */
 
@@ -73,6 +73,7 @@ namespace EvanMod.Items.Miscellaneous
 		/// <param name="pos">The point on the map.</param>
 		public static void RevealAroundPoint(Point pos)
 		{
+			// The map size divided by two, start from the center and move outward.
 			int halfMap = Utils.MapRevealSize / 2;
 
 			for (int i = pos.X - halfMap; i < pos.X + halfMap; ++i)

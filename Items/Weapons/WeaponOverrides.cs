@@ -4,7 +4,7 @@
 *
 *  @author    Evan Elias Young
 *  @date      2019-04-20
-*  @date      2020-03-04
+*  @date      2020-03-25
 *  @copyright Copyright 2017-2020 Evan Elias Young. All rights reserved.
 */
 
@@ -36,13 +36,25 @@ namespace EvanMod.Items.Weapons
 			}
 		}
 
+		/// <summary>
+		/// Overrides the shoot mechanic from the base-game.
+		/// </summary>
+		/// <param name="item">The source of the bullet.</param>
+		/// <param name="player">The player that shot the bullet.</param>
+		/// <param name="position">The current position of the bullet.</param>
+		/// <param name="speedX">The x-component of the speed.</param>
+		/// <param name="speedY">The y-component of the speed.</param>
+		/// <param name="type">The type of bullet.</param>
+		/// <param name="damage">The base-damage from the bullet.</param>
+		/// <param name="knockBack">The base-knockback from the bullet.</param>
+		/// <returns>Whether the bullet was shot?</returns>
 		public override bool Shoot(Item item, Player player, ref Vector2 position, ref float speedX, ref float speedY, ref int type, ref int damage, ref float knockBack)
 		{
 			switch (item.type)
 			{
 				case ItemID.PhoenixBlaster:
 					if (type == ProjectileID.Bullet)
-					{
+					{ // Default musket balls, so make it a molten shot.
 						type = mod.ProjectileType("MoltenShot");
 					}
 					break;

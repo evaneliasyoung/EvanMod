@@ -4,7 +4,7 @@
 *
 *  @author    Evan Elias Young
 *  @date      2019-04-20
-*  @date      2020-03-04
+*  @date      2020-03-25
 *  @copyright Copyright 2017-2020 Evan Elias Young. All rights reserved.
 */
 
@@ -18,6 +18,9 @@ namespace EvanMod
 {
 	internal static class RecipeOverrides
 	{
+		/// <summary>
+		/// Creates new recipe groups.
+		/// </summary>
 		public static void AddRecipeGroups()
 		{
 			// Evil Powder Group
@@ -49,9 +52,12 @@ namespace EvanMod
 			RecipeGroup.RegisterGroup("EvanMod:GroupGem", GroupGem);
 		}
 
+		/// <summary>
+		/// Creates new food recipes.
+		/// </summary>
 		public static void AddFoodRecipes()
 		{
-			// Pad Recipe
+			// Pad Thai Recipe
 			ModRecipe padRecipe = new ModRecipe(EvanModpack.Instance);
 			padRecipe.AddIngredient(ItemID.Blinkroot, 2);
 			padRecipe.AddIngredient(ItemID.RottenChunk, 2);
@@ -69,6 +75,9 @@ namespace EvanMod
 			phoRecipe.AddRecipe();
 		}
 
+		/// <summary>
+		/// Creates new accessory recipes.
+		/// </summary>
 		public static void AddAccessoryRecipes()
 		{
 			// Black Belt Recipe
@@ -86,6 +95,9 @@ namespace EvanMod
 			tabiRecipe.AddRecipe();
 		}
 
+		/// <summary>
+		/// Creates new weapon recipes.
+		/// </summary>
 		public static void AddWeaponRecipes()
 		{
 			// Cascade Recipe
@@ -103,6 +115,9 @@ namespace EvanMod
 			wandRecipe.AddRecipe();
 		}
 
+		/// <summary>
+		/// Creates all other recipes.
+		/// </summary>
 		public static void AddMiscellaneousRecipes()
 		{
 			// Life Fruit Recipe
@@ -169,6 +184,9 @@ namespace EvanMod
 			}
 		}
 
+		/// <summary>
+		/// Creates all new recipes.
+		/// </summary>
 		public static void AddAllRecipes()
 		{
 			AddFoodRecipes();

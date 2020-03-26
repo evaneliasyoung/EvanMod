@@ -18,6 +18,9 @@ namespace EvanMod.Projectiles
 {
 	internal class MoltenShot : ModProjectile
 	{
+		/// <summary>
+		/// Set the specific item data that does not change.
+		/// </summary>
 		public override void SetStaticDefaults()
 		{
 			DisplayName.SetDefault("Molten Shot");
@@ -25,6 +28,9 @@ namespace EvanMod.Projectiles
 			ProjectileID.Sets.TrailingMode[projectile.type] = 0;
 		}
 
+		/// <summary>
+		/// Set the specific item data.
+		/// </summary>
 		public override void SetDefaults()
 		{
 			projectile.width = 2;
@@ -43,12 +49,25 @@ namespace EvanMod.Projectiles
 			aiType = ProjectileID.Bullet;
 		}
 
+		/// <summary>
+		/// Overrides the base-game's implementation of an npc hit.
+		/// </summary>
+		/// <param name="target">The npc receiving the hit.</param>
+		/// <param name="damage">The base damage from the hit.</param>
+		/// <param name="knockBack">The base knockback from the hit.</param>
+		/// <param name="crit">Whehter or not the hit was a critical hit.</param>
 		public override void OnHitNPC(NPC target, int damage, float knockback, bool crit)
 		{
 			target.AddBuff(BuffID.OnFire, Utils.FrameTime(9));
 			base.OnHitNPC(target, damage, knockback, crit);
 		}
 
+		/// <summary>
+		/// Handles the setup for drawing the bullet.
+		/// </summary>
+		/// <param name="spriteBatch">The sprite collection.</param>
+		/// <param name="lightColor">The light effect's color.</param>
+		/// <returns></returns>
 		public override bool PreDraw(SpriteBatch spriteBatch, Color lightColor)
 		{
 			Vector2 drawOrigin = new Vector2(Main.projectileTexture[projectile.type].Width * 0.5f, projectile.height * 0.5f);
@@ -61,6 +80,10 @@ namespace EvanMod.Projectiles
 			return true;
 		}
 
+		/// <summary>
+		/// Handles destroying the bullet.
+		/// </summary>
+		/// <param name="timeLeft">The time left in the bullet's life.</param>
 		public override void Kill(int timeLeft)
 		{
 			Collision.HitTiles(projectile.position + projectile.velocity, projectile.velocity, projectile.width, projectile.height);

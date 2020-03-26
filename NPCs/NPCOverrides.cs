@@ -4,7 +4,7 @@
 *
 *  @author    Evan Elias Young
 *  @date      2017-07-20
-*  @date      2020-03-04
+*  @date      2020-03-25
 *  @copyright Copyright 2017-2020 Evan Elias Young. All rights reserved.
 */
 
@@ -25,6 +25,7 @@ namespace EvanMod.NPCs
 			switch (npc.type)
 			{
 				case NPCID.WallofFlesh:
+					// FIX: Slag generation seems broken.
 					// GenerateSlag();
 					return;
 			}
@@ -53,6 +54,10 @@ namespace EvanMod.NPCs
 			WorldGen.OreRunner(WorldGen.genRand.Next(minPos.X, maxPos.X), WorldGen.genRand.Next(minPos.Y, maxPos.Y), slagStrength, slagStep, (ushort)mod.TileType("SlagTile"));
 		}
 
+		/// <summary>
+		/// Override the defaults from the base-game.
+		/// </summary>
+		/// <param name="npc">The npc to edit.</param>
 		public override void SetDefaults(NPC npc)
 		{
 			switch (npc.type)
@@ -64,8 +69,15 @@ namespace EvanMod.NPCs
 			base.SetDefaults(npc);
 		}
 
+		/// <summary>
+		/// Overrides any of the shops in the base-game.
+		/// </summary>
+		/// <param name="type">The vendor.</param>
+		/// <param name="shop">The vendor's shop.</param>
+		/// <param name="nextSlot">The vendor's shop's next index.</param>
 		public override void SetupShop(int type, Chest shop, ref int nextSlot)
 		{
+			// The items to add to the Clothier's inventory during a Blood Moon.
 			List<string> clothierMaleBlood = new List<string> { "GeorgeHat", "GeorgeSuit", "GeorgePants" };
 
 			switch (type)
