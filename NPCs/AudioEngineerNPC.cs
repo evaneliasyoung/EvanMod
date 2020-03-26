@@ -65,15 +65,7 @@ namespace EvanMod.NPCs
 		/// <returns>Whether or not the Audio Engineer can spawn.</returns>
 		public override bool CanTownNPCSpawn(int numTownNPCs, int money)
 		{
-			// TODO: Simplify this function.
-			if (NPC.downedBoss3 && numTownNPCs >= 5)
-			{
-				return true;
-			}
-			else
-			{
-				return false;
-			}
+			return NPC.downedBoss3 && numTownNPCs >= 5;
 		}
 
 		/// <summary>
@@ -95,6 +87,7 @@ namespace EvanMod.NPCs
 		/// <returns></returns>
 		public override string TownNPCName()
 		{
+			// The possible names.
 			List<string> allNames = new List<string>
 			{
 				"George",
