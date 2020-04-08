@@ -1,5 +1,5 @@
 author = Evan Elias Young
-version = 3.1.1
+version = 4.0.0
 displayName = Evan's Mod
 buildIgnore = *.csproj, *.user, obj\*, bin\*, .vs\*
 languageVersion = 6

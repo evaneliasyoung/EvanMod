@@ -4,7 +4,7 @@
 *
 *  @author    Evan Elias Young
 *  @date      2019-04-20
-*  @date      2020-03-25
+*  @date      2020-04-08
 *  @copyright Copyright 2017-2020 Evan Elias Young. All rights reserved.
 */
 
@@ -58,7 +58,7 @@ namespace EvanMod
 		public static void AddFoodRecipes()
 		{
 			// Pad Thai Recipe
-			ModRecipe padRecipe = new ModRecipe(EvanModpack.Instance);
+			ModRecipe padRecipe = new ModRecipe(EvanMod.Instance);
 			padRecipe.AddIngredient(ItemID.Blinkroot, 2);
 			padRecipe.AddIngredient(ItemID.RottenChunk, 2);
 			padRecipe.AddTile(TileID.WorkBenches);
@@ -66,7 +66,7 @@ namespace EvanMod
 			padRecipe.AddRecipe();
 
 			// Pho Recipe
-			ModRecipe phoRecipe = new ModRecipe(EvanModpack.Instance);
+			ModRecipe phoRecipe = new ModRecipe(EvanMod.Instance);
 			phoRecipe.AddIngredient(ItemID.BottledWater, 5);
 			phoRecipe.AddIngredient(ItemID.Blinkroot, 2);
 			phoRecipe.AddIngredient(ItemID.RottenChunk, 2);
@@ -81,14 +81,14 @@ namespace EvanMod
 		public static void AddAccessoryRecipes()
 		{
 			// Black Belt Recipe
-			ModRecipe blackBeltRecipe = new ModRecipe(EvanModpack.Instance);
+			ModRecipe blackBeltRecipe = new ModRecipe(EvanMod.Instance);
 			blackBeltRecipe.AddIngredient(ItemID.Tabi);
 			blackBeltRecipe.AddTile(TileID.TinkerersWorkbench);
 			blackBeltRecipe.SetResult(ItemID.BlackBelt);
 			blackBeltRecipe.AddRecipe();
 
 			// Tabi Recipe
-			ModRecipe tabiRecipe = new ModRecipe(EvanModpack.Instance);
+			ModRecipe tabiRecipe = new ModRecipe(EvanMod.Instance);
 			tabiRecipe.AddIngredient(ItemID.BlackBelt);
 			tabiRecipe.AddTile(TileID.TinkerersWorkbench);
 			tabiRecipe.SetResult(ItemID.Tabi);
@@ -101,14 +101,14 @@ namespace EvanMod
 		public static void AddWeaponRecipes()
 		{
 			// Cascade Recipe
-			ModRecipe cascadeRecipe = new ModRecipe(EvanModpack.Instance);
+			ModRecipe cascadeRecipe = new ModRecipe(EvanMod.Instance);
 			cascadeRecipe.AddIngredient(ItemID.HellstoneBar, 12);
 			cascadeRecipe.AddTile(TileID.Anvils);
 			cascadeRecipe.SetResult(ItemID.Cascade);
 			cascadeRecipe.AddRecipe();
 
 			// Bone Wand Recipe
-			ModRecipe wandRecipe = new ModRecipe(EvanModpack.Instance);
+			ModRecipe wandRecipe = new ModRecipe(EvanMod.Instance);
 			wandRecipe.AddIngredient(ItemID.Bone, 25);
 			wandRecipe.AddTile(TileID.BoneWelder);
 			wandRecipe.SetResult(ItemID.BoneWand);
@@ -121,7 +121,7 @@ namespace EvanMod
 		public static void AddMiscellaneousRecipes()
 		{
 			// Life Fruit Recipe
-			ModRecipe lifeFruitRecipe = new ModRecipe(EvanModpack.Instance);
+			ModRecipe lifeFruitRecipe = new ModRecipe(EvanMod.Instance);
 			lifeFruitRecipe.AddIngredient(ItemID.ChlorophyteBar, 7);
 			lifeFruitRecipe.AddIngredient(ItemID.LifeCrystal, 1);
 			lifeFruitRecipe.AddTile(TileID.MythrilAnvil);
@@ -129,7 +129,7 @@ namespace EvanMod
 			lifeFruitRecipe.AddRecipe();
 
 			// Gold Chest Recipe
-			ModRecipe goldChestRecipe = new ModRecipe(EvanModpack.Instance);
+			ModRecipe goldChestRecipe = new ModRecipe(EvanMod.Instance);
 			goldChestRecipe.AddIngredient(ItemID.GoldBar, 8);
 			goldChestRecipe.AddIngredient(ItemID.IronBar, 2);
 			goldChestRecipe.AddTile(TileID.Anvils);
@@ -137,7 +137,7 @@ namespace EvanMod
 			goldChestRecipe.AddRecipe();
 
 			// Pirate Map Recipe
-			ModRecipe pirateMapRecipe = new ModRecipe(EvanModpack.Instance);
+			ModRecipe pirateMapRecipe = new ModRecipe(EvanMod.Instance);
 			pirateMapRecipe.AddIngredient(ItemID.Sail, 10);
 			pirateMapRecipe.AddIngredient(ItemID.Cannonball);
 			pirateMapRecipe.AddIngredient(ItemID.GoldBar, 5);
@@ -151,7 +151,7 @@ namespace EvanMod
 			// Gems' Recipes
 			gems.ForEach(gem =>
 			{
-				ModRecipe gemRecipe = new ModRecipe(EvanModpack.Instance);
+				ModRecipe gemRecipe = new ModRecipe(EvanMod.Instance);
 				gemRecipe.AddRecipeGroup("EvanMod:GroupGem", 1);
 				gemRecipe.AddTile(TileID.MythrilAnvil);
 				gemRecipe.SetResult(gem);
@@ -176,7 +176,7 @@ namespace EvanMod
 			// Golden Critters' Recipes
 			foreach (KeyValuePair<int, int> oldNew in mapCritters)
 			{
-				ModRecipe critterRecipe = new ModRecipe(EvanModpack.Instance);
+				ModRecipe critterRecipe = new ModRecipe(EvanMod.Instance);
 				critterRecipe.AddIngredient(ItemID.GoldBar, 2);
 				critterRecipe.AddIngredient(oldNew.Key);
 				critterRecipe.SetResult(oldNew.Value);
