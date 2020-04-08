@@ -4,20 +4,21 @@
 *
 *  @author    Evan Elias Young
 *  @date      2017-07-17
-*  @date      2020-03-25
+*  @date      2020-04-08
 *  @copyright Copyright 2017-2020 Evan Elias Young. All rights reserved.
 */
 
 using Terraria;
 using Terraria.ID;
 using Terraria.ModLoader;
+using Terraria.Utilities;
 
 namespace EvanMod.Items.Weapons
 {
 	internal class ButterflyKnife : ModItem
 	{
 		// The percent chance for an instant kill.
-		public const int INSTANT_KILL_CHANCE = 1;
+		public const double INSTANT_KILL_CHANCE = 0.03333;
 
 		/// <summary>
 		/// Set the specific item data.
@@ -61,14 +62,11 @@ namespace EvanMod.Items.Weapons
 		/// <param name="crit">Whehter or not the hit was a critical hit.</param>
 		public override void OnHitNPC(Player player, NPC target, int damage, float knockBack, bool crit)
 		{
-			if (Main.rand.Next(1, 100) <= INSTANT_KILL_CHANCE)
-			{
-				item.damage = 217500;
-			}
-			else
-			{
-				item.damage = 18;
-			}
+			WeightedRandom<int> dmg = new WeightedRandom<int>();
+			dmg.Add(214748, INSTANT_KILL_CHANCE);
+			dmg.Add(item.damage, 1 - INSTANT_KILL_CHANCE);
+			item.damage = dmg;
+
 			base.OnHitNPC(player, target, damage, knockBack, crit);
 		}
 	}
