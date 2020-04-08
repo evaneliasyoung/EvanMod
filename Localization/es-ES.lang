@@ -14,7 +14,7 @@ ItemName.WarPotion=Poción de Guerra
 ItemName.YoyoGauntlet=Guantelete del Yoyó
 
 ItemTooltip.BloodSalts=Invoca una Luna de Sangre
-ItemTooltip.ButterflyKnife=¡Ese espía no es nuestro!\nTiene una {0}% posibilidad a mata al instante el blanco
+ItemTooltip.ButterflyKnife=¡Ese espía no es nuestro!\nTiene una 3% posibilidad a mata al instante el blanco
 ItemTooltip.FrostburnBoots=Da al usario la abilidad mejorado de caminar sobre agua, hielo, bloques de fuego, y lava\nPermite el vuelo & el usario puede correr increíblemente rápido
 ItemTooltip.GenocidePotion=Extremadamente aumenta tasa de spawn de enemigo(7x)
 ItemTooltip.GeorgeHat="¡Oh mi!"
