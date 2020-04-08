@@ -4,7 +4,7 @@
 *
 *  @author    Evan Elias Young
 *  @date      2017-07-21
-*  @date      2020-03-25
+*  @date      2020-04-08
 *  @copyright Copyright 2017-2020 Evan Elias Young. All rights reserved.
 */
 
@@ -12,6 +12,7 @@ using System.Collections.Generic;
 using Terraria;
 using Terraria.ID;
 using Terraria.ModLoader;
+using Terraria.Utilities;
 
 namespace EvanMod.Items.Blocks
 {
@@ -45,40 +46,33 @@ namespace EvanMod.Items.Blocks
 
 		public override void ExtractinatorUse(ref int resultType, ref int resultStack)
 		{
+			// The actual random resul generator.
+			WeightedRandom<short> result = new WeightedRandom<short>();
 			// The list of ores that slag can produce.
 			List<short> listOres = new List<short> { ItemID.CobaltOre, ItemID.PalladiumOre, ItemID.MythrilOre, ItemID.OrichalcumOre, ItemID.AdamantiteOre, ItemID.TitaniumOre };
 			// The list of gems that slag can produce.
 			List<short> listGems = new List<short> { ItemID.Sapphire, ItemID.Ruby, ItemID.Emerald, ItemID.Topaz, ItemID.Amethyst, ItemID.Diamond, ItemID.Amber };
-			// The generated percent.
-			double percent = Main.rand.NextDouble();
 			// The maximum stack for anything from slag.
-			int mx = 16;
+			int mx = 20;
 
-			if (percent <= 0.2000)
-			{ // Gems
-				resultType = listGems[Main.rand.Next(listGems.Count)];
-			}
-			else if (percent <= 0.3533)
-			{ // Ores
-				resultType = listOres[Main.rand.Next(listOres.Count)];
-			}
-			else if (percent <= 0.9933)
-			{ // Silver Coin
-				mx = 100;
-				resultType = ItemID.SilverCoin;
-			}
-			else if (percent <= 0.9993)
-			{ // Gold Coin
-				mx = 100;
-				resultType = ItemID.GoldCoin;
-			}
-			else
-			{ // Platinum Coin
-				mx = 25;
-				resultType = ItemID.PlatinumCoin;
-			}
+			// Add the ores to the random generator.
+			listOres.ForEach((e) =>
+			{
+				result.Add(e, 0.2833 / listOres.Count);
+			});
+			// Add the gems to the random generator.
+			listGems.ForEach((e) =>
+			{
+				result.Add(e, 0.2500 / listOres.Count);
+			});
+			// Add the gold coin to the random generator.
+			result.Add(ItemID.GoldCoin, 0.4660);
+			// Add the platinum coin to the random generator.
+			result.Add(ItemID.PlatinumCoin, 0.0007);
 
-			resultStack = Main.rand.Next(Main.rand.Next(mx)) + 1;
+			resultType = result;
+			mx = resultType == ItemID.GoldCoin ? 100 : mx;
+			resultStack = Main.rand.Next(Main.rand.Next(mx) + 1);
 			base.ExtractinatorUse(ref resultType, ref resultStack);
 		}
 	}
