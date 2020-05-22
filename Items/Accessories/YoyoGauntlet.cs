@@ -4,7 +4,7 @@
 *
 *  @author    Evan Elias Young
 *  @date      2017-04-23
-*  @date      2020-03-25
+*  @date      2020-05-22
 *  @copyright Copyright 2017-2020 Evan Elias Young. All rights reserved.
 */
 
@@ -51,7 +51,7 @@ namespace EvanMod.Items.Accessories
 		/// <param name="hideVisual">Whether or not to hide the accessory.</param>
 		public override void UpdateAccessory(Player player, bool hideVisual)
 		{
-			ModdedPlayer modPlayer = player.GetModPlayer<ModdedPlayer>(mod);
+			ModdedPlayer modPlayer = (ModdedPlayer)player.GetModPlayer(mod, "ModdedPlayer");
 			player.meleeDamage *= 1.15f;
 			player.meleeSpeed *= 1.15f;
 			player.yoyoGlove = true;
