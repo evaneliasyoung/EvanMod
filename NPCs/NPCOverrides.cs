@@ -77,8 +77,10 @@ namespace EvanMod.NPCs
 		/// <param name="nextSlot">The vendor's shop's next index.</param>
 		public override void SetupShop(int type, Chest shop, ref int nextSlot)
 		{
-			// The items to add to the Clothier's inventory during a Blood Moon.
-			List<string> clothierMaleBlood = new List<string> { "GeorgeHat", "GeorgeSuit", "GeorgePants" };
+			// The George set of vanity armor.
+			List<string> clothierGeorgeSet = new List<string> { "GeorgeHat", "GeorgeSuit", "GeorgePants" };
+			// The 4th Doctor set of vanity armor.
+			List<string> clothierDoctorSet = new List<string> { "LongScarf" };
 
 			switch (type)
 			{
@@ -107,7 +109,14 @@ namespace EvanMod.NPCs
 				case NPCID.Clothier:
 					if (Main.player[Main.myPlayer].Male && Main.bloodMoon)
 					{
-						foreach (string e in clothierMaleBlood)
+						foreach (string e in clothierGeorgeSet)
+						{
+							shop.item[nextSlot++].SetDefaults(mod.ItemType(e));
+						}
+					}
+					if (Main.player[Main.myPlayer].Male && Main.moonPhase == 2)
+					{
+						foreach (string e in clothierDoctorSet)
 						{
 							shop.item[nextSlot++].SetDefaults(mod.ItemType(e));
 						}
