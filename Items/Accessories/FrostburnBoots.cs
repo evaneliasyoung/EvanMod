@@ -49,7 +49,9 @@ namespace EvanMod.Items.Accessories
 
 		/// <summary>
 		/// Adds the crafting recipes to the item.
+		/// REMOVED: This was removed in v4.0.0 as it was added in Terraria v1.4.0.1
 		/// </summary>
+		/*
 		public override void AddRecipes()
 		{
 			ModRecipe recipe = new ModRecipe(mod);
@@ -63,5 +65,6 @@ namespace EvanMod.Items.Accessories
 			recipe.AddRecipe();
 			base.AddRecipes();
 		}
+		*/
 	}
 }
