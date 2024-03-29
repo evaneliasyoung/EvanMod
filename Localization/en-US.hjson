@@ -1,0 +1,67 @@
+{
+    Mods: {
+        EvanMod: {
+            ItemName: {
+                AmberPhaseblade: Amber Phaseblade
+                AmberPhasesaber: Amber Phasesaber
+                BloodSalts: Blood Salts
+                ButterflyKnife: Butterfly Knife
+                FrostburnBoots: Frostburn Boots
+                GenocidePotion: Genocide Potion
+                GeorgeHat: George's Hat
+                GeorgeSuit: George's Suit
+                GeorgePants: George's Pants
+                PureDiggingClaw: Pure Digging Claw
+                Slag: Slag
+                TravellersMap: Traveller's Map
+                WarPotion: War Potion
+                YoyoGauntlet: Yoyo Gauntlet
+            }
+
+            ItemTooltip: {
+                BloodSalts: Summons a Blood Moon
+                ButterflyKnife:
+                    '''
+                    That spy is not ours!
+                    Has a {0}% chance to instantly kill the target
+                    '''
+                FrostburnBoots:
+                    '''
+                    Provides the enhanced ability to walk on water, ice, fire blocks, and lava
+                    Allows flight & the wearer can run incredibly fast
+                    '''
+                GenocidePotion: Extremely increases enemy spawn rate (7x)
+                GeorgeHat: '''"Oh myyy!"'''
+                GeorgeSuit: '''"Oh myyy!"'''
+                GeorgePants: '''"Oh myyy!"'''
+                PureDiggingClaw: Purified from the darkest of evil
+                Slag: Remnants of various metals waiting to be refined
+                TravellersMap: This place looks pretty familiar...
+                WarPotion: Considerably increases enemy spawn rate (4x)
+                YoyoGauntlet:
+                    '''
+                    Gives the user master yoyo skills and 15% increased melee damage and speed
+                    Increases melee knockback and inflicts fire damage on attack
+                    '''
+            }
+
+            Misc: {
+                SlagEnter: Slag has begun to seep up through the center of the earth
+            }
+
+            NPCName: {
+                AudioEngineer: Audio Engineer
+            }
+
+            NPCDialog: {
+                AudioEngineer0: You might know my brother, {0}, we specialize in the arts.
+                AudioEngineer1: These are pre-released tracks.
+                AudioEngineer2: These are straight from the studio... but you didn't get them from me!
+                AudioEngineer3: I sell the next hits.
+                AudioEngineer4: I have all the latest hits.
+                AudioEngineer5: Have you met my brother? I bought these clothes from him.
+                AudioEngineer6: Come back later for more LPs.
+            }
+        }
+    }
+}
