@@ -1,17 +1,12 @@
-﻿/**
-*  @file      RecipeOverrides.cs
-*  @brief     Updates all the recipes in the base game.
-*/
-
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using Terraria;
 using Terraria.ID;
 using Terraria.Localization;
 using Terraria.ModLoader;
 
-namespace EvanModpack
+namespace EvanModpack.Global
 {
-    public class RecipeOverrides : ModSystem
+    public class Recipes : ModSystem
     {
         public override void AddRecipeGroups()
         {
