@@ -1,67 +1,118 @@
-{
-    Mods: {
-        EvanMod: {
-            ItemName: {
-                AmberPhaseblade: Amber Phaseblade
-                AmberPhasesaber: Amber Phasesaber
-                BloodSalts: Blood Salts
-                ButterflyKnife: Butterfly Knife
-                FrostburnBoots: Frostburn Boots
-                GenocidePotion: Genocide Potion
-                GeorgeHat: George's Hat
-                GeorgeSuit: George's Suit
-                GeorgePants: George's Pants
-                PureDiggingClaw: Pure Digging Claw
-                Slag: Slag
-                TravellersMap: Traveller's Map
-                WarPotion: War Potion
-                YoyoGauntlet: Yoyo Gauntlet
-            }
+Mods: {
+	EvanModpack: {
+		Configs: {
+			ServerConfig: {
+				Shops: {
+					Tooltip: ""
+					Label: Shops
+				}
 
-            ItemTooltip: {
-                BloodSalts: Summons a Blood Moon
-                ButterflyKnife:
-                    '''
-                    That spy is not ours!
-                    Has a {0}% chance to instantly kill the target
-                    '''
-                FrostburnBoots:
-                    '''
-                    Provides the enhanced ability to walk on water, ice, fire blocks, and lava
-                    Allows flight & the wearer can run incredibly fast
-                    '''
-                GenocidePotion: Extremely increases enemy spawn rate (7x)
-                GeorgeHat: '''"Oh myyy!"'''
-                GeorgeSuit: '''"Oh myyy!"'''
-                GeorgePants: '''"Oh myyy!"'''
-                PureDiggingClaw: Purified from the darkest of evil
-                Slag: Remnants of various metals waiting to be refined
-                TravellersMap: This place looks pretty familiar...
-                WarPotion: Considerably increases enemy spawn rate (4x)
-                YoyoGauntlet:
-                    '''
-                    Gives the user master yoyo skills and 15% increased melee damage and speed
-                    Increases melee knockback and inflicts fire damage on attack
-                    '''
-            }
+				DisplayName: Server Config
 
-            Misc: {
-                SlagEnter: Slag has begun to seep up through the center of the earth
-            }
+				BattlePotion: {
+					Tooltip: ""
+					Label: Battle Potion
+				}
+			}
 
-            NPCName: {
-                AudioEngineer: Audio Engineer
-            }
+			Shops: {
+				DryadSellsHerbBag: {
+					Tooltip: Post-Skeletron
+					Label: Dryad Sells Herb Bag
+				}
 
-            NPCDialog: {
-                AudioEngineer0: You might know my brother, {0}, we specialize in the arts.
-                AudioEngineer1: These are pre-released tracks.
-                AudioEngineer2: These are straight from the studio... but you didn't get them from me!
-                AudioEngineer3: I sell the next hits.
-                AudioEngineer4: I have all the latest hits.
-                AudioEngineer5: Have you met my brother? I bought these clothes from him.
-                AudioEngineer6: Come back later for more LPs.
-            }
-        }
-    }
+				WizardSellsVoodooDolls: {
+					Tooltip: Post-Skeletron & Hardmode
+					Label: Wizard Sells Voodoo Dolls
+				}
+
+				WizardSellsSuperMana: {
+					Tooltip: Post-Cultist
+					Label: Wizard Sells Super Mana
+				}
+
+				MerchantSellsSuperHealing: {
+					Tooltip: Post-Cultist
+					Label: Merchant Sells Super Healing
+				}
+
+				MerchantSellsGreaterHealing: {
+					Tooltip: Post-Mechanicals
+					Label: Merchant Sells Greater Healing
+				}
+
+				Tooltip: Potion scaling and extras
+			}
+
+			BattlePotion: {
+				SuperMax: {
+					Tooltip: Multiplier applied to base limit
+					Label: Super Battle Potion Spawn Limit
+				}
+
+				GreaterSpawnRate: {
+					Tooltip: Multiplier applied to base rate
+					Label: Greater Battle Potion Spawn Rate
+				}
+
+				GreaterMax: {
+					Tooltip: Multiplier applied to base limit
+					Label: Greater Battle Potion Spawn Limit
+				}
+
+				VanillaSpawnRate: {
+					Tooltip: Multiplier applied to base rate
+					Label: Battle Potion Spawn Rate
+				}
+
+				VanillaMax: {
+					Tooltip: Multiplier applied to base limit
+					Label: Battle Potion Spawn Limit
+				}
+
+				Tooltip: Super, Greater, and Battle Potion Multipliers
+
+				SuperSpawnRate: {
+					Tooltip: Multiplier applied to base rate
+					Label: Super Battle Potion Spawn Rate
+				}
+			}
+		}
+
+		Items: {
+			SuperBattlePotion: {
+				Tooltip: Massively increases enemy spawn rate
+				DisplayName: Super Battle Potion
+			}
+
+			GreaterBattlePotion: {
+				Tooltip: Moderately increases enemy spawn rate
+				DisplayName: Greater Battle Potion
+			}
+
+			YoyoGauntlet: {
+				Tooltip:
+					'''
+					Gives the user master yoyo skills
+					Increases melee knockback and melee attacks inflict fire damage
+					15% increased melee damage and speed
+					Enables auto swing for melee weapons
+					Increases the size of melee weapons
+					'''
+				DisplayName: Yoyo Gauntlet
+			}
+		}
+
+		Buffs: {
+			GreaterBattle: {
+				DisplayName: Greater Battle
+				Description: Moderately increases enemy spawn rate
+			}
+
+			SuperBattle: {
+				DisplayName: Super Battle
+				Description: Massively increases enemy spawn rate
+			}
+		}
+	}
 }
