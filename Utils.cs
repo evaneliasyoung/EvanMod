@@ -1,8 +1,3 @@
-﻿/**
-*  @file      Utils.cs
-*  @brief     The utilities for the modpack.
-*/
-
 namespace EvanModpack
 {
     internal static class Utils

@@ -5,7 +5,7 @@ using Terraria.ModLoader;
 
 namespace EvanModpack.Items.Accessories
 {
-    internal class YoyoGauntlet : ModItem
+    class YoyoGauntlet : ModItem
     {
         public override void SetStaticDefaults()
         {
