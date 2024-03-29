@@ -18,23 +18,23 @@ namespace EvanModpack.Items.Tools
 	{
 		public override void SetDefaults()
 		{
-			item.CloneDefaults(ItemID.ShroomiteDiggingClaw);
-			item.useAnimation = 10;
-			item.useTime = 10;
-			item.width = 34;
-			item.height = 32;
-			item.value = Item.sellPrice(0, 4, 50, 0);
-			item.rare = ItemRarityID.Yellow;
-			item.damage = 50;
-			item.pick = 220;
-			item.axe = 130 / 5;
-			item.tileBoost += 4;
+			Item.CloneDefaults(ItemID.ShroomiteDiggingClaw);
+			Item.useAnimation = 10;
+			Item.useTime = 10;
+			Item.width = 34;
+			Item.height = 32;
+			Item.value = Item.sellPrice(0, 4, 50, 0);
+			Item.rare = ItemRarityID.Yellow;
+			Item.damage = 50;
+			Item.pick = 220;
+			Item.axe = 130 / 5;
+			Item.tileBoost += 4;
 			base.SetDefaults();
 		}
 
 		public override void AddRecipes()
 		{
-			ModRecipe recipe = new ModRecipe(mod);
+			Recipe recipe = CreateRecipe();
 			recipe.AddIngredient(ItemID.ShroomiteDiggingClaw);
 			recipe.AddIngredient(ItemID.HallowedBar, 9);
 			recipe.AddIngredient(ItemID.SoulofFright, 5);
@@ -43,8 +43,7 @@ namespace EvanModpack.Items.Tools
 			recipe.AddIngredient(ItemID.SoulofNight, 5);
 			recipe.AddIngredient(ItemID.SoulofSight, 5);
 			recipe.AddTile(TileID.MythrilAnvil);
-			recipe.SetResult(this);
-			recipe.AddRecipe();
+			recipe.Register();
 		}
 	}
 }

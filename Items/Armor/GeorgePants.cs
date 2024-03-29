@@ -19,11 +19,11 @@ namespace EvanModpack.Items.Armor
 	{
 		public override void SetDefaults()
 		{
-			item.width = 22;
-			item.height = 18;
-			item.value = Item.sellPrice(0, 0, 20, 0);
-			item.rare = ItemRarityID.White;
-			item.defense = 0;
+			Item.width = 22;
+			Item.height = 18;
+			Item.value = Item.sellPrice(0, 0, 20, 0);
+			Item.rare = ItemRarityID.White;
+			Item.defense = 0;
 			base.SetDefaults();
 		}
 	}

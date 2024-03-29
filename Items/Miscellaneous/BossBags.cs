@@ -29,8 +29,8 @@ namespace EvanModpack.Items.Miscellaneous
 			switch (arg)
 			{
 				case ItemID.WallOfFleshBossBag:
-					player.QuickSpawnItem(mod.ItemType("TravellersMap"));
-					player.QuickSpawnItem(mod.ItemType("Slag"), Main.rand.Next(10, 30));
+					player.QuickSpawnItem(Mod.Find<ModItem>("TravellersMap").Type);
+					player.QuickSpawnItem(Mod.Find<ModItem>("Slag").Type, Main.rand.Next(10, 30));
 					break;
 			}
 		}

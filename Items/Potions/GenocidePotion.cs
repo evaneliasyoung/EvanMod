@@ -18,32 +18,31 @@ namespace EvanModpack.Items.Potions
 	{
 		public override void SetDefaults()
 		{
-			item.CloneDefaults(ItemID.BattlePotion);
-			item.width = 20;
-			item.height = 28;
-			item.buffType = mod.BuffType("GenocideBuff");
+			Item.CloneDefaults(ItemID.BattlePotion);
+			Item.width = 20;
+			Item.height = 28;
+			Item.buffType = Mod.Find<ModBuff>("GenocideBuff").Type;
 			base.SetDefaults();
 		}
 
-		public override bool UseItem(Player player)
+		public override bool? UseItem(Player player)/* tModPorter Suggestion: Return null instead of false */
 		{
 			if (player.itemTime == 0)
 			{
-				player.AddBuff(item.buffType, Utils.FrameTime(7, 0), false);
+				player.AddBuff(Item.buffType, Utils.FrameTime(7, 0), false);
 			}
 			return base.UseItem(player);
 		}
 
 		public override void AddRecipes()
 		{
-			ModRecipe recipe = new ModRecipe(mod);
+			Recipe recipe = CreateRecipe();
 			recipe.AddIngredient(ItemID.BottledWater, 1);
 			recipe.AddIngredient(ItemID.Deathweed, 1);
 			recipe.AddRecipeGroup("EvanModpack:EvilPowder", 5);
 			recipe.AddRecipeGroup("EvanModpack:EvilGuts", 2);
 			recipe.AddTile(TileID.Bottles);
-			recipe.SetResult(this);
-			recipe.AddRecipe();
+			recipe.Register();
 		}
 	}
 }

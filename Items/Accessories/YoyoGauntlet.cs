@@ -18,15 +18,15 @@ namespace EvanModpack.Items.Accessories
 	{
 		public override void SetDefaults()
 		{
-			item.width = 26;
-			item.height = 30;
-			item.value = Item.sellPrice(0, 10, 0, 0);
-			item.rare = ItemRarityID.Lime;
-			item.accessory = true;
+			Item.width = 26;
+			Item.height = 30;
+			Item.value = Item.sellPrice(0, 10, 0, 0);
+			Item.rare = ItemRarityID.Lime;
+			Item.accessory = true;
 			base.SetDefaults();
 		}
 
-		public override void ModifyHitNPC(Player player, NPC target, ref int damage, ref float knockBack, ref bool crit)
+		public override void ModifyHitNPC(Player player, NPC target, ref NPC.HitModifiers modifiers)
 		{
 			target.AddBuff(BuffID.OnFire, 180);
 			knockBack *= 1.8f;
@@ -35,9 +35,9 @@ namespace EvanModpack.Items.Accessories
 
 		public override void UpdateAccessory(Player player, bool hideVisual)
 		{
-			ModdedPlayer modPlayer = player.GetModPlayer<ModdedPlayer>(mod);
-			player.meleeDamage *= 1.15f;
-			player.meleeSpeed *= 1.15f;
+			ModdedPlayer modPlayer = player.GetModPlayer<ModdedPlayer>(Mod);
+			player.GetDamage(DamageClass.Melee) *= 1.15f;
+			player.GetAttackSpeed(DamageClass.Melee) *= 1.15f;
 			player.yoyoGlove = true;
 			player.yoyoString = true;
 			modPlayer.allParticles = true;
@@ -46,12 +46,11 @@ namespace EvanModpack.Items.Accessories
 
 		public override void AddRecipes()
 		{
-			ModRecipe recipe = new ModRecipe(mod);
+			Recipe recipe = CreateRecipe();
 			recipe.AddIngredient(ItemID.FireGauntlet);
 			recipe.AddIngredient(ItemID.YoyoBag);
 			recipe.AddTile(TileID.TinkerersWorkbench);
-			recipe.SetResult(this);
-			recipe.AddRecipe();
+			recipe.Register();
 		}
 	}
 }

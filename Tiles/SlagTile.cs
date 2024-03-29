@@ -16,16 +16,16 @@ namespace EvanModpack.Tiles
 {
 	internal class SlagTile : ModTile
 	{
-		public override void SetDefaults()
+		public override void SetStaticDefaults()
 		{
 			Main.tileSolid[Type] = true;
 			Main.tileMergeDirt[Type] = true;
 			Main.tileBlockLight[Type] = true;
-			minPick = 110;
-			mineResist = 2.5f;
-			drop = mod.ItemType("Slag");
+			MinPick = 110;
+			MineResist = 2.5f;
+			ItemDrop/* tModPorter Note: Removed. Tiles and walls will drop the item which places them automatically. Use RegisterItemDrop to alter the automatic drop if necessary. */ = Mod.Find<ModItem>("Slag").Type;
 			AddMapEntry(Utils.SlagColor, Language.GetText("Mods.EvanModpack.ItemName.Slag"));
-			base.SetDefaults();
+			base.SetStaticDefaults();
 		}
 
 		public override void ModifyLight(int i, int j, ref float r, ref float g, ref float b)

@@ -19,25 +19,25 @@ namespace EvanModpack.Items.Blocks
 	{
 		public override void SetStaticDefaults()
 		{
-			ItemID.Sets.ExtractinatorMode[item.type] = item.type;
+			ItemID.Sets.ExtractinatorMode[Item.type] = Item.type;
 			base.SetStaticDefaults();
 		}
 
 		public override void SetDefaults()
 		{
-			item.width = 16;
-			item.height = 16;
-			item.maxStack = 999;
-			item.useTurn = true;
-			item.autoReuse = true;
-			item.useAnimation = 15;
-			item.useTime = 14;
-			item.useStyle = 1;
-			item.consumable = true;
-			item.createTile = mod.TileType("SlagTile");
+			Item.width = 16;
+			Item.height = 16;
+			Item.maxStack = 999;
+			Item.useTurn = true;
+			Item.autoReuse = true;
+			Item.useAnimation = 15;
+			Item.useTime = 14;
+			Item.useStyle = 1;
+			Item.consumable = true;
+			Item.createTile = Mod.Find<ModTile>("SlagTile").Type;
 		}
 
-		public override void ExtractinatorUse(ref int resultType, ref int resultStack)
+		public override void ExtractinatorUse(int extractinatorBlockType, ref int resultType, ref int resultStack)
 		{
 			List<short> listOres = new List<short> { ItemID.CobaltOre, ItemID.PalladiumOre, ItemID.MythrilOre, ItemID.OrichalcumOre, ItemID.AdamantiteOre, ItemID.TitaniumOre };
 			List<short> listGems = new List<short> { ItemID.Sapphire, ItemID.Ruby, ItemID.Emerald, ItemID.Topaz, ItemID.Amethyst, ItemID.Diamond, ItemID.Amber };

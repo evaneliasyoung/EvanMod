@@ -52,83 +52,74 @@ namespace EvanModpack
 		public static void AddFoodRecipes()
 		{
 			// Pad Recipe
-			ModRecipe padRecipe = new ModRecipe(EvanModpack.Instance);
+			Recipe padRecipe = Recipe.Create(ItemID.PadThai, 5);
 			padRecipe.AddIngredient(ItemID.Blinkroot, 2);
 			padRecipe.AddIngredient(ItemID.RottenChunk, 2);
 			padRecipe.AddTile(TileID.WorkBenches);
-			padRecipe.SetResult(ItemID.PadThai, 5);
-			padRecipe.AddRecipe();
+			padRecipe.Register();
 
 			// Pho Recipe
-			ModRecipe phoRecipe = new ModRecipe(EvanModpack.Instance);
+			Recipe phoRecipe = Recipe.Create(ItemID.Pho, 5);
 			phoRecipe.AddIngredient(ItemID.BottledWater, 5);
 			phoRecipe.AddIngredient(ItemID.Blinkroot, 2);
 			phoRecipe.AddIngredient(ItemID.RottenChunk, 2);
 			phoRecipe.AddTile(TileID.CookingPots);
-			phoRecipe.SetResult(ItemID.Pho, 5);
-			phoRecipe.AddRecipe();
+			phoRecipe.Register();
 		}
 
 		public static void AddAccessoryRecipes()
 		{
 			// Black Belt Recipe
-			ModRecipe blackBeltRecipe = new ModRecipe(EvanModpack.Instance);
+			Recipe blackBeltRecipe = Recipe.Create(ItemID.BlackBelt);
 			blackBeltRecipe.AddIngredient(ItemID.Tabi);
 			blackBeltRecipe.AddTile(TileID.TinkerersWorkbench);
-			blackBeltRecipe.SetResult(ItemID.BlackBelt);
-			blackBeltRecipe.AddRecipe();
+			blackBeltRecipe.Register();
 
 			// Tabi Recipe
-			ModRecipe tabiRecipe = new ModRecipe(EvanModpack.Instance);
+			Recipe tabiRecipe = Recipe.Create(ItemID.Tabi);
 			tabiRecipe.AddIngredient(ItemID.BlackBelt);
 			tabiRecipe.AddTile(TileID.TinkerersWorkbench);
-			tabiRecipe.SetResult(ItemID.Tabi);
-			tabiRecipe.AddRecipe();
+			tabiRecipe.Register();
 		}
 
 		public static void AddWeaponRecipes()
 		{
 			// Cascade Recipe
-			ModRecipe cascadeRecipe = new ModRecipe(EvanModpack.Instance);
+			Recipe cascadeRecipe = Recipe.Create(ItemID.Cascade);
 			cascadeRecipe.AddIngredient(ItemID.HellstoneBar, 12);
 			cascadeRecipe.AddTile(TileID.Anvils);
-			cascadeRecipe.SetResult(ItemID.Cascade);
-			cascadeRecipe.AddRecipe();
+			cascadeRecipe.Register();
 
 			// Bone Wand Recipe
-			ModRecipe wandRecipe = new ModRecipe(EvanModpack.Instance);
+			Recipe wandRecipe = Recipe.Create(ItemID.BoneWand);
 			wandRecipe.AddIngredient(ItemID.Bone, 25);
 			wandRecipe.AddTile(TileID.BoneWelder);
-			wandRecipe.SetResult(ItemID.BoneWand);
-			wandRecipe.AddRecipe();
+			wandRecipe.Register();
 		}
 
 		public static void AddMiscellaneousRecipes()
 		{
 			// Life Fruit Recipe
-			ModRecipe lifeFruitRecipe = new ModRecipe(EvanModpack.Instance);
+			Recipe lifeFruitRecipe = Recipe.Create(ItemID.LifeFruit);
 			lifeFruitRecipe.AddIngredient(ItemID.ChlorophyteBar, 7);
 			lifeFruitRecipe.AddIngredient(ItemID.LifeCrystal, 1);
 			lifeFruitRecipe.AddTile(TileID.MythrilAnvil);
-			lifeFruitRecipe.SetResult(ItemID.LifeFruit);
-			lifeFruitRecipe.AddRecipe();
+			lifeFruitRecipe.Register();
 
 			// Gold Chest Recipe
-			ModRecipe goldChestRecipe = new ModRecipe(EvanModpack.Instance);
+			Recipe goldChestRecipe = Recipe.Create(ItemID.GoldChest);
 			goldChestRecipe.AddIngredient(ItemID.GoldBar, 8);
 			goldChestRecipe.AddIngredient(ItemID.IronBar, 2);
 			goldChestRecipe.AddTile(TileID.Anvils);
-			goldChestRecipe.SetResult(ItemID.GoldChest);
-			goldChestRecipe.AddRecipe();
+			goldChestRecipe.Register();
 
 			// Pirate Map Recipe
-			ModRecipe pirateMapRecipe = new ModRecipe(EvanModpack.Instance);
+			Recipe pirateMapRecipe = Recipe.Create(ItemID.PirateMap);
 			pirateMapRecipe.AddIngredient(ItemID.Sail, 10);
 			pirateMapRecipe.AddIngredient(ItemID.Cannonball);
 			pirateMapRecipe.AddIngredient(ItemID.GoldBar, 5);
 			pirateMapRecipe.AddTile(TileID.DemonAltar);
-			pirateMapRecipe.SetResult(ItemID.PirateMap);
-			pirateMapRecipe.AddRecipe();
+			pirateMapRecipe.Register();
 
 			// Gems' Setup
 			List<int> gems = new List<int> { ItemID.Diamond, ItemID.Ruby, ItemID.Emerald, ItemID.Sapphire, ItemID.Topaz, ItemID.Amethyst };
@@ -136,11 +127,11 @@ namespace EvanModpack
 			// Gems' Recipes
 			gems.ForEach(gem =>
 			{
-				ModRecipe gemRecipe = new ModRecipe(EvanModpack.Instance);
+				Recipe gemRecipe = Recipe.Create();
 				gemRecipe.AddRecipeGroup("EvanModpack:GroupGem", 1);
 				gemRecipe.AddTile(TileID.MythrilAnvil);
 				gemRecipe.SetResult(gem);
-				gemRecipe.AddRecipe();
+				gemRecipe.Register();
 			});
 
 			// Golden Critters' Setups
@@ -161,11 +152,10 @@ namespace EvanModpack
 			// Golden Critters' Recipes
 			foreach (KeyValuePair<int, int> oldNew in mapCritters)
 			{
-				ModRecipe critterRecipe = new ModRecipe(EvanModpack.Instance);
+				Recipe critterRecipe = Recipe.Create(oldNew.Value);
 				critterRecipe.AddIngredient(ItemID.GoldBar, 2);
 				critterRecipe.AddIngredient(oldNew.Key);
-				critterRecipe.SetResult(oldNew.Value);
-				critterRecipe.AddRecipe();
+				critterRecipe.Register();
 			}
 		}
 

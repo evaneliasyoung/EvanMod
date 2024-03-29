@@ -18,29 +18,28 @@ namespace EvanModpack.Items.Weapons
 	{
 		public override void SetDefaults()
 		{
-			item.damage = 50;
-			item.melee = true;
-			item.width = 48;
-			item.height = 48;
-			item.useTime = 22;
-			item.useAnimation = 22;
-			item.useStyle = 1;
-			item.knockBack = 4;
-			item.value = Item.sellPrice(0, 0, 78, 0);
-			item.rare = ItemRarityID.Pink;
-			item.autoReuse = true;
-			item.UseSound = SoundID.Item15;
+			Item.damage = 50;
+			Item.DamageType = DamageClass.Melee/* tModPorter Suggestion: Consider MeleeNoSpeed for no attack speed scaling */;
+			Item.width = 48;
+			Item.height = 48;
+			Item.useTime = 22;
+			Item.useAnimation = 22;
+			Item.useStyle = 1;
+			Item.knockBack = 4;
+			Item.value = Item.sellPrice(0, 0, 78, 0);
+			Item.rare = ItemRarityID.Pink;
+			Item.autoReuse = true;
+			Item.UseSound = SoundID.Item15;
 			base.SetDefaults();
 		}
 
 		public override void AddRecipes()
 		{
-			ModRecipe recipe = new ModRecipe(mod);
-			recipe.AddIngredient(mod.GetItem("AmberPhaseblade"));
+			Recipe recipe = CreateRecipe();
+			recipe.AddIngredient(Mod.GetItem("AmberPhaseblade"));
 			recipe.AddIngredient(ItemID.CrystalShard, 50);
 			recipe.AddTile(TileID.MythrilAnvil);
-			recipe.SetResult(this);
-			recipe.AddRecipe();
+			recipe.Register();
 		}
 	}
 }

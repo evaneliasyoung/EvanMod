@@ -16,10 +16,10 @@ namespace EvanModpack.Buffs
 {
 	internal class WarBuff : ModBuff
 	{
-		public override void SetDefaults()
+		public override void SetStaticDefaults()
 		{
-			DisplayName.SetDefault("War");
-			Description.SetDefault("Considerably increased enemy spawn rate (4x)");
+			// DisplayName.SetDefault("War");
+			// Description.SetDefault("Considerably increased enemy spawn rate (4x)");
 
 			DisplayName.AddTranslation(GameCulture.Spanish, "Guerra");
 			Description.AddTranslation(GameCulture.Spanish, "Considerablemente aumenta tasa de spawn (4x) de enemigo.");
@@ -34,7 +34,7 @@ namespace EvanModpack.Buffs
 			private static readonly float mult = 4f;
 			public override void EditSpawnRate(Player player, ref int spawnRate, ref int maxSpawns)
 			{
-				if (player.FindBuffIndex(mod.BuffType("WarBuff")) > 0)
+				if (player.FindBuffIndex(Mod.Find<ModBuff>("WarBuff").Type) > 0)
 				{
 					spawnRate = (int)(spawnRate / mult);
 					maxSpawns = (int)(maxSpawns * mult);

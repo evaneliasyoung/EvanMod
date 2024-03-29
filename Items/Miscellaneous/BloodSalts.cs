@@ -9,6 +9,7 @@
 */
 
 using Terraria;
+using Terraria.Audio;
 using Terraria.ID;
 using Terraria.Localization;
 using Terraria.ModLoader;
@@ -22,15 +23,15 @@ namespace EvanModpack.Items.Miscellaneous
 		/// </summary>
 		public override void SetDefaults()
 		{
-			item.width = 44;
-			item.height = 40;
-			item.maxStack = 1;
-			item.value = Item.sellPrice(0, 0, 0, 0);
-			item.rare = ItemRarityID.White;
-			item.useAnimation = 30;
-			item.useTime = 44;
-			item.useStyle = 4;
-			item.consumable = true;
+			Item.width = 44;
+			Item.height = 40;
+			Item.maxStack = 1;
+			Item.value = Item.sellPrice(0, 0, 0, 0);
+			Item.rare = ItemRarityID.White;
+			Item.useAnimation = 30;
+			Item.useTime = 44;
+			Item.useStyle = 4;
+			Item.consumable = true;
 			base.SetDefaults();
 		}
 
@@ -39,15 +40,14 @@ namespace EvanModpack.Items.Miscellaneous
 		/// </summary>
 		public override void AddRecipes()
 		{
-			ModRecipe bloodSaltsRecipe = new ModRecipe(mod);
+			Recipe bloodSaltsRecipe = CreateRecipe();
 			bloodSaltsRecipe.AddIngredient(ItemID.BottledWater);
 			bloodSaltsRecipe.AddIngredient(ItemID.AshBlock);
 			bloodSaltsRecipe.AddIngredient(ItemID.Deathweed);
 			bloodSaltsRecipe.AddIngredient(ItemID.Fireblossom);
 			bloodSaltsRecipe.AddIngredient(ItemID.Moonglow);
 			bloodSaltsRecipe.AddTile(TileID.Bottles);
-			bloodSaltsRecipe.SetResult(this);
-			bloodSaltsRecipe.AddRecipe();
+			bloodSaltsRecipe.Register();
 		}
 
 		/// <summary>
@@ -68,10 +68,10 @@ namespace EvanModpack.Items.Miscellaneous
 		/// </summary>
 		/// <param name="player">The player using the Blood Salts.</param>
 		/// <returns></returns>
-		public override bool UseItem(Player player)
+		public override bool? UseItem(Player player)/* tModPorter Suggestion: Return null instead of false */
 		{
 			Main.bloodMoon = true;
-			Main.PlaySound(SoundID.Roar, player.position, 0);
+			SoundEngine.PlaySound(SoundID.Roar, player.position);
 			Main.NewText(Language.GetText("LegacyMisc.8"), Utils.ChatColors.Info);
 
 			return true;

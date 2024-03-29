@@ -10,6 +10,7 @@
 
 using Microsoft.Xna.Framework;
 using Terraria;
+using Terraria.Audio;
 using Terraria.ID;
 using Terraria.ModLoader;
 
@@ -22,15 +23,15 @@ namespace EvanModpack.Items.Miscellaneous
 		/// </summary>
 		public override void SetDefaults()
 		{
-			item.width = 44;
-			item.height = 40;
-			item.maxStack = 1;
-			item.value = Item.sellPrice(0, 20, 0, 0);
-			item.rare = ItemRarityID.Expert;
-			item.useAnimation = 30;
-			item.useTime = 30;
-			item.useStyle = 4;
-			item.consumable = true;
+			Item.width = 44;
+			Item.height = 40;
+			Item.maxStack = 1;
+			Item.value = Item.sellPrice(0, 20, 0, 0);
+			Item.rare = ItemRarityID.Expert;
+			Item.useAnimation = 30;
+			Item.useTime = 30;
+			Item.useStyle = 4;
+			Item.consumable = true;
 			base.SetDefaults();
 		}
 
@@ -49,7 +50,7 @@ namespace EvanModpack.Items.Miscellaneous
 		/// </summary>
 		/// <param name="player">The player using the Traveller's Map.</param>
 		/// <returns></returns>
-		public override bool UseItem(Player player)
+		public override bool? UseItem(Player player)/* tModPorter Suggestion: Return null instead of false */
 		{
 			if (Main.netMode != 1)
 			{ // If not on a server, reveal the entire map.
@@ -62,7 +63,7 @@ namespace EvanModpack.Items.Miscellaneous
 			}
 
 			// Play a sound indicating completion.
-			Main.PlaySound(SoundID.MenuTick);
+			SoundEngine.PlaySound(SoundID.MenuTick);
 
 			return true;
 		}

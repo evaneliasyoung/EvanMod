@@ -12,6 +12,7 @@ using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using System.Collections.Generic;
 using Terraria;
+using Terraria.GameContent;
 using Terraria.ID;
 using Terraria.Localization;
 using Terraria.ModLoader;
@@ -21,40 +22,40 @@ namespace EvanModpack.NPCs
 {
 	internal class AudioEngineerNPC : ModNPC
 	{
-		public override bool Autoload(ref string name)
+		public override bool IsLoadingEnabled(Mod mod)
 		{
 			name = "AudioEngineerNPC";
 
-			return mod.Properties.Autoload;
+			return Mod.Properties/* tModPorter Note: Removed. Instead, assign the properties directly (ContentAutoloadingEnabled, GoreAutoloadingEnabled, MusicAutoloadingEnabled, and BackgroundAutoloadingEnabled) */.Autoload;
 		}
 
 		public override void SetDefaults()
 		{
-			npc.townNPC = true;
-			npc.friendly = true;
+			NPC.townNPC = true;
+			NPC.friendly = true;
 
-			npc.width = 18;
-			npc.height = 46;
+			NPC.width = 18;
+			NPC.height = 46;
 
-			npc.aiStyle = 7;
-			npc.defense = 25;
-			npc.lifeMax = 250;
-			npc.HitSound = SoundID.NPCHit1;
-			npc.DeathSound = SoundID.NPCDeath1;
-			npc.knockBackResist = 0.5f;
-			Main.npcFrameCount[npc.type] = 25;
-			NPCID.Sets.ExtraFramesCount[npc.type] = 9;
-			NPCID.Sets.AttackFrameCount[npc.type] = 4;
-			NPCID.Sets.DangerDetectRange[npc.type] = 150;
-			NPCID.Sets.AttackType[npc.type] = 3;
-			NPCID.Sets.AttackTime[npc.type] = 30;
-			NPCID.Sets.AttackAverageChance[npc.type] = 10;
-			NPCID.Sets.HatOffsetY[npc.type] = 4;
-			animationType = NPCID.Guide;
+			NPC.aiStyle = 7;
+			NPC.defense = 25;
+			NPC.lifeMax = 250;
+			NPC.HitSound = SoundID.NPCHit1;
+			NPC.DeathSound = SoundID.NPCDeath1;
+			NPC.knockBackResist = 0.5f;
+			Main.npcFrameCount[NPC.type] = 25;
+			NPCID.Sets.ExtraFramesCount[NPC.type] = 9;
+			NPCID.Sets.AttackFrameCount[NPC.type] = 4;
+			NPCID.Sets.DangerDetectRange[NPC.type] = 150;
+			NPCID.Sets.AttackType[NPC.type] = 3;
+			NPCID.Sets.AttackTime[NPC.type] = 30;
+			NPCID.Sets.AttackAverageChance[NPC.type] = 10;
+			NPCID.Sets.HatOffsetY[NPC.type] = 4;
+			AnimationType = NPCID.Guide;
 			base.SetDefaults();
 		}
 
-		public override bool CanTownNPCSpawn(int numTownNPCs, int money)
+		public override bool CanTownNPCSpawn(int numTownNPCs)/* tModPorter Suggestion: Copy the implementation of NPC.SpawnAllowed_Merchant in vanilla if you to count money, and be sure to set a flag when unlocked, so you don't count every tick. */
 		{
 			if (NPC.downedBoss3 && numTownNPCs >= 5)
 			{
@@ -71,7 +72,7 @@ namespace EvanModpack.NPCs
 			return true;
 		}
 
-		public override string TownNPCName()
+		public override List<string> SetNPCNameList()/* tModPorter Suggestion: Return a list of names */
 		{
 			List<string> allNames = new List<string>
 			{
@@ -89,7 +90,7 @@ namespace EvanModpack.NPCs
 			button = Language.GetText("LegacyInterface.28").Value;
 		}
 
-		public override void OnChatButtonClicked(bool firstButton, ref bool shop)
+		public override void OnChatButtonClicked(bool firstButton, ref string shopName)
 		{
 			if (firstButton)
 			{
@@ -97,7 +98,7 @@ namespace EvanModpack.NPCs
 			}
 		}
 
-		public override void SetupShop(Chest shop, ref int nextSlot)
+		public override void ModifyActiveShop(string shopName, Item[] items)
 		{
 			List<short> forSale = new List<short>
 			{
@@ -233,10 +234,10 @@ namespace EvanModpack.NPCs
 			knockback = 2f;
 		}
 
-		public override void DrawTownAttackSwing(ref Texture2D item, ref int itemSize, ref float scale, ref Vector2 offset)
+		public override void DrawTownAttackSwing(ref Texture2D item, ref Rectangle itemFrame, ref int itemSize, ref float scale, ref Vector2 offset)
 		{
 			scale = 1f;
-			item = Main.itemTexture[ItemID.TheAxe];
+			item = TextureAssets.Item[ItemID.TheAxe].Value;
 			itemSize = 56;
 		}
 

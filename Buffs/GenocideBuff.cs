@@ -16,10 +16,10 @@ namespace EvanModpack.Buffs
 {
 	internal class GenocideBuff : ModBuff
 	{
-		public override void SetDefaults()
+		public override void SetStaticDefaults()
 		{
-			DisplayName.SetDefault("Genocide");
-			Description.SetDefault("Extremely increased enemy spawn rate (7x)");
+			// DisplayName.SetDefault("Genocide");
+			// Description.SetDefault("Extremely increased enemy spawn rate (7x)");
 
 			DisplayName.AddTranslation(GameCulture.Spanish, "Genocidio");
 			Description.AddTranslation(GameCulture.Spanish, "Extremadamente aumenta tasa de spawn (7x) de enemigo");
@@ -34,7 +34,7 @@ namespace EvanModpack.Buffs
 			private static readonly float mult = 7f;
 			public override void EditSpawnRate(Player player, ref int spawnRate, ref int maxSpawns)
 			{
-				if (player.FindBuffIndex(mod.BuffType("GenocideBuff")) > 0)
+				if (player.FindBuffIndex(Mod.Find<ModBuff>("GenocideBuff").Type) > 0)
 				{
 					spawnRate = (int)(spawnRate / mult);
 					maxSpawns = (int)(maxSpawns * mult);

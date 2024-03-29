@@ -23,7 +23,7 @@ namespace EvanModpack
 		{
 			if (allParticles)
 			{
-				int dust = Dust.NewDust(new Vector2(hitbox.X, hitbox.Y), hitbox.Width, hitbox.Height, DustID.Fire, player.velocity.X * 0.2f + player.direction * 3, player.velocity.Y * 0.2f, 100, default(Color), 2.5f);
+				int dust = Dust.NewDust(new Vector2(hitbox.X, hitbox.Y), hitbox.Width, hitbox.Height, DustID.Torch, Player.velocity.X * 0.2f + Player.direction * 3, Player.velocity.Y * 0.2f, 100, default(Color), 2.5f);
 				Main.dust[dust].noGravity = true;
 			}
 			base.MeleeEffects(item, hitbox);
@@ -32,14 +32,14 @@ namespace EvanModpack
 		public override void ResetEffects()
 		{
 			allParticles = false;
-			if (player.extraAccessory && !(Main.expertMode || Main.gameMenu))
+			if (Player.extraAccessory && !(Main.expertMode || Main.gameMenu))
 			{
-				player.extraAccessorySlots++;
+				Player.extraAccessorySlots++;
 			}
 			base.ResetEffects();
 		}
 
-		public override void SetupStartInventory(IList<Item> items, bool mediumcoreDeath)
+		public override IEnumerable<Item> AddStartingItems(bool mediumCoreDeath)/* tModPorter Suggestion: Return an Item array to add to the players starting items. Use ModifyStartingInventory for modifying them if needed */
 		{
 			Item carrot = new Item();
 			carrot.SetDefaults(ItemID.FuzzyCarrot);

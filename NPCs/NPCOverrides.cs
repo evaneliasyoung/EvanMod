@@ -20,7 +20,7 @@ namespace EvanModpack.NPCs
 {
 	internal class NPCOverrides : GlobalNPC
 	{
-		public override void NPCLoot(NPC npc)
+		public override void OnKill(NPC npc)
 		{
 			switch (npc.type)
 			{
@@ -28,7 +28,7 @@ namespace EvanModpack.NPCs
 					// GenerateSlag();
 					return;
 			}
-			base.NPCLoot(npc);
+			base.OnKill(npc);
 		}
 
 		public void GenerateSlag()
@@ -50,7 +50,7 @@ namespace EvanModpack.NPCs
 			int slagStrength = WorldGen.genRand.Next(4, 8);
 			int slagStep = WorldGen.genRand.Next(5, 9);
 
-			WorldGen.OreRunner(WorldGen.genRand.Next(minPos.X, maxPos.X), WorldGen.genRand.Next(minPos.Y, maxPos.Y), slagStrength, slagStep, (ushort)mod.TileType("SlagTile"));
+			WorldGen.OreRunner(WorldGen.genRand.Next(minPos.X, maxPos.X), WorldGen.genRand.Next(minPos.Y, maxPos.Y), slagStrength, slagStep, (ushort)Mod.Find<ModTile>("SlagTile").Type);
 		}
 
 		public override void SetDefaults(NPC npc)
@@ -64,7 +64,7 @@ namespace EvanModpack.NPCs
 			base.SetDefaults(npc);
 		}
 
-		public override void SetupShop(int type, Chest shop, ref int nextSlot)
+		public override void ModifyActiveShop(NPC npc, string shopName, Item[] items)
 		{
 			List<string> clothierMaleBlood = new List<string> { "GeorgeHat", "GeorgeSuit", "GeorgePants" };
 
@@ -97,7 +97,7 @@ namespace EvanModpack.NPCs
 					{
 						foreach (string e in clothierMaleBlood)
 						{
-							shop.item[nextSlot++].SetDefaults(mod.ItemType(e));
+							shop.item[nextSlot++].SetDefaults(Mod.Find<ModItem>(e).Type);
 						}
 					}
 					break;
@@ -140,7 +140,7 @@ namespace EvanModpack.NPCs
 					}
 					break;
 			}
-			base.SetupShop(type, shop, ref nextSlot);
+			base.ModifyActiveShop(type, shop, ref nextSlot);
 		}
 	}
 }

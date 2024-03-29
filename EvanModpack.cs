@@ -21,12 +21,12 @@ namespace EvanModpack
 			Instance = this;
 		}
 
-		public override void AddRecipeGroups()
+		public override void AddRecipeGroups()/* tModPorter Note: Removed. Use ModSystem.AddRecipeGroups */
 		{
 			RecipeOverrides.AddRecipeGroups();
 		}
 
-		public override void AddRecipes()
+		public override void AddRecipes()/* tModPorter Note: Removed. Use ModSystem.AddRecipes */
 		{
 			RecipeOverrides.AddAllRecipes();
 		}

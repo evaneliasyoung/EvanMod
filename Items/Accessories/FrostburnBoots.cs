@@ -19,11 +19,11 @@ namespace EvanModpack.Items.Accessories
 	{
 		public override void SetDefaults()
 		{
-			item.width = 36;
-			item.height = 28;
-			item.value = Item.sellPrice(0, 12, 50, 0);
-			item.rare = ItemRarityID.Lime;
-			item.accessory = true;
+			Item.width = 36;
+			Item.height = 28;
+			Item.value = Item.sellPrice(0, 12, 50, 0);
+			Item.rare = ItemRarityID.Lime;
+			Item.accessory = true;
 			base.SetDefaults();
 		}
 
@@ -41,15 +41,14 @@ namespace EvanModpack.Items.Accessories
 
 		public override void AddRecipes()
 		{
-			ModRecipe recipe = new ModRecipe(mod);
+			Recipe recipe = CreateRecipe();
 			recipe.AddIngredient(ItemID.FrostsparkBoots);
 			recipe.AddIngredient(ItemID.LavaWaders);
 			recipe.AddIngredient(ItemID.SoulofFright);
 			recipe.AddIngredient(ItemID.SoulofMight);
 			recipe.AddIngredient(ItemID.SoulofSight);
 			recipe.AddTile(TileID.TinkerersWorkbench);
-			recipe.SetResult(this);
-			recipe.AddRecipe();
+			recipe.Register();
 			base.AddRecipes();
 		}
 	}

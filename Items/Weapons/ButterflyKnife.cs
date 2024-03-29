@@ -20,39 +20,38 @@ namespace EvanModpack.Items.Weapons
 
 		public override void SetDefaults()
 		{
-			item.damage = 18;
-			item.melee = true;
-			item.width = 34;
-			item.height = 30;
-			item.useTime = 10;
-			item.useAnimation = 10;
-			item.useStyle = 3;
-			item.knockBack = 2;
-			item.value = Item.sellPrice(0, 0, 35, 0);
-			item.rare = ItemRarityID.Blue;
-			item.UseSound = SoundID.Item1;
-			item.autoReuse = true;
+			Item.damage = 18;
+			Item.DamageType = DamageClass.Melee/* tModPorter Suggestion: Consider MeleeNoSpeed for no attack speed scaling */;
+			Item.width = 34;
+			Item.height = 30;
+			Item.useTime = 10;
+			Item.useAnimation = 10;
+			Item.useStyle = 3;
+			Item.knockBack = 2;
+			Item.value = Item.sellPrice(0, 0, 35, 0);
+			Item.rare = ItemRarityID.Blue;
+			Item.UseSound = SoundID.Item1;
+			Item.autoReuse = true;
 			base.SetDefaults();
 		}
 
 		public override void AddRecipes()
 		{
-			ModRecipe recipe = new ModRecipe(mod);
+			Recipe recipe = CreateRecipe();
 			recipe.AddIngredient(ItemID.PlatinumBar, 5);
 			recipe.AddTile(TileID.Anvils);
-			recipe.SetResult(this);
-			recipe.AddRecipe();
+			recipe.Register();
 		}
 
-		public override void OnHitNPC(Player player, NPC target, int damage, float knockBack, bool crit)
+		public override void OnHitNPC(Player player, NPC target, NPC.HitInfo hit, int damageDone)
 		{
 			if (Main.rand.Next(1, 100) <= InstantKillChance)
 			{
-				item.damage = 217500;
+				Item.damage = 217500;
 			}
 			else
 			{
-				item.damage = 18;
+				Item.damage = 18;
 			}
 			base.OnHitNPC(player, target, damage, knockBack, crit);
 		}
