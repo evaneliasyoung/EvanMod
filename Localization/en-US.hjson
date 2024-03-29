@@ -1,0 +1,118 @@
+Mods: {
+	EvanModpack: {
+		Configs: {
+			ServerConfig: {
+				Shops: {
+					Tooltip: ""
+					Label: Shops
+				}
+
+				DisplayName: Server Config
+
+				BattlePotion: {
+					Tooltip: ""
+					Label: Battle Potion
+				}
+			}
+
+			Shops: {
+				DryadSellsHerbBag: {
+					Tooltip: Post-Skeletron
+					Label: Dryad Sells Herb Bag
+				}
+
+				WizardSellsVoodooDolls: {
+					Tooltip: Post-Skeletron & Hardmode
+					Label: Wizard Sells Voodoo Dolls
+				}
+
+				WizardSellsSuperMana: {
+					Tooltip: Post-Cultist
+					Label: Wizard Sells Super Mana
+				}
+
+				MerchantSellsSuperHealing: {
+					Tooltip: Post-Cultist
+					Label: Merchant Sells Super Healing
+				}
+
+				MerchantSellsGreaterHealing: {
+					Tooltip: Post-Mechanicals
+					Label: Merchant Sells Greater Healing
+				}
+
+				Tooltip: Potion scaling and extras
+			}
+
+			BattlePotion: {
+				SuperMax: {
+					Tooltip: Multiplier applied to base limit
+					Label: Super Battle Potion Spawn Limit
+				}
+
+				GreaterSpawnRate: {
+					Tooltip: Multiplier applied to base rate
+					Label: Greater Battle Potion Spawn Rate
+				}
+
+				GreaterMax: {
+					Tooltip: Multiplier applied to base limit
+					Label: Greater Battle Potion Spawn Limit
+				}
+
+				VanillaSpawnRate: {
+					Tooltip: Multiplier applied to base rate
+					Label: Battle Potion Spawn Rate
+				}
+
+				VanillaMax: {
+					Tooltip: Multiplier applied to base limit
+					Label: Battle Potion Spawn Limit
+				}
+
+				Tooltip: Super, Greater, and Battle Potion Multipliers
+
+				SuperSpawnRate: {
+					Tooltip: Multiplier applied to base rate
+					Label: Super Battle Potion Spawn Rate
+				}
+			}
+		}
+
+		Items: {
+			SuperBattlePotion: {
+				Tooltip: Massively increases enemy spawn rate
+				DisplayName: Super Battle Potion
+			}
+
+			GreaterBattlePotion: {
+				Tooltip: Moderately increases enemy spawn rate
+				DisplayName: Greater Battle Potion
+			}
+
+			YoyoGauntlet: {
+				Tooltip:
+					'''
+					Gives the user master yoyo skills
+					Increases melee knockback and melee attacks inflict fire damage
+					15% increased melee damage and speed
+					Enables auto swing for melee weapons
+					Increases the size of melee weapons
+					'''
+				DisplayName: Yoyo Gauntlet
+			}
+		}
+
+		Buffs: {
+			GreaterBattle: {
+				DisplayName: Greater Battle
+				Description: Moderately increases enemy spawn rate
+			}
+
+			SuperBattle: {
+				DisplayName: Super Battle
+				Description: Massively increases enemy spawn rate
+			}
+		}
+	}
+}
