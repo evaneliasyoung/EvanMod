@@ -1,7 +1,7 @@
 using Terraria;
 using Terraria.ModLoader;
 
-namespace EvanModpack.Buffs
+namespace EvanMod.Buffs
 {
     internal class GreaterBattle : ModBuff
     {

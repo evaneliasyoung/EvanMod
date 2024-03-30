@@ -3,7 +3,7 @@ using Terraria.GameContent.Creative;
 using Terraria.ID;
 using Terraria.ModLoader;
 
-namespace EvanModpack.Items.Accessories
+namespace EvanMod.Items.Accessories
 {
     class YoyoGauntlet : ModItem
     {

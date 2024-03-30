@@ -1,11 +1,11 @@
-using EvanModpack.Configuration;
+using EvanMod.Configuration;
 using Terraria;
 using Terraria.GameContent.Creative;
 using Terraria.ID;
 using Terraria.ModLoader;
 using static Terraria.ModLoader.ModContent;
 
-namespace EvanModpack.Items.Potions
+namespace EvanMod.Items.Potions
 {
     public class GreaterBattlePotion : ModItem
     {
@@ -35,8 +35,8 @@ namespace EvanModpack.Items.Potions
                 CreateRecipe()
                     .AddIngredient(ItemID.BottledWater, 1)
                     .AddIngredient(ItemID.Deathweed, 1)
-                    .AddRecipeGroup("EvanModpack:EvilPowder")
-                    .AddRecipeGroup("EvanModpack:EvilGuts")
+                    .AddRecipeGroup("EvanMod:EvilPowder")
+                    .AddRecipeGroup("EvanMod:EvilGuts")
                     .AddTile(TileID.Bottles)
                     .Register();
             }
