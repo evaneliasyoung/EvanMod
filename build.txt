@@ -1,5 +1,5 @@
 author = Evan Elias Young
-version = 4.0.0
+version = 4.0.1
 displayName = Evan's Modpack
 buildIgnore = *.csproj, *.user, obj\*, bin\*, .vs\*
 languageVersion = 6

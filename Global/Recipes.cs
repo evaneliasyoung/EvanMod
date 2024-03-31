@@ -4,7 +4,7 @@ using Terraria.ID;
 using Terraria.Localization;
 using Terraria.ModLoader;
 
-namespace EvanModpack.Global
+namespace EvanMod.Global
 {
     public class Recipes : ModSystem
     {
@@ -12,11 +12,11 @@ namespace EvanModpack.Global
         {
             // Evil Powder Group
             RecipeGroup GroupPowder = new(() => string.Format("{0} Evil Powder", Language.GetText("LegacyMisc.37").Value), ItemID.ViciousPowder, ItemID.VilePowder);
-            RecipeGroup.RegisterGroup("EvanModpack:EvilPowder", GroupPowder);
+            RecipeGroup.RegisterGroup("EvanMod:EvilPowder", GroupPowder);
 
             // Evil Guts Group
             RecipeGroup GroupGuts = new(() => string.Format("{0} Evil Guts", Language.GetText("LegacyMisc.37").Value), ItemID.RottenChunk, ItemID.Vertebrae);
-            RecipeGroup.RegisterGroup("EvanModpack:EvilGuts", GroupGuts);
+            RecipeGroup.RegisterGroup("EvanMod:EvilGuts", GroupGuts);
         }
 
         public override void AddRecipes()

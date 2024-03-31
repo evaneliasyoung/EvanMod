@@ -1,11 +1,11 @@
-using EvanModpack.Configuration;
+using EvanMod.Configuration;
 using System;
 using Terraria;
 using Terraria.ID;
 using Terraria.ModLoader;
 using static Terraria.ModLoader.ModContent;
 
-namespace EvanModpack.Global
+namespace EvanMod.Global
 {
     public class SpawnRates : GlobalNPC
     {

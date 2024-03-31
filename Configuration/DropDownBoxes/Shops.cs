@@ -1,6 +1,6 @@
 using System.ComponentModel;
 
-namespace EvanModpack.Configuration.DropDownBoxes
+namespace EvanMod.Configuration.DropDownBoxes
 {
     public class Shops
     {
