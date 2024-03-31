@@ -5,6 +5,7 @@ using Terraria.ModLoader;
 
 namespace EvanMod.Items.Accessories
 {
+    [AutoloadEquip(EquipType.HandsOn, EquipType.HandsOff)]
     class YoyoGauntlet : ModItem
     {
         public override void SetStaticDefaults()
