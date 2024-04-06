@@ -134,8 +134,6 @@ namespace EvanMod.Global
                     .AddIngredient(ItemID.GoldBar, 2)
                     .AddIngredient(oldNew.Key)
                     .Register();
-
         }
-
     }
 }
