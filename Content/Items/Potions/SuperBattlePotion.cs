@@ -1,12 +1,11 @@
-using EvanMod.Configuration;
+using EvanMod.Common.Config;
 using Terraria;
 using Terraria.ID;
-using Terraria.ModLoader;
 using static Terraria.ModLoader.ModContent;
 
-namespace EvanMod.Items.Potions
+namespace EvanMod.Content.Items.Potions
 {
-    public class SuperBattlePotion : ModItem
+    public class SuperBattlePotion : GreaterBattlePotion
     {
         public override void SetStaticDefaults()
         {
@@ -15,16 +14,9 @@ namespace EvanMod.Items.Potions
 
         public override void SetDefaults()
         {
-            Item.CloneDefaults(ItemID.BattlePotion);
-            Item.width = 20;
-            Item.height = 30;
+            base.SetDefaults();
             Item.value = Item.sellPrice(0, 0, 12, 10);
             Item.buffType = BuffType<Buffs.SuperBattle>();
-        }
-
-        public override bool? UseItem(Player player)
-        {
-            return true;
         }
 
         public override void AddRecipes()

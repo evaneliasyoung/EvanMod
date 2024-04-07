@@ -1,10 +1,10 @@
-using EvanMod.Global;
+using EvanMod.Common;
 using Terraria;
 using Terraria.ID;
 using Terraria.ModLoader;
 using static Terraria.ModLoader.ModContent;
 
-namespace EvanMod.Items.Consumables
+namespace EvanMod.Content.Items.Consumables
 {
     class DefenderOfCthulhu : ModItem
     {

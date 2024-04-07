@@ -5,7 +5,7 @@ using Terraria.ID;
 using Terraria.ModLoader;
 using Terraria.ModLoader.IO;
 
-namespace EvanMod.Global
+namespace EvanMod.Common
 {
     public class GlobalPlayer : ModPlayer
     {

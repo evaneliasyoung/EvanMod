@@ -4,7 +4,7 @@ using Terraria.ID;
 using Terraria.Localization;
 using Terraria.ModLoader;
 
-namespace EvanMod.Global
+namespace EvanMod.Common.Systems
 {
     public class Recipes : ModSystem
     {

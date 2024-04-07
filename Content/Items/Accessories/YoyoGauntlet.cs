@@ -2,7 +2,7 @@
 using Terraria.ID;
 using Terraria.ModLoader;
 
-namespace EvanMod.Items.Accessories
+namespace EvanMod.Content.Items.Accessories
 {
     [AutoloadEquip(EquipType.HandsOn, EquipType.HandsOff)]
     class YoyoGauntlet : ModItem

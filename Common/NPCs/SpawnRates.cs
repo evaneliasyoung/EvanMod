@@ -1,11 +1,11 @@
-using EvanMod.Configuration;
+using EvanMod.Common.Config;
 using System;
 using Terraria;
 using Terraria.ID;
 using Terraria.ModLoader;
 using static Terraria.ModLoader.ModContent;
 
-namespace EvanMod.Global
+namespace EvanMod.Common.NPCs
 {
     public class SpawnRates : GlobalNPC
     {
@@ -16,12 +16,12 @@ namespace EvanMod.Global
                 if (!player.active) return;
                 if (Main.invasionType > 0 || NPC.waveNumber > 0) return;
 
-                if (player.FindBuffIndex(BuffType<Buffs.SuperBattle>()) != -1)
+                if (player.FindBuffIndex(BuffType<Content.Buffs.SuperBattle>()) != -1)
                 {
                     spawnRate = Math.Max(1, (int)(spawnRate / GetInstance<ServerConfig>().BattlePotion.SuperSpawnRate));
                     maxSpawns = (int)(maxSpawns * GetInstance<ServerConfig>().BattlePotion.SuperMax);
                 }
-                if (player.FindBuffIndex(BuffType<Buffs.GreaterBattle>()) != -1)
+                if (player.FindBuffIndex(BuffType<Content.Buffs.GreaterBattle>()) != -1)
                 {
                     spawnRate = Math.Max(1, (int)(spawnRate / GetInstance<ServerConfig>().BattlePotion.GreaterSpawnRate));
                     maxSpawns = (int)(maxSpawns * GetInstance<ServerConfig>().BattlePotion.GreaterMax);
@@ -34,7 +34,6 @@ namespace EvanMod.Global
                     if (GetInstance<ServerConfig>().BattlePotion.VanillaMax > 2)
                         maxSpawns = (int)(maxSpawns * GetInstance<ServerConfig>().BattlePotion.VanillaMax);
                 }
-
             }
         }
     }

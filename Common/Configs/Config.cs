@@ -1,6 +1,6 @@
 using Terraria.ModLoader.Config;
 
-namespace EvanMod.Configuration
+namespace EvanMod.Common.Config
 {
     public class ServerConfig : ModConfig
     {

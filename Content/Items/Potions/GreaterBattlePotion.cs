@@ -1,10 +1,10 @@
-using EvanMod.Configuration;
+using EvanMod.Common.Config;
 using Terraria;
 using Terraria.ID;
 using Terraria.ModLoader;
 using static Terraria.ModLoader.ModContent;
 
-namespace EvanMod.Items.Potions
+namespace EvanMod.Content.Items.Potions
 {
     public class GreaterBattlePotion : ModItem
     {
