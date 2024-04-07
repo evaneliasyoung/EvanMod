@@ -101,6 +101,10 @@ Mods: {
 					'''
 				DisplayName: Yoyo Gauntlet
 			}
+			DefenderOfCthulhu: {
+				Tooltip: Permanently grants the ability to dash
+				DisplayName: Defender Of Cthulhu
+			}
 		}
 
 		Buffs: {
