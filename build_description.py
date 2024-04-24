@@ -212,7 +212,7 @@ elements = Elements(
     UL(
         "Greater & Super Battle Potion to increase enemy spawn rates and limits.",
         "Yoyo Gauntlet combines the effects of the Yoyo Bag with the Fire Gauntlet.",
-        "Guardian of Cthulhu permanently grants the ability to dash.",
+        "Defender of Cthulhu permanently grants the ability to dash.",
     ),
     Header(1, "Off By Default", context=Context.ALL),
     UL(

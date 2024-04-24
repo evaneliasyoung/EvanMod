@@ -7,7 +7,7 @@ This mod adds my personal mix of vanilla-like features:
 [list]
     [*]Greater & Super Battle Potion to increase enemy spawn rates and limits.
     [*]Yoyo Gauntlet combines the effects of the Yoyo Bag with the Fire Gauntlet.
-    [*]Guardian of Cthulhu permanently grants the ability to dash.
+    [*]Defender of Cthulhu permanently grants the ability to dash.
 [/list]
 
 [h1]OFF BY DEFAULT[/h1]
