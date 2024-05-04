@@ -1,0 +1,3 @@
+{
+  "json.schemas": [{ "fileMatch": ["tmod.json"], "url": "./tmod.schema.json" }]
+}

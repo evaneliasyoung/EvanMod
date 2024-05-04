@@ -22,6 +22,6 @@ This mod adds my personal mix of vanilla-like features:
 
 [h1]LINKS[/h1]
 
-[url=https://github.com/evaneliasyoung/EvanMod]Open Source Code on Github[/url]
+[url=https://github.com/evaneliasyoung/EvanMod]Open Source Code on GitHub[/url]
 
 [url=https://github.com/evaneliasyoung/EvanMod/issues]Issue Tracker[/url]

@@ -1,0 +1,272 @@
+{
+  "title": "JSON schema for tModloader tmod.json files.",
+  "description": "Schema definition for mod configuration files used by tModLoader for the game Terraria.",
+  "$comment": "tModLoader properties are from https://github.com/tModLoader/tModLoader/blob/1.4.4/patches/tModLoader/Terraria/ModLoader/Core/BuildProperties.cs#L45-L69",
+  "definitions": {
+    "csVersion": {
+      "description": "Version string expected to be in a format parseable by System.Version.",
+      "type": "string",
+      "pattern": "^(?:\\d\\.){1,3}\\d$"
+    },
+    "modReference": {
+      "description": "Defines how mod dependencies are specified, referencing csVersion for versioning constraints.",
+      "type": "object",
+      "additionalProperties": {
+        "$ref": "#/definitions/csVersion"
+      }
+    },
+    "modSide": {
+      "description": "Specifies where the mod can operate, either on client, server, both, or with no synchronization.",
+      "enum": ["Both", "Client", "Server", "NoSync"]
+    },
+    "descriptionContext": {
+      "description": "Specifies the context where the element is rendered, either the in-game description, workshop description, or the README.",
+      "type": "string",
+      "enum": ["README", "DESCRIPTION", "WORKSHOP", "NON_README", "NON_WORKSHOP", "ALL"]
+    },
+    "baseElement": {
+      "type": "object",
+      "properties": {
+        "element": {
+          "description": "The type of element; determines rendering instructions and parameters.",
+          "type": "string"
+        },
+        "context": {
+          "$ref": "#/definitions/descriptionContext",
+          "default": "ALL"
+        },
+        "content": {
+          "description": "The primary element contents to render.",
+          "oneOf": [
+            {
+              "type": "string"
+            },
+            {
+              "type": "array",
+              "items": {
+                "type": "string"
+              }
+            }
+          ]
+        }
+      },
+      "required": ["element", "content"]
+    },
+    "headerElement": {
+      "type": "object",
+      "allOf": [{ "$ref": "#/definitions/baseElement" }],
+      "properties": {
+        "element": {
+          "enum": ["h1", "h2", "h3"]
+        },
+        "context": {},
+        "content": {
+          "type": "string"
+        }
+      },
+      "additionalProperties": false
+    },
+    "textElement": {
+      "type": "object",
+      "allOf": [{ "$ref": "#/definitions/baseElement" }],
+      "properties": {
+        "element": {
+          "enum": ["p"]
+        },
+        "context": {},
+        "content": {
+          "type": "string"
+        }
+      },
+      "additionalProperties": false
+    },
+    "listElement": {
+      "type": "object",
+      "allOf": [{ "$ref": "#/definitions/baseElement" }],
+      "properties": {
+        "element": {
+          "enum": ["ul", "ol"]
+        },
+        "context": {},
+        "content": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        }
+      },
+      "additionalProperties": false
+    },
+    "anchorElement": {
+      "allOf": [
+        { "$ref": "#/definitions/baseElement" },
+        {
+          "type": "object",
+          "properties": {
+            "element": {
+              "enum": ["a"]
+            },
+            "context": {},
+            "content": {
+              "type": "string"
+            }
+          },
+          "required": ["element", "content"]
+        },
+        {
+          "oneOf": [
+            {
+              "properties": {
+                "url": {
+                  "description": "The URL to link the anchor to.",
+                  "type": "string",
+                  "format": "uri"
+                }
+              },
+              "required": ["url"]
+            },
+            {
+              "properties": {
+                "ref": {
+                  "description": "A reference to either the bugs, homepage, or repository URL.",
+                  "type": "string",
+                  "enum": ["bugs", "homepage", "repository"]
+                }
+              },
+              "required": ["ref"]
+            }
+          ]
+        }
+      ]
+    },
+    "descriptionElement": {
+      "oneOf": [
+        { "$ref": "#/definitions/headerElement" },
+        { "$ref": "#/definitions/textElement" },
+        { "$ref": "#/definitions/listElement" },
+        { "$ref": "#/definitions/anchorElement" }
+      ]
+    }
+  },
+  "type": "object",
+  "properties": {
+    "dllReferences": {
+      "description": "List of external DLLs referenced by the mod.",
+      "type": "array",
+      "items": {
+        "type": "string"
+      },
+      "default": []
+    },
+    "modReferences": {
+      "description": "List of other mods this mod depends on, with version specifications.",
+      "$ref": "#/definitions/modReference",
+      "default": []
+    },
+    "weakReferences": {
+      "description": "List of mods that are optionally referenced, without requiring them to load before this mod.",
+      "$ref": "#/definitions/modReference",
+      "default": []
+    },
+    "sortBefore": {
+      "description": "List of mod names that should load after this mod.",
+      "type": "array",
+      "items": {
+        "type": "string",
+        "pattern": "^\\w+$"
+      },
+      "default": []
+    },
+    "sortAfter": {
+      "description": "List of mod names that should load before this mod.",
+      "type": "array",
+      "items": {
+        "type": "string",
+        "pattern": "^\\w+$"
+      },
+      "default": []
+    },
+    "author": {
+      "description": "The name of the mod's author.",
+      "type": "string"
+    },
+    "version": {
+      "description": "The version of the mod, expected to be in a format parseable by System.Version.",
+      "$ref": "#/definitions/csVersion",
+      "default": "1.0"
+    },
+    "displayName": {
+      "description": "The name of the mod as it should appear within the game.",
+      "type": "string"
+    },
+    "homepage": {
+      "description": "URL to the mod's homepage for more information.",
+      "type": "string",
+      "format": "uri"
+    },
+    "noCompile": {
+      "description": "Flag to prevent the mod from being compiled by tModLoader.",
+      "type": "boolean",
+      "default": false
+    },
+    "playableOnPreview": {
+      "description": "Determines if the mod can be played on preview releases of tModLoader.",
+      "type": "boolean",
+      "default": true
+    },
+    "translationMod": {
+      "description": "Indicates whether the mod is primarily used for translations.",
+      "type": "boolean",
+      "default": false
+    },
+    "hideCode": {
+      "description": "Whether the mod's code is hidden from viewing and decompilation.",
+      "type": "boolean",
+      "default": false
+    },
+    "hideResources": {
+      "description": "Whether the mod's resources (like images, sounds) are hidden.",
+      "type": "boolean",
+      "default": false
+    },
+    "includeSource": {
+      "description": "Whether to include the mod's source code in the published mod file.",
+      "type": "boolean",
+      "default": false
+    },
+    "buildIgnore": {
+      "description": "Files and directories to ignore during the build process.",
+      "type": "array",
+      "items": {
+        "type": "string"
+      },
+      "default": ["*.csproj", "*.user", "*.py", "*.json", "obj\\*", "bin\\*", ".vs\\*", ".vscode\\*"]
+    },
+    "side": {
+      "description": "Specifies the environments (client, server, or both) in which the mod operates.",
+      "$ref": "#/definitions/modSide",
+      "default": "Both"
+    },
+    "bugs": {
+      "description": "URL where users can report bugs or issues with the mod.",
+      "type": "string",
+      "format": "uri"
+    },
+    "repository": {
+      "description": "URL of the source code repository for the mod.",
+      "type": "string",
+      "format": "uri"
+    },
+    "description": {
+      "type": "array",
+      "items": {
+        "$ref": "#/definitions/descriptionElement"
+      }
+    }
+  },
+  "required": ["author", "version"],
+  "patternProperties": {
+    "^_": true
+  },
+  "additionalProperties": false
+}
