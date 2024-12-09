@@ -2,13 +2,17 @@
 
 from __future__ import annotations
 
+from collections.abc import Sequence
 import json
 import re
 from abc import ABC, abstractmethod
 from dataclasses import dataclass
 from enum import IntFlag, StrEnum
 from io import TextIOWrapper
-from typing import Literal
+from typing import Literal, cast
+
+type HeaderLevel = Literal[1, 2, 3]
+type AnchorRef = Literal["homepage", "repository", "bugs"]
 
 
 class Context(IntFlag):
@@ -74,7 +78,7 @@ class Element(ABC):
 
         context = Context[kwds.get("context", "ALL")]
         if re.match(r"(^h[123]$)", element):
-            return Header(int(element[1]), content, context=context)
+            return Header(cast(HeaderLevel, int(element[1])), content, context=context)
         elif element == "p":
             return Text(content, context=context)
         elif re.match(r"(^[ou]l$)", element):
@@ -96,11 +100,10 @@ class Element(ABC):
                 return self.render_description(mod)
             elif context == Context.WORKSHOP:
                 return self.render_workshop(mod)
-        else:
-            return ""
+        return ""
 
     def should_render(self, context: Context) -> bool:
-        return self.context & context
+        return (self.context & context) != 0
 
     @abstractmethod
     def render_readme(self, mod: ModSchema) -> str: ...
@@ -113,10 +116,10 @@ class Element(ABC):
 
 
 class Header(Element):
-    level: Literal[1, 2, 3]
+    level: HeaderLevel
 
     def __init__(
-        self, level: Literal[1, 2, 3], content: str, *, context: Context = Context.ALL
+        self, level: HeaderLevel, content: str, *, context: Context = Context.ALL
     ):
         if level < 1 or level > 3:
             raise RuntimeError(f"unknown header leve: {level!r}")
@@ -126,13 +129,13 @@ class Header(Element):
         self.level = level
         self.content = content
 
-    def render_readme(self, _mod: ModSchema) -> str:
+    def render_readme(self, mod: ModSchema) -> str:
         return f"{"#"*(self.level+1)} {self.content}"
 
-    def render_description(self, _mod: ModSchema) -> str:
+    def render_description(self, mod: ModSchema) -> str:
         return f"===={self.content.upper()}===="
 
-    def render_workshop(self, _mod: ModSchema) -> str:
+    def render_workshop(self, mod: ModSchema) -> str:
         return f"[h{self.level}]{self.content.upper()}[/h{self.level}]"
 
 
@@ -156,13 +159,13 @@ class Text(Element):
 
         self.content = content
 
-    def render_readme(self, _mod: ModSchema) -> str:
+    def render_readme(self, mod: ModSchema) -> str:
         return self.content
 
-    def render_description(self, _mod: ModSchema) -> str:
+    def render_description(self, mod: ModSchema) -> str:
         return self.content
 
-    def render_workshop(self, _mod: ModSchema) -> str:
+    def render_workshop(self, mod: ModSchema) -> str:
         return self.content
 
 
@@ -178,7 +181,7 @@ class List(Element):
         self.ordered = ordered
         self.contents = contents
 
-    def render_readme(self, _mod: ModSchema) -> str:
+    def render_readme(self, mod: ModSchema) -> str:
         return "\n".join(
             [
                 f"{idx+1}. {content}" if self.ordered else f"- {content}"
@@ -189,7 +192,7 @@ class List(Element):
     def render_description(self, mod: ModSchema) -> str:
         return self.render_readme(mod)
 
-    def render_workshop(self, _mod: ModSchema) -> str:
+    def render_workshop(self, mod: ModSchema) -> str:
         tag = "olist" if self.ordered else "list"
 
         contents = "\n".join(
@@ -202,7 +205,7 @@ class List(Element):
 class Anchor(Element):
     content: str
     link: str | None
-    ref: Literal["homepage", "repository", "bugs"] | None
+    ref: AnchorRef | None
 
     def __init__(
         self,
@@ -221,28 +224,32 @@ class Anchor(Element):
 
         self.content = content
         self.link = link
-        self.ref = ref
+        self.ref = cast(AnchorRef | None, ref)
 
     def render_readme(self, mod: ModSchema) -> str:
-        link = self.link or getattr(mod, self.ref)
+        if (self.ref is None and self.link is None) or (self.ref and self.link):
+            raise ValueError("anchor tag requires one of: link, ref")
+        link = self.link or getattr(mod, cast(AnchorRef, self.ref))
         return f"[{self.content}]({link})"
 
-    def render_description(self, _mod: ModSchema) -> str:
+    def render_description(self, mod: ModSchema) -> str:
         raise RuntimeError("anchors are not supported in the description Context")
 
     def render_workshop(self, mod: ModSchema) -> str:
-        link = self.link or getattr(mod, self.ref)
+        if (self.ref is None and self.link is None) or (self.ref and self.link):
+            raise ValueError("anchor tag requires one of: link, ref")
+        link = self.link or getattr(mod, cast(AnchorRef, self.ref))
         return f"[url={link}]{self.content}[/url]"
 
 
 class Elements:
-    elements: list[Element]
+    elements: Sequence[Element]
 
     @staticmethod
     def from_dict(elements) -> Elements:
         return Elements(*map(Element.from_dict, elements))
 
-    def __init__(self, *elements: list[Element]):
+    def __init__(self, *elements: Element):
         self.elements = elements
 
     def get_renderable_elements(self, context: Context) -> list[Element]:
