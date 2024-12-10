@@ -22,7 +22,7 @@ jobs:
         with:
           dotnet-version: "${{env.ForcedDotnetSdkVersion}}"
 
-      - name: CI Setup
+      - name: Verify .NET SDK
         shell: bash
         run: |
           echo Default .NET Version:
@@ -41,10 +41,7 @@ jobs:
           echo Default .NET Build Version:
           dotnet build --version --nologo
 
-      - name: Restore Dependencies
-        run: dotnet restore
-
-      - name: Pull TML
+      - name: Setup tModLoader
         run: |
           cd ..
           mkdir ./tmod
