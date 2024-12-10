@@ -1,0 +1,42 @@
+name: .NET Linter
+
+on:
+  push:
+    branches:
+      - "*"
+  pull_request:
+    branches:
+      - "*"
+
+jobs:
+  lint:
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@v4
+      - name: Setup .NET
+        uses: actions/setup-dotnet@v4
+        with:
+          dotnet-version: 8.0.x
+
+      - name: Restore Dependencies
+        run: dotnet restore
+
+      - name: Pull TML
+        run: |
+          cd ..
+          mkdir ./tmod
+          touch tModLoader.targets
+
+          echo '<Project ToolsVersion="14.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+              <Import Project=".\tmod\tMLMod.targets" />
+          </Project>' > tModLoader.targets
+
+          cd ./tmod
+          wget https://github.com/tModLoader/tModLoader/releases/latest/download/tModLoader.zip
+          unzip tModLoader.zip
+          cd ..
+          cd ./EvanMod
+
+      - name: Lint
+        run: dotnet format style EvanMod.csproj --verify-no-changes
