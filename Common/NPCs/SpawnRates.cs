@@ -1,5 +1,5 @@
-using EvanMod.Common.Config;
 using System;
+using EvanMod.Common.Config;
 using Terraria;
 using Terraria.ID;
 using Terraria.ModLoader;

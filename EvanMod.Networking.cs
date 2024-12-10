@@ -1,5 +1,5 @@
-using EvanMod.Common;
 using System.IO;
+using EvanMod.Common;
 using Terraria;
 using Terraria.ID;
 
