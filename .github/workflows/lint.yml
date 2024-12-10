@@ -1,5 +1,8 @@
 name: .NET Linter
 
+env:
+  ForcedDotnetSdkVersion: 8.0.203
+
 on:
   push:
     branches:
@@ -17,7 +20,26 @@ jobs:
       - name: Setup .NET
         uses: actions/setup-dotnet@v4
         with:
-          dotnet-version: 8.0.x
+          dotnet-version: "${{env.ForcedDotnetSdkVersion}}"
+
+      - name: CI Setup
+        shell: bash
+        run: |
+          echo Default .NET Version:
+          dotnet --version
+          echo Default .NET Build Version:
+          dotnet build --version --nologo
+          echo Installed .NET SDKs:
+          dotnet --list-sdks
+          echo Installed .NET Runtimes:
+          dotnet --list-runtimes
+
+          echo Forcing Exact SDK Version...
+          dotnet new globaljson --sdk-version ${{env.ForcedDotnetSdkVersion}} --force
+          echo Default .NET Version:
+          dotnet --version
+          echo Default .NET Build Version:
+          dotnet build --version --nologo
 
       - name: Restore Dependencies
         run: dotnet restore
