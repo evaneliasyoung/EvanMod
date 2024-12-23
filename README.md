@@ -5,6 +5,7 @@ This mod adds my personal mix of vanilla-like features:
 - Greater & Super Battle Potion to increase enemy spawn rates and limits.
 - Yoyo Gauntlet combines the effects of the Yoyo Bag with the Fire Gauntlet.
 - Defender of Cthulhu permanently grants the ability to dash.
+- Gemstone Hook combines the six gem hooks.
 
 ## Off By Default
 
