@@ -3,3 +3,4 @@ version = 4.0.1
 displayName = Evan's Mod
 homepage = https://github.com/evaneliasyoung/EvanMod
 buildIgnore = *.csproj, *.user, *.py, *.json, obj\*, bin\*, .vs\*, .vscode\*
+weakReferences = HookStatsAndWingStats

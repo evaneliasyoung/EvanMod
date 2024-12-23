@@ -5,5 +5,8 @@
     <LangVersion>latest</LangVersion>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="HookStatsAndWingStats">
+      <HintPath>..\..\ModReader\HookStatsAndWingStats\HookStatsAndWingStats.dll</HintPath>
+    </Reference>
   </ItemGroup>
 </Project>
