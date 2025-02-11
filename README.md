@@ -1,7 +1,7 @@
 # Evan's Mod
 
 <p align="center">
-    <img alt="Evan's Mod" src="./icon.png" style="image-rendering: pixelated;" height="128">
+    <img alt="Evan's Mod" src="./icon_workshop.png" height="128">
     <br>
     <img alt=".NET Framework" src="https://img.shields.io/badge/.NET%208.0-512BD4?logo=dotnet&logoColor=FFF">
     <a href="https://conventionalcommits.org/">
