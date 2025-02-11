@@ -130,7 +130,7 @@ class Header(Element):
         self.content = content
 
     def render_readme(self, mod: ModSchema) -> str:
-        return f"{"#"*(self.level+1)} {self.content}"
+        return f"{'#' * (self.level + 1)} {self.content}"
 
     def render_description(self, mod: ModSchema) -> str:
         return f"===={self.content.upper()}===="
@@ -184,7 +184,7 @@ class List(Element):
     def render_readme(self, mod: ModSchema) -> str:
         return "\n".join(
             [
-                f"{idx+1}. {content}" if self.ordered else f"- {content}"
+                f"{idx + 1}. {content}" if self.ordered else f"- {content}"
                 for idx, content in enumerate(self.contents)
             ]
         )
@@ -196,7 +196,7 @@ class List(Element):
         tag = "olist" if self.ordered else "list"
 
         contents = "\n".join(
-            f"{INDENT_MAP[Context.WORKSHOP]*" "}[*]{content}"
+            f"{INDENT_MAP[Context.WORKSHOP] * ' '}[*]{content}"
             for content in self.contents
         )
         return f"[{tag}]\n{contents}\n[/{tag}]"
@@ -303,6 +303,41 @@ class ModSchema:
     def load(fp: TextIOWrapper) -> ModSchema:
         return json.load(fp, object_hook=custom_decoder)
 
+    def render(self) -> str:
+        build: list[str] = [f"author = {self.author}", f"version = {self.version}"]
+        if self.dll_references:
+            build.append(f"dllReferences = {', '.join(self.dll_references)}")
+        if self.mod_references:
+            build.append(f"modReferences = {', '.join(self.mod_references)}")
+        if self.weak_references:
+            build.append(f"weakReferences = {', '.join(self.weak_references)}")
+        if self.sort_before:
+            build.append(f"sortBefore = {', '.join(self.sort_before)}")
+        if self.sort_after:
+            build.append(f"sortAfter = {', '.join(self.sort_after)}")
+        if self.display_name:
+            build.append(f"displayName = {self.display_name}")
+        if self.homepage:
+            build.append(f"homepage = {self.homepage}")
+        if self.no_compile is not None:
+            build.append(f"noCompile = {str(self.no_compile).lower()}")
+        if self.playable_on_preview is not None:
+            build.append(f"playableOnPreview = {str(self.playable_on_preview).lower()}")
+        if self.translation_mod is not None:
+            build.append(f"translationMod = {str(self.translation_mod).lower()}")
+        if self.hide_code is not None:
+            build.append(f"hideCode = {str(self.hide_code).lower()}")
+        if self.hide_resources is not None:
+            build.append(f"hideResources = {str(self.hide_resources).lower()}")
+        if self.include_source is not None:
+            build.append(f"includeSource = {str(self.include_source).lower()}")
+        if self.build_ignore:
+            build.append(f"buildIgnore = {', '.join(self.build_ignore)}")
+        if self.side:
+            build.append(f"side = {self.side}")
+
+        return "\n".join(build)
+
     def __getitem__(self, key: str) -> None:
         return getattr(self, key)
 
@@ -347,42 +382,7 @@ def main() -> None:
                 file.write(tmod.description.render(ctx, tmod))
 
     with open("build.txt", "w", encoding="utf-8") as file:
-        fstr = "author = {author}" + "\n"
-        fstr += "version = {version}" + "\n"
-        if tmod.dll_references:
-            fstr += f"dllReferences = {", ".join(tmod.dll_references)}" + "\n"
-        if tmod.mod_references:
-            fstr += f"modReferences = {", ".join(tmod.mod_references)}" + "\n"
-        if tmod.weak_references:
-            fstr += f"weakReferences = {", ".join(tmod.weak_references)}" + "\n"
-        if tmod.sort_before:
-            fstr += f"sortBefore = {", ".join(tmod.sort_before)}" + "\n"
-        if tmod.sort_after:
-            fstr += f"sortAfter = {", ".join(tmod.sort_after)}" + "\n"
-        if tmod.display_name:
-            fstr += "displayName = {display_name}" + "\n"
-        if tmod.homepage:
-            fstr += "homepage = {homepage}" + "\n"
-        if tmod.no_compile is not None:
-            fstr += f"noCompile = {str(tmod.no_compile).lower()}" + "\n"
-        if tmod.playable_on_preview is not None:
-            fstr += (
-                f"playableOnPreview = {str(tmod.playable_on_preview).lower()}" + "\n"
-            )
-        if tmod.translation_mod is not None:
-            fstr += f"translationMod = {str(tmod.translation_mod).lower()}" + "\n"
-        if tmod.hide_code is not None:
-            fstr += f"hideCode = {str(tmod.hide_code).lower()}" + "\n"
-        if tmod.hide_resources is not None:
-            fstr += f"hideResources = {str(tmod.hide_resources).lower()}" + "\n"
-        if tmod.include_source is not None:
-            fstr += f"includeSource = {str(tmod.include_source).lower()}" + "\n"
-        if tmod.build_ignore:
-            fstr += f"buildIgnore = {", ".join(tmod.build_ignore)}" + "\n"
-        if tmod.side:
-            fstr += f"side = {tmod.side}" + "\n"
-        fstr = fstr[:-1]
-        file.write(fstr.format_map(tmod))
+        file.write(tmod.render())
 
 
 if __name__ == "__main__":
