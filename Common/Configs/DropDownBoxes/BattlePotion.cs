@@ -1,6 +1,6 @@
 using Terraria.ModLoader.Config;
 
-namespace EvanMod.Configuration.DropDownBoxes
+namespace EvanMod.Common.Config.DropDownBoxes
 {
     public class BattlePotion
     {

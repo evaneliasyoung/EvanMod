@@ -1,0 +1,64 @@
+name: .NET Linter
+
+# Parts of this file are based on the build.yml workflow in the official tModLoader repo.
+# https://github.com/tModLoader/tModLoader/blob/1.4.4/.github/workflows/build.yml
+
+env:
+  ForcedDotnetSdkVersion: 8.0.203
+
+on:
+  push:
+    branches:
+      - "*"
+  pull_request:
+    branches:
+      - "*"
+
+jobs:
+  lint:
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@v4
+      - name: Setup .NET
+        uses: actions/setup-dotnet@v4
+        with:
+          dotnet-version: "${{env.ForcedDotnetSdkVersion}}"
+
+      - name: Verify .NET SDK
+        shell: bash
+        run: |
+          echo Default .NET Version:
+          dotnet --version
+          echo Default .NET Build Version:
+          dotnet build --version --nologo
+          echo Installed .NET SDKs:
+          dotnet --list-sdks
+          echo Installed .NET Runtimes:
+          dotnet --list-runtimes
+
+          echo Forcing Exact SDK Version...
+          dotnet new globaljson --sdk-version ${{env.ForcedDotnetSdkVersion}} --force
+          echo Default .NET Version:
+          dotnet --version
+          echo Default .NET Build Version:
+          dotnet build --version --nologo
+
+      - name: Setup tModLoader
+        run: |
+          cd ..
+          mkdir ./tmod
+          touch tModLoader.targets
+
+          echo '<Project ToolsVersion="14.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+              <Import Project=".\tmod\tMLMod.targets" />
+          </Project>' > tModLoader.targets
+
+          cd ./tmod
+          wget https://github.com/tModLoader/tModLoader/releases/latest/download/tModLoader.zip
+          unzip tModLoader.zip
+          cd ..
+          cd ./EvanMod
+
+      - name: Lint
+        run: dotnet format style EvanMod.csproj --verify-no-changes

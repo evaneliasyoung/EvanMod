@@ -1,17 +1,16 @@
-using EvanMod.Configuration;
+using EvanMod.Common.Config;
 using Terraria;
-using Terraria.GameContent.Creative;
 using Terraria.ID;
 using Terraria.ModLoader;
 using static Terraria.ModLoader.ModContent;
 
-namespace EvanMod.Items.Potions
+namespace EvanMod.Content.Items.Potions
 {
-    public class SuperBattlePotion : ModItem
+    public class GreaterBattlePotion : ModItem
     {
         public override void SetStaticDefaults()
         {
-            CreativeItemSacrificesCatalog.Instance.SacrificeCountNeededByItemId[Type] = 1;
+            Item.ResearchUnlockCount = 1;
         }
 
         public override void SetDefaults()
@@ -19,8 +18,8 @@ namespace EvanMod.Items.Potions
             Item.CloneDefaults(ItemID.BattlePotion);
             Item.width = 20;
             Item.height = 30;
-            Item.value = Item.sellPrice(0, 0, 12, 10);
-            Item.buffType = BuffType<Buffs.SuperBattle>();
+            Item.value = Item.sellPrice(0, 0, 2, 10);
+            Item.buffType = BuffType<Buffs.GreaterBattle>();
         }
 
         public override bool? UseItem(Player player)
@@ -30,13 +29,13 @@ namespace EvanMod.Items.Potions
 
         public override void AddRecipes()
         {
-            if (GetInstance<ServerConfig>().BattlePotion.SuperMax > 1 || GetInstance<ServerConfig>().BattlePotion.SuperSpawnRate > 1)
+            if (GetInstance<ServerConfig>().BattlePotion.GreaterMax > 1 || GetInstance<ServerConfig>().BattlePotion.GreaterSpawnRate > 1)
             {
                 CreateRecipe()
                     .AddIngredient(ItemID.BottledWater, 1)
                     .AddIngredient(ItemID.Deathweed, 1)
-                    .AddRecipeGroup("EvanMod:EvilPowder", 5)
-                    .AddRecipeGroup("EvanMod:EvilGuts", 2)
+                    .AddRecipeGroup("EvanMod:EvilPowder")
+                    .AddRecipeGroup("EvanMod:EvilGuts")
                     .AddTile(TileID.Bottles)
                     .Register();
             }

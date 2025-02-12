@@ -1,16 +1,15 @@
 ﻿using Terraria;
-using Terraria.GameContent.Creative;
 using Terraria.ID;
 using Terraria.ModLoader;
 
-namespace EvanMod.Items.Accessories
+namespace EvanMod.Content.Items.Accessories
 {
     [AutoloadEquip(EquipType.HandsOn, EquipType.HandsOff)]
     class YoyoGauntlet : ModItem
     {
         public override void SetStaticDefaults()
         {
-            CreativeItemSacrificesCatalog.Instance.SacrificeCountNeededByItemId[Type] = 1;
+            Item.ResearchUnlockCount = 1;
         }
 
         public override void SetDefaults()

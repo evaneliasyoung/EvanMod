@@ -1,0 +1,77 @@
+{
+  "author": "Evan Elias Young",
+  "version": "4.1.0",
+  "displayName": "Evan's Mod",
+  "buildIgnore": [
+    "*.csproj",
+    "*.user",
+    "*.py",
+    "*.json",
+    "obj\\*",
+    "bin\\*",
+    ".vs\\*",
+    ".vscode\\*"
+  ],
+  "weakReferences": {
+    "HookStatsAndWingStats": "2.0.2"
+  },
+  "bugs": "https://github.com/evaneliasyoung/EvanMod/issues",
+  "homepage": "https://github.com/evaneliasyoung/EvanMod",
+  "repository": "https://github.com/evaneliasyoung/EvanMod",
+  "description": [
+    {
+      "element": "h1",
+      "context": "NON_README",
+      "content": "Info"
+    },
+    {
+      "element": "p",
+      "context": "NON_README",
+      "content": "Open Source on GitHub. Report issues there."
+    },
+    {
+      "element": "p",
+      "content": "This mod adds my personal mix of vanilla-like features:"
+    },
+    {
+      "element": "ul",
+      "content": [
+        "Greater & Super Battle Potion to increase enemy spawn rates and limits.",
+        "Yoyo Gauntlet combines the effects of the Yoyo Bag with the Fire Gauntlet.",
+        "Defender of Cthulhu permanently grants the ability to dash.",
+        "Gemstone Hook combines the six gem hooks."
+      ]
+    },
+    {
+      "element": "h1",
+      "content": "Off By Default"
+    },
+    {
+      "element": "ul",
+      "content": [
+        "Merchant sells Greater Healing Potions post-Mechanicals.",
+        "Merchant sells Super Healing Potions post-Cultist.",
+        "Wizard sells Super Mana Potions post-Cultist.",
+        "Wizard sells voodoo dolls post respective bosses.",
+        "Dryad sells Herb Bags post-Skeletron."
+      ]
+    },
+    {
+      "element": "h1",
+      "content": "Links",
+      "context": "WORKSHOP"
+    },
+    {
+      "element": "a",
+      "context": "WORKSHOP",
+      "content": "Open Source Code on GitHub",
+      "ref": "repository"
+    },
+    {
+      "element": "a",
+      "context": "WORKSHOP",
+      "content": "Issue Tracker",
+      "ref": "bugs"
+    }
+  ]
+}

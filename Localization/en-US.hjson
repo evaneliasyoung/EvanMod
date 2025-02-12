@@ -7,12 +7,12 @@ Mods: {
 					Label: Shops
 				}
 
-				DisplayName: Server Config
-
 				BattlePotion: {
 					Tooltip: ""
 					Label: Battle Potion
 				}
+
+				DisplayName: Server Config
 			}
 
 			Shops: {
@@ -45,6 +45,11 @@ Mods: {
 			}
 
 			BattlePotion: {
+				SuperSpawnRate: {
+					Tooltip: Multiplier applied to base rate
+					Label: Super Battle Potion Spawn Rate
+				}
+
 				SuperMax: {
 					Tooltip: Multiplier applied to base limit
 					Label: Super Battle Potion Spawn Limit
@@ -71,11 +76,6 @@ Mods: {
 				}
 
 				Tooltip: Super, Greater, and Battle Potion Multipliers
-
-				SuperSpawnRate: {
-					Tooltip: Multiplier applied to base rate
-					Label: Super Battle Potion Spawn Rate
-				}
 			}
 		}
 
@@ -90,6 +90,11 @@ Mods: {
 				DisplayName: Greater Battle Potion
 			}
 
+			DefenderOfCthulhu: {
+				Tooltip: Permanently grants the ability to dash
+				DisplayName: Defender Of Cthulhu
+			}
+
 			YoyoGauntlet: {
 				Tooltip:
 					'''
@@ -101,18 +106,25 @@ Mods: {
 					'''
 				DisplayName: Yoyo Gauntlet
 			}
+
+			GemstoneHook: {
+				Tooltip: There's only one crystal gem here?
+				DisplayName: Gemstone Hook
+			}
 		}
 
 		Buffs: {
-			GreaterBattle: {
-				DisplayName: Greater Battle
-				Description: Moderately increases enemy spawn rate
+			SuperBattle: {
+				Description: Massively increases enemy spawn rate
+				DisplayName: Super Battle
 			}
 
-			SuperBattle: {
-				DisplayName: Super Battle
-				Description: Massively increases enemy spawn rate
+			GreaterBattle: {
+				Description: Moderately increases enemy spawn rate
+				DisplayName: Greater Battle
 			}
 		}
+
+		Projectiles.GemstoneHead.DisplayName: Gemstone Head
 	}
 }

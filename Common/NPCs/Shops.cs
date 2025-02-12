@@ -1,10 +1,10 @@
-using EvanMod.Configuration;
+using EvanMod.Common.Config;
 using Terraria;
 using Terraria.ID;
 using Terraria.ModLoader;
 using static Terraria.ModLoader.ModContent;
 
-namespace EvanMod.Global
+namespace EvanMod.Common.NPCs
 {
     public class Shops : GlobalNPC
     {
@@ -75,8 +75,6 @@ namespace EvanMod.Global
                 default:
                     break;
             }
-
-            base.ModifyShop(shop);
         }
     }
 }
