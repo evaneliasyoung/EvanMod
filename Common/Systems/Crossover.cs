@@ -5,6 +5,7 @@ namespace EvanMod.Common.Systems
 {
     public class Crossover : ModSystem
     {
+        [JITWhenModsEnabled("HookStatsAndWingStats")]
         private static void SetupHookStatsAndWingStats()
         {
             var stats = new HookStatsAndWingStats.Helpers.HookStats(

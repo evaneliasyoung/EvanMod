@@ -1,6 +1,5 @@
 using System.Collections.Generic;
 using EvanMod.Content.Items.Tools;
-using HookStatsAndWingStats.Helpers;
 using Terraria;
 using Terraria.ID;
 using Terraria.ModLoader;

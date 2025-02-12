@@ -1,5 +1,6 @@
 author = Evan Elias Young
 version = 4.0.1
+weakReferences = HookStatsAndWingStats
 displayName = Evan's Mod
 homepage = https://github.com/evaneliasyoung/EvanMod
 buildIgnore = *.csproj, *.user, *.py, *.json, obj\*, bin\*, .vs\*, .vscode\*

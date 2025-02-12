@@ -125,8 +125,6 @@ Mods: {
 			}
 		}
 
-		Projectiles: {
-			GemstoneHead.DisplayName: Gemstone Head
-		}
+		Projectiles.GemstoneHead.DisplayName: Gemstone Head
 	}
 }
