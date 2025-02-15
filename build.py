@@ -2,7 +2,7 @@
 
 from __future__ import annotations
 
-from collections.abc import Sequence
+from collections.abc import Iterable, Sequence
 import json
 import re
 from abc import ABC, abstractmethod
@@ -10,6 +10,7 @@ from dataclasses import dataclass
 from enum import IntFlag, StrEnum
 from io import TextIOWrapper
 from typing import Literal, cast
+from xmlrpc.client import boolean
 
 type HeaderLevel = Literal[1, 2, 3]
 type AnchorRef = Literal["homepage", "repository", "bugs"]
@@ -252,22 +253,28 @@ class Elements:
     def __init__(self, *elements: Element):
         self.elements = elements
 
-    def get_renderable_elements(self, context: Context) -> list[Element]:
-        return list(
-            filter(
-                lambda el: el.should_render(context),
-                (Title(context=Context.NON_WORKSHOP), *self.elements),
-            )
+    def get_renderable_elements(
+        self, context: Context, *, add_title: boolean = True
+    ) -> Iterable[Element]:
+        return filter(
+            lambda el: el.should_render(context),
+            (Title(context=Context.NON_WORKSHOP), *self.elements)
+            if add_title
+            else self.elements,
         )
 
-    def render(self, context: Context, mod: ModSchema) -> str:
-        contents = ""
-        for el in (*(to_render := self.get_renderable_elements(context)),):
-            contents += el.render(context, mod) + "\n"
-            if el != to_render[-1]:
-                contents += "\n"
-
-        return contents
+    def render(
+        self, context: Context, mod: ModSchema, *, add_title: boolean = True
+    ) -> str:
+        return (
+            "\n\n".join(
+                [
+                    el.render(context, mod)
+                    for el in self.get_renderable_elements(context, add_title=add_title)
+                ]
+            )
+            + "\n"
+        )
 
     def __len__(self) -> int:
         return len(self.elements)
@@ -376,9 +383,29 @@ def main() -> None:
         tmod = ModSchema.load(tmod_json)
 
     if tmod.description:
-        for path in ("README.md", "description.txt", "description_workshop.txt"):
+        for path in ("description.txt", "description_workshop.txt"):
             ctx = Context.from_path(path)
             with open(path, "w", encoding="utf-8") as file:
+                file.write(tmod.description.render(ctx, tmod))
+
+        readme_header_contents: str | None = None
+        with open("README.md", encoding="utf-8") as file:
+            contents = file.read()
+            header_content_start = contents.find("<!-- #region README Header -->")
+            header_content_end = contents.find("<!-- #endregion -->")
+            if header_content_start != -1 and header_content_end != -1:
+                readme_header_contents = contents[
+                    header_content_start : header_content_end
+                    + len("<!-- #endregion -->")
+                ]
+
+        with open("README.md", "w", encoding="utf-8") as file:
+            ctx = Context.README
+            if readme_header_contents:
+                file.write(Title().render(ctx, tmod) + "\n\n")
+                file.write(readme_header_contents + "\n\n")
+                file.write(tmod.description.render(ctx, tmod, add_title=False))
+            else:
                 file.write(tmod.description.render(ctx, tmod))
 
     with open("build.txt", "w", encoding="utf-8") as file:

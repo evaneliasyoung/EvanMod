@@ -1,5 +1,6 @@
 # Evan's Mod
 
+<!-- #region README Header -->
 <p align="center">
     <img alt="Evan's Mod" src="./icon_workshop.png" height="128">
     <br>
@@ -18,6 +19,8 @@
 </p>
 
 Evan's Mod is a small content mod for Terraria which adds a few items to create a tailored, vanilla-plus experience. The mod must be installed using [tModLoader](https://www.tmodloader.net/).
+
+<!-- #endregion -->
 
 This mod adds my personal mix of vanilla-like features:
 
