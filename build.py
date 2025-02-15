@@ -2,10 +2,11 @@
 
 from __future__ import annotations
 
-from collections.abc import Iterable, Sequence
 import json
 import re
+import sys
 from abc import ABC, abstractmethod
+from collections.abc import Iterable, Sequence
 from dataclasses import dataclass
 from enum import IntFlag, StrEnum
 from io import TextIOWrapper
@@ -123,7 +124,7 @@ class Header(Element):
         self, level: HeaderLevel, content: str, *, context: Context = Context.ALL
     ):
         if level < 1 or level > 3:
-            raise RuntimeError(f"unknown header leve: {level!r}")
+            raise RuntimeError(f"unknown header level: {level!r}")
 
         super().__init__(context=context)
 
@@ -218,7 +219,7 @@ class Anchor(Element):
     ):
         if (ref is None and link is None) or (ref and link):
             raise ValueError("anchor tag requires one of: link, ref")
-        if ref and ref != "homepage" and ref != "repository" and ref != "bugs":
+        if ref and ref not in {"homepage", "repository", "bugs"}:
             raise ValueError(f"invalid anchor ref: {ref!r}")
 
         super().__init__(context=context)
@@ -379,7 +380,16 @@ def custom_decoder(dct):
 
 
 def main() -> None:
-    with open("tmod.json", "r", encoding="utf-8") as tmod_json:
+    if len(sys.argv) == 3 and sys.argv[1] == "tag":
+        tag = sys.argv[-1]
+        with open("tmod.json", encoding="utf-8") as file:
+            tmod = json.load(file)
+        tmod["version"] = tag
+        with open("tmod.json", "w", encoding="utf-8") as file:
+            json.dump(tmod, file, indent=2)
+            file.write("\n")
+
+    with open("tmod.json", encoding="utf-8") as tmod_json:
         tmod = ModSchema.load(tmod_json)
 
     if tmod.description:
