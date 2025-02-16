@@ -1,4 +1,4 @@
-﻿using EvanMod.Content.Projectiles.Typeless;
+using EvanMod.Content.Projectiles.Typeless;
 using Terraria;
 using Terraria.ID;
 using Terraria.ModLoader;

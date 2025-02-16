@@ -1,4 +1,4 @@
-﻿using EvanMod.Content.Tiles;
+using EvanMod.Content.Tiles;
 using Terraria;
 using Terraria.Audio;
 using Terraria.ID;
