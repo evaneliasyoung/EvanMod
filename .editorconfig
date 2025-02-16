@@ -5,6 +5,7 @@
 root = true
 # All files
 [*]
+charset = utf-8
 indent_style = space
 
 # XML project files
@@ -19,7 +20,6 @@ indent_size = 2
 [*.{cs,csx,vb,vbx}]
 indent_size = 4
 insert_final_newline = true
-charset = utf-8-bom
 ###############################
 # .NET Coding Conventions     #
 ###############################
