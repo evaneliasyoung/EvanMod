@@ -111,6 +111,15 @@ Mods: {
 				Tooltip: There's only one crystal gem here?
 				DisplayName: Gemstone Hook
 			}
+
+			HellstoneExtractinator: {
+				DisplayName: Hellstone Extractinator
+				Tooltip:
+					'''
+					Placing silt/slush/fossil piles into the extractinator turns them into something more useful
+					Other items placed inside may have interesting effects
+					'''
+			}
 		}
 
 		Buffs: {
@@ -126,5 +135,6 @@ Mods: {
 		}
 
 		Projectiles.GemstoneHead.DisplayName: Gemstone Head
+		Tiles.HellstoneExtractinator.MapEntry: Hellstone Extractinator
 	}
 }
