@@ -58,7 +58,11 @@ namespace EvanMod.Content.Tiles
 
         public override void AnimateTile(ref int frame, ref int frameCounter)
         {
-            frame = Main.tileFrame[TileID.Extractinator];
+            if (++frameCounter > 5)
+            {
+                frameCounter = 0;
+                frame = ++frame % 12;
+            }
         }
     }
 }
