@@ -48,20 +48,20 @@ namespace EvanMod
 
             switch (extractType)
             {
-                case 1: // Desert Fossil
+                case ItemID.DesertFossil: // Desert Fossil
                     mosquitoOdds /= 3;
                     gemstoneOdds *= 2;
                     amberOdds = 20;
                     isDesertFossil = true;
                     break;
-                case 2: // Junk
+                case ItemID.OldShoe: // Junk
                     mosquitoOdds = -1;
                     gemstoneOdds = -1;
                     amberOdds = -1;
                     isJunk = true;
                     extraCoinRoll = false;
                     break;
-                case 3: // Glowing Moss
+                case ItemID.LavaMoss: // Glowing Moss
                     mosquitoOdds = -1;
                     gemstoneOdds = -1;
                     amberOdds = -1;
