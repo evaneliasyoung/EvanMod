@@ -1,10 +1,9 @@
 using System.Collections.Generic;
-using EvanMod.Content.Items.Tools;
 using Terraria;
 using Terraria.ID;
 using Terraria.ModLoader;
 
-namespace EvanMod.Common.Projectiles
+namespace EvanMod.Common.GlobalProjectiles
 {
     public class Hooks : GlobalProjectile
     {
@@ -20,8 +19,8 @@ namespace EvanMod.Common.Projectiles
         public override void NumGrappleHooks(Projectile projectile, Player player, ref int numHooks)
         {
 
-            if (player.miscEquips[4].type == ModContent.ItemType<GemstoneHook>() && gemStoneHooks.Contains(projectile.type))
-                numHooks = GemstoneHook.TOTAL_HOOKS;
+            if (player.miscEquips[4].type == ModContent.ItemType<Content.Items.Tools.GemstoneHook>() && gemStoneHooks.Contains(projectile.type))
+                numHooks = Content.Items.Tools.GemstoneHook.TOTAL_HOOKS;
             else
                 base.NumGrappleHooks(projectile, player, ref numHooks);
         }

@@ -6,7 +6,7 @@ using Terraria.ModLoader;
 
 namespace EvanMod.Common.Systems
 {
-    public class Recipes : ModSystem
+    public class GlobalRecipeSystem : ModSystem
     {
         public override void AddRecipeGroups()
         {

@@ -13,7 +13,7 @@ namespace EvanMod.Content.Items.Placeable
 
         public override void SetDefaults()
         {
-            Item.DefaultToPlaceableTile(ModContent.TileType<Tiles.HellstoneExtractinator>());
+            Item.DefaultToPlaceableTile(ModContent.TileType<Tiles.Furniture.HellstoneExtractinator>());
             Item.rare = ItemRarityID.Orange;
             Item.width = 34;
             Item.height = 38;

@@ -1,4 +1,4 @@
-using EvanMod.Common.Config;
+using EvanMod.Common.Configs;
 using Terraria;
 using Terraria.ID;
 using Terraria.ModLoader;
@@ -29,7 +29,7 @@ namespace EvanMod.Content.Items.Potions
 
         public override void AddRecipes()
         {
-            if (GetInstance<ServerConfig>().BattlePotion.GreaterMax > 1 || GetInstance<ServerConfig>().BattlePotion.GreaterSpawnRate > 1)
+            if (GetInstance<ServerConfig>().BattlePotions.GreaterMax > 1 || GetInstance<ServerConfig>().BattlePotions.GreaterSpawnRate > 1)
             {
                 CreateRecipe()
                     .AddIngredient(ItemID.BottledWater, 1)

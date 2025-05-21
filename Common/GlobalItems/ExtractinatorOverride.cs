@@ -1,12 +1,11 @@
-using EvanMod.Content.Tiles;
 using Terraria;
 using Terraria.Audio;
 using Terraria.ID;
 using Terraria.ModLoader;
 
-namespace EvanMod.Common.Items
+namespace EvanMod.Common.GlobalItems
 {
-    public class Hooks : GlobalItem
+    public class ExtractinatorOverride : GlobalItem
     {
         // TODO: Fix this edge case, if possible.
         // NOTE: I'm afraid the Terraria source code ItemCheck_CheckCanUse can override the result of this function.
@@ -29,7 +28,7 @@ namespace EvanMod.Common.Items
         public override bool? UseItem(Item item, Player player)
         {
             // Make sure we're over the Hellstone Extractinator
-            if (Main.tile[Player.tileTargetX, Player.tileTargetY].TileType != ModContent.TileType<HellstoneExtractinator>())
+            if (Main.tile[Player.tileTargetX, Player.tileTargetY].TileType != ModContent.TileType<Content.Tiles.Furniture.HellstoneExtractinator>())
                 return null;
 
             // Make sure the player is in range
@@ -41,7 +40,7 @@ namespace EvanMod.Common.Items
                 return null;
 
             // Handle the conversions
-            if (HellstoneExtractinator.Trader.TryGetTradeOption(item, out var option))
+            if (Content.Tiles.Furniture.HellstoneExtractinator.Trader.TryGetTradeOption(item, out var option))
             {
                 SoundEngine.PlaySound(SoundID.Grab);
                 player.itemTime = 5;
@@ -58,7 +57,7 @@ namespace EvanMod.Common.Items
                 player.itemTime = 5;
                 if (--item.stack <= 0)
                     item.TurnToAir();
-                Utils.ExtractinatorUse(player, ItemID.Sets.ExtractinatorMode[item.type], ModContent.TileType<HellstoneExtractinator>());
+                Utils.ExtractinatorUse(player, ItemID.Sets.ExtractinatorMode[item.type], ModContent.TileType<Content.Tiles.Furniture.HellstoneExtractinator>());
 
                 return false;
             }
