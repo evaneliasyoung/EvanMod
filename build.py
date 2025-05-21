@@ -11,7 +11,6 @@ from dataclasses import dataclass
 from enum import IntFlag, StrEnum
 from io import TextIOWrapper
 from typing import Literal, cast
-from xmlrpc.client import boolean
 
 type HeaderLevel = Literal[1, 2, 3]
 type AnchorRef = Literal["homepage", "repository", "bugs"]
@@ -255,7 +254,7 @@ class Elements:
         self.elements = elements
 
     def get_renderable_elements(
-        self, context: Context, *, add_title: boolean = True
+        self, context: Context, *, add_title: bool = True
     ) -> Iterable[Element]:
         return filter(
             lambda el: el.should_render(context),
@@ -265,7 +264,7 @@ class Elements:
         )
 
     def render(
-        self, context: Context, mod: ModSchema, *, add_title: boolean = True
+        self, context: Context, mod: ModSchema, *, add_title: bool = True
     ) -> str:
         return (
             "\n\n".join(
