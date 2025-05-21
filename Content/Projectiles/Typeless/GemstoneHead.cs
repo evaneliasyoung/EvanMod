@@ -1,5 +1,4 @@
 using System.Collections.Generic;
-using EvanMod.Content.Items.Tools;
 using Terraria;
 using Terraria.ID;
 using Terraria.ModLoader;
@@ -52,25 +51,25 @@ namespace EvanMod.Content.Projectiles.Typeless
                     hooksOut++;
                 }
             }
-            return hooksOut <= GemstoneHook.TOTAL_HOOKS;
+            return hooksOut <= Items.Tools.GemstoneHook.TOTAL_HOOKS;
         }
 
-        public override float GrappleRange() => GemstoneHook.RANGE_IN_TILES * 16f;
+        public override float GrappleRange() => Items.Tools.GemstoneHook.RANGE_IN_TILES * 16f;
 
 
         public override void NumGrappleHooks(Player player, ref int numHooks)
         {
-            numHooks = GemstoneHook.TOTAL_HOOKS;
+            numHooks = Items.Tools.GemstoneHook.TOTAL_HOOKS;
         }
 
         public override void GrappleRetreatSpeed(Player player, ref float speed)
         {
-            speed = GemstoneHook.REEL_SPEED;
+            speed = Items.Tools.GemstoneHook.REEL_SPEED;
         }
 
         public override void GrapplePullSpeed(Player player, ref float speed)
         {
-            speed = GemstoneHook.PULL_SPEED;
+            speed = Items.Tools.GemstoneHook.PULL_SPEED;
         }
 
         private int getNextHook()

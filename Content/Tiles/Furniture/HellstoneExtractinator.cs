@@ -6,7 +6,7 @@ using Terraria.Localization;
 using Terraria.ModLoader;
 using Terraria.ObjectData;
 
-namespace EvanMod.Content.Tiles
+namespace EvanMod.Content.Tiles.Furniture
 {
     public class HellstoneExtractinator : ModTile
     {
