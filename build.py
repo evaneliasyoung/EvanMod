@@ -10,6 +10,7 @@ from collections.abc import Iterable, Sequence
 from dataclasses import dataclass
 from enum import IntFlag, StrEnum
 from io import TextIOWrapper
+from pathlib import Path
 from typing import Literal, cast
 
 type HeaderLevel = Literal[1, 2, 3]
@@ -42,12 +43,12 @@ class Context(IntFlag):
         raise RuntimeError(f"unknown context: {ctx!r}")
 
     @staticmethod
-    def from_path(path: str) -> Context:
-        if path == "README.md":
+    def from_path(path: Path) -> Context:
+        if path.name == "README.md":
             return Context.README
-        if path == "description.txt":
+        if path.name == "description.txt":
             return Context.DESCRIPTION
-        if path == "description_workshop.txt":
+        if path.name == "description_workshop.txt":
             return Context.WORKSHOP
         raise RuntimeError(f"unknown contextual file: {path!r}")
 
@@ -378,27 +379,34 @@ def custom_decoder(dct):
     return dct
 
 
+TMOD = Path("tmod.json")
+DESCRIPTION = Path("description.txt")
+DESCRIPTION_WORKSHOP = Path("description_workshop.txt")
+README = Path("README.md")
+BUILD = Path("build.txt")
+
+
 def main() -> None:
     if len(sys.argv) == 3 and sys.argv[1] == "tag":
         tag = sys.argv[-1]
-        with open("tmod.json", encoding="utf-8") as file:
+        with TMOD.open(encoding="utf-8") as file:
             tmod = json.load(file)
         tmod["version"] = tag
-        with open("tmod.json", "w", encoding="utf-8") as file:
+        with TMOD.open("w", encoding="utf-8") as file:
             json.dump(tmod, file, indent=2)
             file.write("\n")
 
-    with open("tmod.json", encoding="utf-8") as tmod_json:
+    with TMOD.open(encoding="utf-8") as tmod_json:
         tmod = ModSchema.load(tmod_json)
 
     if tmod.description:
-        for path in ("description.txt", "description_workshop.txt"):
+        for path in (DESCRIPTION, DESCRIPTION_WORKSHOP):
             ctx = Context.from_path(path)
             with open(path, "w", encoding="utf-8") as file:
                 file.write(tmod.description.render(ctx, tmod))
 
         readme_header_contents: str | None = None
-        with open("README.md", encoding="utf-8") as file:
+        with README.open(encoding="utf-8") as file:
             contents = file.read()
             header_content_start = contents.find("<!-- #region README Header -->")
             header_content_end = contents.find("<!-- #endregion -->")
@@ -408,7 +416,7 @@ def main() -> None:
                     + len("<!-- #endregion -->")
                 ]
 
-        with open("README.md", "w", encoding="utf-8") as file:
+        with README.open("w", encoding="utf-8") as file:
             ctx = Context.README
             if readme_header_contents:
                 file.write(Title().render(ctx, tmod) + "\n\n")
@@ -417,7 +425,7 @@ def main() -> None:
             else:
                 file.write(tmod.description.render(ctx, tmod))
 
-    with open("build.txt", "w", encoding="utf-8") as file:
+    with BUILD.open("w", encoding="utf-8") as file:
         file.write(tmod.render())
 
 
