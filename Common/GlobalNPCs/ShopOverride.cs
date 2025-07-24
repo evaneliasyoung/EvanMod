@@ -1,12 +1,12 @@
-using EvanMod.Common.Config;
+using EvanMod.Common.Configs;
 using Terraria;
 using Terraria.ID;
 using Terraria.ModLoader;
 using static Terraria.ModLoader.ModContent;
 
-namespace EvanMod.Common.NPCs
+namespace EvanMod.Common.GlobalNPCs
 {
-    public class Shops : GlobalNPC
+    public class ShopOverrides : GlobalNPC
     {
         public override void ModifyShop(NPCShop shop)
         {

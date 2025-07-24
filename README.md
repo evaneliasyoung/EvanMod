@@ -1,5 +1,6 @@
 # Evan's Mod
 
+<!-- #region README Header -->
 <p align="center">
     <img alt="Evan's Mod" src="./icon_workshop.png" height="128">
     <br>
@@ -19,12 +20,15 @@
 
 Evan's Mod is a small content mod for Terraria which adds a few items to create a tailored, vanilla-plus experience. The mod must be installed using [tModLoader](https://www.tmodloader.net/).
 
+<!-- #endregion -->
+
 This mod adds my personal mix of vanilla-like features:
 
 - Greater & Super Battle Potion to increase enemy spawn rates and limits.
 - Yoyo Gauntlet combines the effects of the Yoyo Bag with the Fire Gauntlet.
 - Defender of Cthulhu permanently grants the ability to dash.
 - Gemstone Hook combines the six gem hooks.
+- Hellstone Extractinator is a slightly improved Extractinator.
 
 ## Off By Default
 

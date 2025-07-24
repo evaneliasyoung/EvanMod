@@ -1,3 +1,9 @@
 {
-  "recommendations": ["ms-dotnettools.csharp", "ms-dotnettools.csdevkit", "laktak.hjson"]
+  "recommendations": [
+    "ms-dotnettools.csharp",
+    "ms-dotnettools.csdevkit",
+    "laktak.hjson",
+    "EditorConfig.EditorConfig",
+    "maptz.regionfolder"
+  ]
 }

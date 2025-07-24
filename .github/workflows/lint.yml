@@ -61,4 +61,4 @@ jobs:
           cd ./EvanMod
 
       - name: Lint
-        run: dotnet format style EvanMod.csproj --verify-no-changes
+        run: dotnet format EvanMod.csproj --verify-no-changes

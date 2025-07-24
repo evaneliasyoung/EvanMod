@@ -1,4 +1,3 @@
-﻿using EvanMod.Content.Projectiles.Typeless;
 using Terraria;
 using Terraria.ID;
 using Terraria.ModLoader;
@@ -24,7 +23,7 @@ namespace EvanMod.Content.Items.Tools
             Item.shootSpeed = LAUNCH_SPEED;
             Item.value = Item.sellPrice(0, 2, 40, 0);
             Item.rare = ItemRarityID.Orange;
-            Item.shoot = ModContent.ProjectileType<GemstoneHead>();
+            Item.shoot = ModContent.ProjectileType<Content.Projectiles.Typeless.GemstoneHead>();
         }
 
         public override void AddRecipes()

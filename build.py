@@ -2,13 +2,15 @@
 
 from __future__ import annotations
 
-from collections.abc import Sequence
 import json
 import re
+import sys
 from abc import ABC, abstractmethod
+from collections.abc import Iterable, Sequence
 from dataclasses import dataclass
 from enum import IntFlag, StrEnum
 from io import TextIOWrapper
+from pathlib import Path
 from typing import Literal, cast
 
 type HeaderLevel = Literal[1, 2, 3]
@@ -41,12 +43,12 @@ class Context(IntFlag):
         raise RuntimeError(f"unknown context: {ctx!r}")
 
     @staticmethod
-    def from_path(path: str) -> Context:
-        if path == "README.md":
+    def from_path(path: Path) -> Context:
+        if path.name == "README.md":
             return Context.README
-        if path == "description.txt":
+        if path.name == "description.txt":
             return Context.DESCRIPTION
-        if path == "description_workshop.txt":
+        if path.name == "description_workshop.txt":
             return Context.WORKSHOP
         raise RuntimeError(f"unknown contextual file: {path!r}")
 
@@ -122,7 +124,7 @@ class Header(Element):
         self, level: HeaderLevel, content: str, *, context: Context = Context.ALL
     ):
         if level < 1 or level > 3:
-            raise RuntimeError(f"unknown header leve: {level!r}")
+            raise RuntimeError(f"unknown header level: {level!r}")
 
         super().__init__(context=context)
 
@@ -217,7 +219,7 @@ class Anchor(Element):
     ):
         if (ref is None and link is None) or (ref and link):
             raise ValueError("anchor tag requires one of: link, ref")
-        if ref and ref != "homepage" and ref != "repository" and ref != "bugs":
+        if ref and ref not in {"homepage", "repository", "bugs"}:
             raise ValueError(f"invalid anchor ref: {ref!r}")
 
         super().__init__(context=context)
@@ -252,22 +254,28 @@ class Elements:
     def __init__(self, *elements: Element):
         self.elements = elements
 
-    def get_renderable_elements(self, context: Context) -> list[Element]:
-        return list(
-            filter(
-                lambda el: el.should_render(context),
-                (Title(context=Context.NON_WORKSHOP), *self.elements),
-            )
+    def get_renderable_elements(
+        self, context: Context, *, add_title: bool = True
+    ) -> Iterable[Element]:
+        return filter(
+            lambda el: el.should_render(context),
+            (Title(context=Context.NON_WORKSHOP), *self.elements)
+            if add_title
+            else self.elements,
         )
 
-    def render(self, context: Context, mod: ModSchema) -> str:
-        contents = ""
-        for el in (*(to_render := self.get_renderable_elements(context)),):
-            contents += el.render(context, mod) + "\n"
-            if el != to_render[-1]:
-                contents += "\n"
-
-        return contents
+    def render(
+        self, context: Context, mod: ModSchema, *, add_title: bool = True
+    ) -> str:
+        return (
+            "\n\n".join(
+                [
+                    el.render(context, mod)
+                    for el in self.get_renderable_elements(context, add_title=add_title)
+                ]
+            )
+            + "\n"
+        )
 
     def __len__(self) -> int:
         return len(self.elements)
@@ -371,17 +379,53 @@ def custom_decoder(dct):
     return dct
 
 
+TMOD = Path("tmod.json")
+DESCRIPTION = Path("description.txt")
+DESCRIPTION_WORKSHOP = Path("description_workshop.txt")
+README = Path("README.md")
+BUILD = Path("build.txt")
+
+
 def main() -> None:
-    with open("tmod.json", "r", encoding="utf-8") as tmod_json:
+    if len(sys.argv) == 3 and sys.argv[1] == "tag":
+        tag = sys.argv[-1]
+        with TMOD.open(encoding="utf-8") as file:
+            tmod = json.load(file)
+        tmod["version"] = tag
+        with TMOD.open("w", encoding="utf-8") as file:
+            json.dump(tmod, file, indent=2)
+            file.write("\n")
+
+    with TMOD.open(encoding="utf-8") as tmod_json:
         tmod = ModSchema.load(tmod_json)
 
     if tmod.description:
-        for path in ("README.md", "description.txt", "description_workshop.txt"):
+        for path in (DESCRIPTION, DESCRIPTION_WORKSHOP):
             ctx = Context.from_path(path)
             with open(path, "w", encoding="utf-8") as file:
                 file.write(tmod.description.render(ctx, tmod))
 
-    with open("build.txt", "w", encoding="utf-8") as file:
+        readme_header_contents: str | None = None
+        with README.open(encoding="utf-8") as file:
+            contents = file.read()
+            header_content_start = contents.find("<!-- #region README Header -->")
+            header_content_end = contents.find("<!-- #endregion -->")
+            if header_content_start != -1 and header_content_end != -1:
+                readme_header_contents = contents[
+                    header_content_start : header_content_end
+                    + len("<!-- #endregion -->")
+                ]
+
+        with README.open("w", encoding="utf-8") as file:
+            ctx = Context.README
+            if readme_header_contents:
+                file.write(Title().render(ctx, tmod) + "\n\n")
+                file.write(readme_header_contents + "\n\n")
+                file.write(tmod.description.render(ctx, tmod, add_title=False))
+            else:
+                file.write(tmod.description.render(ctx, tmod))
+
+    with BUILD.open("w", encoding="utf-8") as file:
         file.write(tmod.render())
 
 

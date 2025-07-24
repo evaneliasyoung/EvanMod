@@ -1,5 +1,5 @@
 author = Evan Elias Young
-version = 4.1.0
+version = 4.2.0
 weakReferences = HookStatsAndWingStats
 displayName = Evan's Mod
 homepage = https://github.com/evaneliasyoung/EvanMod

@@ -3,13 +3,13 @@ Mods: {
 		Configs: {
 			ServerConfig: {
 				Shops: {
-					Tooltip: ""
 					Label: Shops
+					Tooltip: ""
 				}
 
-				BattlePotion: {
+				BattlePotions: {
+					Label: Spawn Rates
 					Tooltip: ""
-					Label: Battle Potion
 				}
 
 				DisplayName: Server Config
@@ -17,62 +17,62 @@ Mods: {
 
 			Shops: {
 				DryadSellsHerbBag: {
-					Tooltip: Post-Skeletron
 					Label: Dryad Sells Herb Bag
+					Tooltip: Post-Skeletron
 				}
 
 				WizardSellsVoodooDolls: {
-					Tooltip: Post-Skeletron & Hardmode
 					Label: Wizard Sells Voodoo Dolls
+					Tooltip: Post-Skeletron & Hardmode
 				}
 
 				WizardSellsSuperMana: {
-					Tooltip: Post-Cultist
 					Label: Wizard Sells Super Mana
+					Tooltip: Post-Cultist
 				}
 
 				MerchantSellsSuperHealing: {
-					Tooltip: Post-Cultist
 					Label: Merchant Sells Super Healing
+					Tooltip: Post-Cultist
 				}
 
 				MerchantSellsGreaterHealing: {
-					Tooltip: Post-Mechanicals
 					Label: Merchant Sells Greater Healing
+					Tooltip: Post-Mechanicals
 				}
 
 				Tooltip: Potion scaling and extras
 			}
 
-			BattlePotion: {
+			BattlePotions: {
 				SuperSpawnRate: {
-					Tooltip: Multiplier applied to base rate
 					Label: Super Battle Potion Spawn Rate
+					Tooltip: Multiplier applied to base rate
 				}
 
 				SuperMax: {
-					Tooltip: Multiplier applied to base limit
 					Label: Super Battle Potion Spawn Limit
+					Tooltip: Multiplier applied to base limit
 				}
 
 				GreaterSpawnRate: {
-					Tooltip: Multiplier applied to base rate
 					Label: Greater Battle Potion Spawn Rate
+					Tooltip: Multiplier applied to base rate
 				}
 
 				GreaterMax: {
-					Tooltip: Multiplier applied to base limit
 					Label: Greater Battle Potion Spawn Limit
+					Tooltip: Multiplier applied to base limit
 				}
 
 				VanillaSpawnRate: {
-					Tooltip: Multiplier applied to base rate
 					Label: Battle Potion Spawn Rate
+					Tooltip: Multiplier applied to base rate
 				}
 
 				VanillaMax: {
-					Tooltip: Multiplier applied to base limit
 					Label: Battle Potion Spawn Limit
+					Tooltip: Multiplier applied to base limit
 				}
 
 				Tooltip: Super, Greater, and Battle Potion Multipliers
@@ -81,21 +81,22 @@ Mods: {
 
 		Items: {
 			SuperBattlePotion: {
-				Tooltip: Massively increases enemy spawn rate
 				DisplayName: Super Battle Potion
+				Tooltip: Massively increases enemy spawn rate
 			}
 
 			GreaterBattlePotion: {
-				Tooltip: Moderately increases enemy spawn rate
 				DisplayName: Greater Battle Potion
+				Tooltip: Moderately increases enemy spawn rate
 			}
 
 			DefenderOfCthulhu: {
-				Tooltip: Permanently grants the ability to dash
 				DisplayName: Defender Of Cthulhu
+				Tooltip: Permanently grants the ability to dash
 			}
 
 			YoyoGauntlet: {
+				DisplayName: Yoyo Gauntlet
 				Tooltip:
 					'''
 					Gives the user master yoyo skills
@@ -104,27 +105,36 @@ Mods: {
 					Enables auto swing for melee weapons
 					Increases the size of melee weapons
 					'''
-				DisplayName: Yoyo Gauntlet
 			}
 
 			GemstoneHook: {
-				Tooltip: There's only one crystal gem here?
 				DisplayName: Gemstone Hook
+				Tooltip: There's only one crystal gem here?
+			}
+
+			HellstoneExtractinator: {
+				DisplayName: Hellstone Extractinator
+				Tooltip:
+					'''
+					Placing silt/slush/fossil piles into the extractinator turns them into something more useful
+					Other items placed inside may have interesting effects
+					'''
 			}
 		}
 
 		Buffs: {
 			SuperBattle: {
-				Description: Massively increases enemy spawn rate
 				DisplayName: Super Battle
+				Description: Massively increases enemy spawn rate
 			}
 
 			GreaterBattle: {
-				Description: Moderately increases enemy spawn rate
 				DisplayName: Greater Battle
+				Description: Moderately increases enemy spawn rate
 			}
 		}
 
 		Projectiles.GemstoneHead.DisplayName: Gemstone Head
+		Tiles.HellstoneExtractinator.MapEntry: Hellstone Extractinator
 	}
 }

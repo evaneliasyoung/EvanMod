@@ -1,8 +1,8 @@
 using Terraria.ModLoader.Config;
 
-namespace EvanMod.Common.Config.DropDownBoxes
+namespace EvanMod.Common.Configs.DropDownBoxes
 {
-    public class BattlePotion
+    public class BattlePotions
     {
         [Increment(.5f)]
         [Range(2f, 10f)]
@@ -28,7 +28,7 @@ namespace EvanMod.Common.Config.DropDownBoxes
         [Range(1f, 10f)]
         public float SuperSpawnRate;
 
-        public BattlePotion()
+        public BattlePotions()
         {
             VanillaMax = 2f;
             VanillaSpawnRate = 2f;
@@ -40,7 +40,7 @@ namespace EvanMod.Common.Config.DropDownBoxes
 
         public override bool Equals(object obj)
         {
-            if (obj is BattlePotion other)
+            if (obj is BattlePotions other)
                 return VanillaMax == other.VanillaMax &&
                     VanillaSpawnRate == other.VanillaSpawnRate &&
                     GreaterMax == other.GreaterMax &&
