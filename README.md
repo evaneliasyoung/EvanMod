@@ -28,6 +28,7 @@ This mod adds my personal mix of vanilla-like features:
 - Yoyo Gauntlet combines the effects of the Yoyo Bag with the Fire Gauntlet.
 - Defender of Cthulhu permanently grants the ability to dash.
 - Gemstone Hook combines the six gem hooks.
+- Hellstone Extractinator is a slightly improved Extractinator.
 
 ## Off By Default
 
