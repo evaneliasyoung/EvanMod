@@ -125,6 +125,11 @@ Mods: {
 				Tooltip: ""
 				DisplayName: Night's Throw
 			}
+
+			TrueNightsThrow: {
+				Tooltip: ""
+				DisplayName: True Night's Throw
+			}
 		}
 
 		Buffs: {
@@ -142,6 +147,7 @@ Mods: {
 		Projectiles: {
 			GemstoneHead.DisplayName: Gemstone Head
 			NightsThrowProjectile.DisplayName: Night's Throw
+			TrueNightsThrowProjectile.DisplayName: True Night's Throw
 		}
 
 		Tiles.HellstoneExtractinator.MapEntry: Hellstone Extractinator
