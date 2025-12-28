@@ -70,7 +70,7 @@ namespace EvanMod
                     break;
             }
 
-            int item = -1;
+            int item;
             int stack = 1;
             if (isDesertFossil && Main.rand.NextBool(10))
             {
@@ -267,7 +267,7 @@ namespace EvanMod
             }
 
             if (item > 0)
-                Utils.DropItemFromExtractinator(player, item, stack);
+                DropItemFromExtractinator(player, item, stack);
         }
     }
 }
