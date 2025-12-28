@@ -84,7 +84,7 @@
 # Auto detect text files and perform LF normalization
 *          text=auto
 
-*.cs       text diff=csharp
+*.cs       text diff=csharp eol=lf
 *.cshtml   text diff=html
 *.csx      text diff=csharp
 *.sln      text eol=crlf
