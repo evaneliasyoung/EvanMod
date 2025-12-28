@@ -1,5 +1,7 @@
 line-length = 88
 indent-width = 4
 target-version = "py312"
+
+[lint]
 select = ["F", "E", "W", "I", "UP", "YTT", "S", "B", "RUF"]
 ignore = []

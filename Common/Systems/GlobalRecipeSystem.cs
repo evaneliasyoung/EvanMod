@@ -17,6 +17,10 @@ namespace EvanMod.Common.Systems
             // Evil Guts Group
             RecipeGroup GroupGuts = new(() => string.Format("{0} Evil Guts", Language.GetText("LegacyMisc.37").Value), ItemID.RottenChunk, ItemID.Vertebrae);
             RecipeGroup.RegisterGroup("EvanMod:EvilGuts", GroupGuts);
+
+            // Evil Yoyos Group
+            RecipeGroup GroupEvilYoyos = new(() => string.Format("{0} Evil Yoyo", Language.GetText("LegacyMisc.37").Value), ItemID.CorruptYoyo, ItemID.CrimsonYoyo);
+            RecipeGroup.RegisterGroup("EvanMod:EvilYoyos", GroupEvilYoyos);
         }
 
         public override void AddRecipes()

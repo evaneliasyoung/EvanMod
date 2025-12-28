@@ -1,0 +1,48 @@
+# https://taskfile.dev
+
+version: "3"
+
+tasks:
+  format:py:
+    cmds:
+      - ruff format build.py
+    sources:
+      - build.py
+    internal: true
+
+  format:cs:
+    cmds:
+      - dotnet format EvanMod.csproj
+    sources:
+      - ./**/**.cs
+    internal: true
+
+  format:
+    deps: [format:py, format:cs]
+
+  format:check:py:
+    cmds:
+      - ruff format --check build.py
+    sources:
+      - build.py
+    internal: true
+
+  format:check:cs:
+    cmds:
+      - dotnet format EvanMod.csproj --verify-no-changes
+    sources:
+      - ./**/**.cs
+    internal: true
+
+  format:check:
+    deps: [format:check:py, format:check:cs]
+
+  build:
+    cmds:
+      - py build.py
+    sources:
+      - tmod.json
+
+  tag:
+    cmds:
+      - py build.py tag {{.CLI_ARGS}}

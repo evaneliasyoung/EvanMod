@@ -29,6 +29,8 @@ This mod adds my personal mix of vanilla-like features:
 - Defender of Cthulhu permanently grants the ability to dash.
 - Gemstone Hook combines the six gem hooks.
 - Hellstone Extractinator is a slightly improved Extractinator.
+- Night's Throw is the yoyo equivalent of the Night's Edge
+- True Night's Throw is the yoyo equivalent of the True Night's Edge
 
 ## Off By Default
 
