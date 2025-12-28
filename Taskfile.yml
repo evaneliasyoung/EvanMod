@@ -37,25 +37,11 @@ tasks:
   format:check:
     deps: [format:check:py, format:check:cs]
 
-  build:py:
+  build:
     cmds:
       - py build.py
     sources:
       - tmod.json
-    internal: true
-
-  build:cs:
-    cmds:
-      - dotnet build
-    sources:
-      - ./*/**.cs
-      - ./*/**.png
-      - ./*/**.hjson
-      - ./build.txt
-    internal: true
-
-  build:
-    deps: [build:py, build:cs]
 
   tag:
     cmds:
