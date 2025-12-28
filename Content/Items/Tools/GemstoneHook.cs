@@ -6,11 +6,11 @@ namespace EvanMod.Content.Items.Tools
 {
     public class GemstoneHook : ModItem
     {
-        internal static float LAUNCH_SPEED = 11.25f;
-        internal static float PULL_SPEED = 12f;
-        internal static float REEL_SPEED = 11f;
-        internal static float RANGE_IN_TILES = 23.625f;
-        internal static int TOTAL_HOOKS = 6;
+        internal static readonly float LAUNCH_SPEED = 11.25f;
+        internal static readonly float PULL_SPEED = 12f;
+        internal static readonly float REEL_SPEED = 11f;
+        internal static readonly float RANGE_IN_TILES = 23.625f;
+        internal static readonly int TOTAL_HOOKS = 6;
 
         public override void SetStaticDefaults()
         {
