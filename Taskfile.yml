@@ -14,7 +14,7 @@ tasks:
     cmds:
       - dotnet format EvanMod.csproj
     sources:
-      - ./*/**.cs
+      - ./**/**.cs
     internal: true
 
   format:
@@ -31,7 +31,7 @@ tasks:
     cmds:
       - dotnet format EvanMod.csproj --verify-no-changes
     sources:
-      - ./*/**.cs
+      - ./**/**.cs
     internal: true
 
   format:check:
