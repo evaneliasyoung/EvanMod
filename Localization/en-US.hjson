@@ -120,6 +120,11 @@ Mods: {
 					Other items placed inside may have interesting effects
 					'''
 			}
+
+			NightsThrow: {
+				Tooltip: ""
+				DisplayName: Night's Throw
+			}
 		}
 
 		Buffs: {
@@ -134,7 +139,11 @@ Mods: {
 			}
 		}
 
-		Projectiles.GemstoneHead.DisplayName: Gemstone Head
+		Projectiles: {
+			GemstoneHead.DisplayName: Gemstone Head
+			NightsThrowProjectile.DisplayName: Night's Throw
+		}
+
 		Tiles.HellstoneExtractinator.MapEntry: Hellstone Extractinator
 	}
 }
