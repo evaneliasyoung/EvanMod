@@ -1,4 +1,3 @@
-using System;
 using EvanMod.Content.Items.Weapons;
 using Terraria;
 using Terraria.ID;
@@ -25,6 +24,7 @@ namespace EvanMod.Content.Projectiles.Melee
             Projectile.hostile = false;
             Projectile.DamageType = DamageClass.Melee;
             Projectile.penetrate = -1;
+            Projectile.ArmorPenetration = 8;
         }
 
         public override void AI()

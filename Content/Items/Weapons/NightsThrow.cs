@@ -6,11 +6,11 @@ namespace EvanMod.Content.Items.Weapons
 {
     public class NightsThrow : ModItem
     {
-        internal static readonly int DAMAGE = 38;
+        internal static readonly int DAMAGE = 36;
         internal static readonly float KNOCKBACK = 4.5f;
         internal static readonly int CRIT_CHANCE = 4;
-        internal static readonly float SPIN_DURATION_IN_SECONDS = 14;
-        internal static readonly float REACH_IN_TILES = 15f;
+        internal static readonly float SPIN_DURATION_IN_SECONDS = 15;
+        internal static readonly float REACH_IN_TILES = 16f;
         internal static readonly float VELOCITY_IN_PPT = 16f;
         internal static readonly float TOP_VELOCITY_IN_PPI = 13f;
 
