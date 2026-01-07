@@ -89,7 +89,7 @@ class Element(ABC):
             link, ref = kwds.get("link"), kwds.get("ref")
             return Anchor(content, link, ref=ref, context=context)
         else:
-            raise ValueError("unknown element: {element!r}")
+            raise ValueError(f"unknown element: {element!r}")
 
     def __init__(self, *, context: Context = Context.ALL):
         self.context = context
