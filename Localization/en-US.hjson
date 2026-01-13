@@ -130,6 +130,26 @@ Mods: {
 				Tooltip: ""
 				DisplayName: True Night's Throw
 			}
+
+			CopperCoinRoll: {
+				DisplayName: Copper Coin Roll
+				Tooltip: If only you could unroll these copper coins somewhere...
+			}
+
+			GoldCoinRoll: {
+				DisplayName: Gold Coin Roll
+				Tooltip: If only you could unroll these gold coins somewhere...
+			}
+
+			PlatinumCoinRoll: {
+				DisplayName: Platinum Coin Roll
+				Tooltip: If only you could unroll these platinum coins somewhere...
+			}
+
+			SilverCoinRoll: {
+				DisplayName: Silver Coin Roll
+				Tooltip: If only you could unroll these silver coins somewhere...
+			}
 		}
 
 		Buffs: {
