@@ -31,6 +31,7 @@ This mod adds my personal mix of vanilla-like features:
 - Hellstone Extractinator is a slightly improved Extractinator.
 - Night's Throw is the yoyo equivalent of the Night's Edge.
 - True Night's Throw is the yoyo equivalent of the True Night's Edge.
+- Copper, Silver, Gold, and Platinum coin rolls compact your coins and prevent loss on death.
 
 ## Off By Default
 
