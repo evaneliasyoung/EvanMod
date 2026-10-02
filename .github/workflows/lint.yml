@@ -46,19 +46,17 @@ jobs:
 
       - name: Setup tModLoader
         run: |
-          cd ..
-          mkdir ./tmod
-          touch tModLoader.targets
+          mkdir -p ../tmod
+          wget \
+            -o ../tmod/tModLoader.zip \
+            https://github.com/tModLoader/tModLoader/releases/latest/download/tModLoader.zip
+          unzip ../tmod/tModLoader.zip -d ../tmod
 
-          echo '<Project ToolsVersion="14.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
-              <Import Project=".\tmod\tMLMod.targets" />
-          </Project>' > tModLoader.targets
-
-          cd ./tmod
-          wget https://github.com/tModLoader/tModLoader/releases/latest/download/tModLoader.zip
-          unzip tModLoader.zip
-          cd ..
-          cd ./EvanMod
+          cat > ../tModLoader.targets <<'EOF'
+          <Project>
+            <Import Project="$(MSBuildThisFileDirectory)tmod/tMLMod.targets" />
+          </Project>
+          EOF
 
       - name: Lint
         run: dotnet format EvanMod.csproj --verify-no-changes
