@@ -47,9 +47,11 @@ jobs:
       - name: Setup tModLoader
         run: |
           mkdir -p ../tmod
+
           wget \
-            -o ../tmod/tModLoader.zip \
+            -O ../tmod/tModLoader.zip \
             https://github.com/tModLoader/tModLoader/releases/latest/download/tModLoader.zip
+
           unzip ../tmod/tModLoader.zip -d ../tmod
 
           cat > ../tModLoader.targets <<'EOF'
