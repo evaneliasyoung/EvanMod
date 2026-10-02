@@ -7,13 +7,13 @@ namespace EvanMod.Common.Systems
         [JITWhenModsEnabled("HookStatsAndWingStats")]
         private static void SetupHookStatsAndWingStats()
         {
-            var stats = new HookStatsAndWingStats.Helpers.HookStats(
+            HookStatsAndWingStats.Common.Systems.HookSystem.AddModdedHook(
+                ModContent.ItemType<Content.Items.Tools.GemstoneHook>(),
                 Content.Items.Tools.GemstoneHook.RANGE_IN_TILES * 16f,
                 Content.Items.Tools.GemstoneHook.LAUNCH_SPEED,
                 Content.Items.Tools.GemstoneHook.TOTAL_HOOKS,
-                HookStatsAndWingStats.Helpers.Enums.HookLatchingType.Simultaneous
+                (int)HookStatsAndWingStats.Core.Enums.HookLatchingType.Simultaneous
             );
-            HookStatsAndWingStats.Common.Systems.HookSystem.HookStats.TryAdd("EvanMod:GemstoneHook", stats);
         }
 
         public override void PostSetupContent()
