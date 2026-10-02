@@ -1,0 +1,50 @@
+[tools]
+dotnet = "8.0.203"
+python = "3.12"
+ruff = "latest"
+typos = "latest"
+
+[tasks."format:py"]
+description = "Format the Python build script"
+run = "ruff format build.py"
+sources = ["build.py"]
+hide = true
+
+[tasks."format:cs"]
+description = "Format the main C# project"
+run = "dotnet format EvanMod.csproj"
+hide = true
+sources = ["*.cs", "**/*.cs"]
+
+[tasks.format]
+description = "Format all code and fix typos"
+run = [{ task = "format:py" }, { task = "format:cs" }, "typos -w"]
+
+[tasks."format:check:py"]
+description = "Check the format of the Python build script"
+run = "ruff format --check build.py"
+sources = ["build.py"]
+hide = true
+
+[tasks."format:check:cs"]
+description = "Check the format of the main C# project"
+run = "dotnet format EvanMod.csproj --verify-no-changes"
+sources = ["*.cs", "**/*.cs"]
+hide = true
+
+[tasks."format:check"]
+description = "Check the format of all code and find typos"
+run = [{ task = "format:check:py" }, { task = "format:check:cs" }, "typos"]
+
+[tasks.build]
+description = "Build the tMod distribution files"
+run = "python build.py"
+sources = ["tmod.json"]
+
+[tasks.tag]
+description = "Tag a release in the tMod distribution files"
+usage = '''
+arg "<tag>" help="New tag"
+'''
+run = "python build.py tag {{ usage.tag }}"
+sources = ["tmod.json"]
